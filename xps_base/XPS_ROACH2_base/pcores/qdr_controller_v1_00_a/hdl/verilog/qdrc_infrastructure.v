@@ -128,7 +128,7 @@ module qdrc_infrastructure(
     .RST      (dly_rst),
     .T        (1'b0),
     .DATAOUT  (qdr_k),
-	 .CNTVALUEOUT(dly_cntrs[4:0])
+	.CNTVALUEOUT(dly_cntrs[4:0])
   );
 
   /* same as qdr_k -> just inverted */
@@ -163,7 +163,7 @@ module qdrc_infrastructure(
     .RST     (dly_rst),
     .T       (1'b0),
     .DATAOUT (qdr_k_n),
-	 .CNTVALUEOUT(dly_cntrs[9:5])
+	.CNTVALUEOUT(dly_cntrs[9:5])
   );
 
   /******************* SDR Control Signals ********************
@@ -194,6 +194,8 @@ module qdrc_infrastructure(
     qdr_dll_off_n_reg <= qdr_dll_off_n_buf;
     qdr_dll_off_n_iob <= qdr_dll_off_n_reg;
   end
+  //synthesis attribute SHREG_EXTRACT of qdr_sa_regR is no
+  //synthesis attribute SHREG_EXTRACT of qdr_sa_reg is no
 
   always @(posedge clk180) begin 
   /* Add delay to ease timing */
@@ -215,26 +217,91 @@ module qdrc_infrastructure(
   //synthesis attribute IOB of qdr_r_n_iob       is "TRUE"
   //synthesis attribute IOB of qdr_dll_off_n_iob is "TRUE"
 
+  wire [ADDR_WIDTH - 1 : 0] qdr_sa_iob_dly;
+
   OBUF #(
     .IOSTANDARD ("HSTL_I")
   ) OBUF_addr[ADDR_WIDTH - 1:0]  
   (
-    .I (qdr_sa_iob),
+    .I (qdr_sa_iob_dly),
     .O (qdr_sa)
   );
 
+  IODELAYE1 #(
+    .DELAY_SRC        ("O"),
+    .ODELAY_TYPE      ("VARIABLE"),
+    .ODELAY_VALUE     (ODELAY_TAPS),
+    .REFCLK_FREQUENCY (DLY_CLK_FREQ),
+    .SIGNAL_PATTERN   ("DATA"),
+    .HIGH_PERFORMANCE_MODE ("TRUE")
+  ) IODELAY_sa [ADDR_WIDTH - 1:0] (
+    .C       (dly_clk),
+    .CE      (dly_en_o[36]),
+    .DATAIN  (1'b0),
+    .IDATAIN (),
+    .INC     (dly_inc_dec),
+    .ODATAIN (qdr_sa_iob),
+    .RST     (dly_rst),
+    .T       (1'b0),
+    .DATAOUT (qdr_sa_iob_dly),
+	.CNTVALUEOUT()
+  );
+
+  wire qdr_w_n_iob_dly;
   OBUF #(
     .IOSTANDARD ("HSTL_I")
   ) OBUF_w_n(
-    .I (qdr_w_n_iob),
+    .I (qdr_w_n_iob_dly),
     .O (qdr_w_n)
   );
+
+  IODELAYE1 #(
+    .DELAY_SRC        ("O"),
+    .ODELAY_TYPE      ("VARIABLE"),
+    .ODELAY_VALUE     (ODELAY_TAPS),
+    .REFCLK_FREQUENCY (DLY_CLK_FREQ),
+    .SIGNAL_PATTERN   ("DATA"),
+    .HIGH_PERFORMANCE_MODE ("TRUE")
+  ) IODELAY_qdr_w_n (
+    .C       (dly_clk),
+    .CE      (dly_en_o[36]),
+    .DATAIN  (1'b0),
+    .IDATAIN (),
+    .INC     (dly_inc_dec),
+    .ODATAIN (qdr_w_n_iob),
+    .RST     (dly_rst),
+    .T       (1'b0),
+    .DATAOUT (qdr_w_n_iob_dly),
+	.CNTVALUEOUT()
+  );
+
+  wire qdr_r_n_iob_dly;
 
   OBUF #(
     .IOSTANDARD ("HSTL_I")
   ) OBUF_r_n(
-    .I (qdr_r_n_iob),
+    .I (qdr_r_n_iob_dly),
     .O (qdr_r_n)
+  );
+
+  IODELAYE1 #(
+    .DELAY_SRC        ("O"),
+    .ODELAY_TYPE      ("VARIABLE"),
+    .ODELAY_VALUE     (ODELAY_TAPS),
+    .REFCLK_FREQUENCY (DLY_CLK_FREQ),
+    .SIGNAL_PATTERN   ("DATA"),
+    .HIGH_PERFORMANCE_MODE ("TRUE")
+  ) IODELAY_qdr_r_n (
+    .C       (dly_clk),
+    .CE      (dly_en_o[36]),
+    .DATAIN  (1'b0),
+    .IDATAIN (),
+    .INC     (dly_inc_dec),
+    .ODATAIN (qdr_r_n_iob),
+    .RST     (dly_rst),
+    .T       (1'b0),
+    .DATAOUT (qdr_r_n_iob_dly),
+	.CNTVALUEOUT()
   );
 
   OBUF #(
@@ -242,8 +309,7 @@ module qdrc_infrastructure(
   ) OBUF_dll_off_n(
     .I (qdr_dll_off_n_iob),
     .O (qdr_dll_off_n)
-  );
-
+  ); 
 
   /******************* DDR Data Outputs ********************
    *
@@ -416,7 +482,7 @@ module qdrc_infrastructure(
     .INIT_Q2 (1'b0),
     .SRTYPE ("SYNC")
   ) IDDR_qdr_q [DATA_WIDTH - 1:0] (
-    .C  (clk180),
+    .C  (clk0),
     .CE (1'b1),
     .D  (qdr_q_iodelay),
     .R  (1'b0),
@@ -425,50 +491,34 @@ module qdrc_infrastructure(
     .Q2 (qdr_q_fall_int)
   );
 
-  reg [17:0] qdr_q_rise_intR_low , qdr_q_rise_intRR_low , qdr_q_rise_intRRR_low ;
-  reg [17:0] qdr_q_rise_intR_high, qdr_q_rise_intRR_high, qdr_q_rise_intRRR_high;
-  reg [17:0] qdr_q_fall_intR_low , qdr_q_fall_intRR_low , qdr_q_fall_intRRR_low ;
-  reg [17:0] qdr_q_fall_intR_high, qdr_q_fall_intRR_high, qdr_q_fall_intRRR_high;
+  reg [17:0] qdr_q_rise_intR_low , qdr_q_rise_intRR_low ;
+  reg [17:0] qdr_q_rise_intR_high, qdr_q_rise_intRR_high;
+  reg [17:0] qdr_q_fall_intR_low , qdr_q_fall_intRR_low ;
+  reg [17:0] qdr_q_fall_intR_high, qdr_q_fall_intRR_high;
 
-  always @(posedge clk180) begin
+  always @(posedge clk0) begin
     qdr_q_rise_intR_high   <= qdr_q_rise_int [35:18];
     qdr_q_fall_intR_high   <= qdr_q_fall_int [35:18];
     qdr_q_rise_intRR_high  <= qdr_q_rise_intR_high;
     qdr_q_fall_intRR_high  <= qdr_q_fall_intR_high;
-    //qdr_q_rise_intRRR_high <= qdr_q_rise_intRR_high;
-    //qdr_q_fall_intRRR_high <= qdr_q_fall_intRR_high;
     qdr_q_rise_intR_low    <= qdr_q_rise_int  [17:0];
     qdr_q_fall_intR_low    <= qdr_q_fall_int  [17:0];
     qdr_q_rise_intRR_low   <= qdr_q_rise_intR_low;
     qdr_q_fall_intRR_low   <= qdr_q_fall_intR_low;
-    //qdr_q_rise_intRRR_low  <= qdr_q_rise_intRR_low;
-    //qdr_q_fall_intRRR_low  <= qdr_q_fall_intRR_low;
   end
 
-  //cross clock domain
-  always @(posedge clk0) begin
-    qdr_q_rise_intRRR_high <= qdr_q_rise_intRR_high;
-    qdr_q_fall_intRRR_high <= qdr_q_fall_intRR_high;
-    qdr_q_rise_intRRR_low  <= qdr_q_rise_intRR_low;
-    qdr_q_fall_intRRR_low  <= qdr_q_fall_intRR_low;
-  end
-
-  assign qdr_q_rise = {qdr_q_rise_intRRR_high, qdr_q_rise_intRRR_low};
-  assign qdr_q_fall = {qdr_q_fall_intRRR_high, qdr_q_fall_intRRR_low};
+  assign qdr_q_rise = {qdr_q_rise_intRR_high, qdr_q_rise_intRR_low};
+  assign qdr_q_fall = {qdr_q_fall_intRR_high, qdr_q_fall_intRR_low};
 
   // Stop XST to chuck all this pipelining into a single shift register!
   //synthesis attribute SHREG_EXTRACT of qdr_q_rise_intR_low     is no
   //synthesis attribute SHREG_EXTRACT of qdr_q_fall_intR_low     is no
   //synthesis attribute SHREG_EXTRACT of qdr_q_rise_intRR_low    is no
   //synthesis attribute SHREG_EXTRACT of qdr_q_fall_intRR_low    is no
-  //synthesis attribute SHREG_EXTRACT of qdr_q_rise_intRRR_low   is no
-  //synthesis attribute SHREG_EXTRACT of qdr_q_fall_intRRR_low   is no
   //synthesis attribute SHREG_EXTRACT of qdr_q_rise_intR_high    is no
   //synthesis attribute SHREG_EXTRACT of qdr_q_fall_intR_high    is no
   //synthesis attribute SHREG_EXTRACT of qdr_q_rise_intRR_high   is no
   //synthesis attribute SHREG_EXTRACT of qdr_q_fall_intRR_high   is no
-  //synthesis attribute SHREG_EXTRACT of qdr_q_rise_intRRR_high  is no
-  //synthesis attribute SHREG_EXTRACT of qdr_q_fall_intRRR_high  is no
 
   //synthesis attribute IOB of qdr_q_rise_int is "TRUE"
   //synthesis attribute IOB of qdr_q_fall_int is "TRUE"
