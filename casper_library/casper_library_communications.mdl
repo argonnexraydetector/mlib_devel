@@ -8,15 +8,65 @@ Library {
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
+<<<<<<< HEAD
+=======
+  FPTRunName		  "Run 1"
+  MaxMDLFileLineLength	  120
+  Object {
+    $PropName		    "BdWindowsInfo"
+    $ObjectID		    1
+    $ClassName		    "Simulink.BDWindowsInfo"
+    Object {
+      $PropName		      "WindowsInfo"
+      $ObjectID		      2
+      $ClassName	      "Simulink.WindowInfo"
+      IsActive		      [1]
+      Location		      [1920.0, 0.0, 1280.0, 1024.0]
+      Object {
+	$PropName		"ModelBrowserInfo"
+	$ObjectID		3
+	$ClassName		"Simulink.ModelBrowserInfo"
+	Visible			[0]
+	DockPosition		"Left"
+	Width			[50]
+	Height			[50]
+	Filter			[9]
+      }
+      Object {
+	$PropName		"ExplorerBarInfo"
+	$ObjectID		4
+	$ClassName		"Simulink.ExplorerBarInfo"
+	Visible			[1]
+      }
+      Object {
+	$PropName		"EditorsInfo"
+	$ObjectID		5
+	$ClassName		"Simulink.EditorInfo"
+	IsActive		[1]
+	ViewObjType		"SimulinkTopLevel"
+	LoadSaveID		"0"
+	Extents			[1244.0, 861.0]
+	ZoomFactor		[1.0]
+	Offset			[-49.246878842126762, -8.4164424104407658]
+      }
+    }
+  }
+>>>>>>> ska/master
   Created		  "Thu Sep 02 12:37:07 2010"
   Creator		  "mdexter"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "davidm"
   ModifiedDateFormat	  "%<Auto>"
+<<<<<<< HEAD
   LastModifiedDate	  "Thu Jun 05 13:31:32 2014"
   RTWModifiedTimeStamp	  319134050
   ModelVersionFormat	  "1.%<AutoIncrement:21>"
+=======
+  LastModifiedDate	  "Thu Aug 14 17:23:37 2014"
+  RTWModifiedTimeStamp	  329937019
+  ModelVersionFormat	  "1.%<AutoIncrement:27>"
+>>>>>>> ska/master
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -638,6 +688,10 @@ Library {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
+<<<<<<< HEAD
+=======
+    SIDHighWatermark	    "3353"
+>>>>>>> ska/master
     Block {
       BlockType		      SubSystem
       Name		      "frame_len_checker"
@@ -7875,7 +7929,7 @@ Library {
 	      Position		      [637, 208, 663, 233]
 	      ShowName		      off
 	      SourceBlock	      "xbsReplacements_r4/Warning"
-	      SourceType	      ""
+	      SourceType	      "Unknown"
 	      period		      "1"
 	    }
 	    Block {
@@ -7885,7 +7939,7 @@ Library {
 	      Position		      [512, 288, 538, 313]
 	      ShowName		      off
 	      SourceBlock	      "xbsReplacements_r4/Warning"
-	      SourceType	      ""
+	      SourceType	      "Unknown"
 	      period		      "1"
 	    }
 	    Block {
@@ -7895,7 +7949,7 @@ Library {
 	      Position		      [512, 198, 538, 223]
 	      ShowName		      off
 	      SourceBlock	      "xbsReplacements_r4/Warning"
-	      SourceType	      ""
+	      SourceType	      "Unknown"
 	      period		      "1"
 	    }
 	    Block {
@@ -9862,7 +9916,7 @@ Library {
 	      Position		      [377, 143, 403, 168]
 	      ShowName		      off
 	      SourceBlock	      "xbsReplacements_r4/Warning"
-	      SourceType	      ""
+	      SourceType	      "Unknown"
 	      period		      "1"
 	    }
 	    Block {
@@ -9872,7 +9926,7 @@ Library {
 	      Position		      [377, 53, 403, 78]
 	      ShowName		      off
 	      SourceBlock	      "xbsReplacements_r4/Warning"
-	      SourceType	      ""
+	      SourceType	      "Unknown"
 	      period		      "1"
 	    }
 	    Block {
@@ -10276,7 +10330,7 @@ Library {
 	  Position		  [302, 863, 328, 888]
 	  ShowName		  off
 	  SourceBlock		  "xbsReplacements_r4/Warning"
-	  SourceType		  ""
+	  SourceType		  "Unknown"
 	  period		  "1"
 	}
 	Block {
@@ -11037,9 +11091,17 @@ Library {
     Block {
       BlockType		      SubSystem
       Name		      "spead_pack"
+<<<<<<< HEAD
       Tag		      "casper:spead_pack"
       Ports		      [9, 4]
       Position		      [430, 47, 570, 343]
+=======
+      SID		      "2709"
+      Tag		      "casper:spead_pack"
+      Ports		      [10, 4]
+      Position		      [430, 48, 570, 352]
+      ZOrder		      10905
+>>>>>>> ska/master
       BackgroundColor	      "[0.501961, 1.000000, 0.501961]"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -11047,6 +11109,7 @@ Library {
       FunctionWithSeparateData off
       Opaque		      off
       MaskHideContents	      off
+<<<<<<< HEAD
       MaskType		      "pkt_pack_mask"
       MaskDescription	      "This block generates SPEAD-compliant packets from a datastream. \n\nPackets are created w"
       "ith a fixed header followed by a number of 64-bit items.\n\nRequires a 64-bit data stream.\n\nSee the documentat"
@@ -11066,6 +11129,75 @@ Library {
       MaskIconRotate	      "none"
       MaskIconUnits	      "autoscale"
       MaskValueString	      "10|[111 222]|64|48|4"
+=======
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		28
+	$ClassName		"Simulink.Mask"
+	Type			"pkt_pack_mask"
+	Description		"This block generates SPEAD-compliant packets from a datastream. \n\nPackets are created with a fixed he"
+	"ader followed by a number of 64-bit items.\n\nRequires a 64-bit data stream.\n\nThe data_ready signal is one cycle BE"
+	"FORE valid data! Does not have to be with a valid signal either."
+	Initialization		"if floor(log2(bytes_per_word)) ~= log2(bytes_per_word)\n    error('Bytes per word should be a power "
+	"of two.');\nend\n\nspead_pack_init(gcb)"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  7
+	  Object {
+	    $ObjectID		    29
+	    Type		    "edit"
+	    Name		    "max_pkt_len_bits"
+	    Prompt		    "Max pkt length, 2^? 64-bit words"
+	    Value		    "10"
+	  }
+	  Object {
+	    $ObjectID		    30
+	    Type		    "edit"
+	    Name		    "header_ids"
+	    Prompt		    "SPEAD direct address IDs (decimal)"
+	    Value		    "0x1600, 0x1234"
+	    Evaluate		    "off"
+	  }
+	  Object {
+	    $ObjectID		    31
+	    Type		    "edit"
+	    Name		    "header_ind_ids"
+	    Prompt		    "SPEAD indirect address IDs (decimal)"
+	    Value		    "0x1800"
+	    Evaluate		    "off"
+	  }
+	  Object {
+	    $ObjectID		    32
+	    Type		    "edit"
+	    Name		    "spead_msw"
+	    Prompt		    "SPEAD Flavour (MSw)"
+	    Value		    "64"
+	  }
+	  Object {
+	    $ObjectID		    33
+	    Type		    "edit"
+	    Name		    "spead_lsw"
+	    Prompt		    "SPEAD Flavour (LSw)"
+	    Value		    "40"
+	  }
+	  Object {
+	    $ObjectID		    34
+	    Type		    "edit"
+	    Name		    "spead_version"
+	    Prompt		    "SPEAD version"
+	    Value		    "4"
+	  }
+	  Object {
+	    $ObjectID		    35
+	    Type		    "edit"
+	    Name		    "bytes_per_word"
+	    Prompt		    "Word size, in bytes"
+	    Value		    "8"
+	  }
+	  PropName		  "Parameters"
+	}
+      }
+>>>>>>> ska/master
       System {
 	Name			"spead_pack"
 	Location		[1920, 0, 3200, 1024]
@@ -11080,16 +11212,24 @@ Library {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"200"
+	ZoomFactor		"56"
 	Block {
 	  BlockType		  Inport
 	  Name			  "data64_ready"
+<<<<<<< HEAD
+=======
+	  SID			  "2710"
+>>>>>>> ska/master
 	  Position		  [20, 68, 50, 82]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "data64_valid"
+<<<<<<< HEAD
+=======
+	  SID			  "2711"
+>>>>>>> ska/master
 	  Position		  [20, 108, 50, 122]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -11097,6 +11237,10 @@ Library {
 	Block {
 	  BlockType		  Inport
 	  Name			  "data64"
+<<<<<<< HEAD
+=======
+	  SID			  "2712"
+>>>>>>> ska/master
 	  Position		  [20, 28, 50, 42]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -11104,6 +11248,10 @@ Library {
 	Block {
 	  BlockType		  Inport
 	  Name			  "hdr_heap_id"
+<<<<<<< HEAD
+=======
+	  SID			  "2713"
+>>>>>>> ska/master
 	  Position		  [20, 178, 50, 192]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
@@ -11111,6 +11259,10 @@ Library {
 	Block {
 	  BlockType		  Inport
 	  Name			  "hdr_heap_size"
+<<<<<<< HEAD
+=======
+	  SID			  "2714"
+>>>>>>> ska/master
 	  Position		  [20, 208, 50, 222]
 	  Port			  "5"
 	  IconDisplay		  "Port number"
@@ -11118,34 +11270,70 @@ Library {
 	Block {
 	  BlockType		  Inport
 	  Name			  "hdr_heap_offset"
+<<<<<<< HEAD
+=======
+	  SID			  "2715"
+>>>>>>> ska/master
 	  Position		  [20, 238, 50, 252]
 	  Port			  "6"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
+<<<<<<< HEAD
 	  Name			  "hdr_pkt_len"
+=======
+	  Name			  "hdr_pkt_len_words"
+	  SID			  "2716"
+>>>>>>> ska/master
 	  Position		  [20, 268, 50, 282]
 	  Port			  "7"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
+<<<<<<< HEAD
 	  Name			  "hdr5_0x006f"
 	  Position		  [20, 298, 50, 312]
+=======
+	  Name			  "hdr5_0x1600_DIR"
+	  SID			  "3330"
+	  Position		  [20, 298, 50, 312]
+	  ZOrder		  5221
+>>>>>>> ska/master
 	  Port			  "8"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
+<<<<<<< HEAD
 	  Name			  "hdr6_0x00de"
 	  Position		  [20, 328, 50, 342]
+=======
+	  Name			  "hdr6_0x1234_DIR"
+	  SID			  "3338"
+	  Position		  [20, 328, 50, 342]
+	  ZOrder		  5229
+>>>>>>> ska/master
 	  Port			  "9"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "hdr7_0x1800"
+	  SID			  "3346"
+	  Position		  [20, 358, 50, 372]
+	  ZOrder		  5237
+	  Port			  "10"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "AddSub"
+<<<<<<< HEAD
+=======
+	  SID			  "2719"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [525, 648, 575, 697]
 	  ShowName		  off
@@ -11184,6 +11372,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Assert17"
+<<<<<<< HEAD
+=======
+	  SID			  "2720"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [1435, 135, 1480, 155]
 	  ShowName		  off
@@ -11219,6 +11411,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Assert18"
+<<<<<<< HEAD
+=======
+	  SID			  "2721"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [1705, 435, 1750, 455]
 	  ShowName		  off
@@ -11254,6 +11450,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Assert5"
+<<<<<<< HEAD
+=======
+	  SID			  "2722"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [80, 65, 115, 85]
 	  ShowName		  off
@@ -11296,6 +11496,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Assert6"
+<<<<<<< HEAD
+=======
+	  SID			  "2723"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [80, 25, 115, 45]
 	  ShowName		  off
@@ -11338,6 +11542,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Assert7"
+<<<<<<< HEAD
+=======
+	  SID			  "2724"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [80, 105, 115, 125]
 	  ShowName		  off
@@ -11380,6 +11588,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Concat"
+<<<<<<< HEAD
+=======
+	  SID			  "2725"
+>>>>>>> ska/master
 	  Ports			  [6, 1]
 	  Position		  [1095, 55, 1160, 235]
 	  ShowName		  off
@@ -11412,6 +11624,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Constant3"
+<<<<<<< HEAD
+=======
+	  SID			  "2726"
+>>>>>>> ska/master
 	  Ports			  [0, 1]
 	  Position		  [1050, 63, 1070, 77]
 	  ShowName		  off
@@ -11455,6 +11671,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Constant4"
+<<<<<<< HEAD
+=======
+	  SID			  "2727"
+>>>>>>> ska/master
 	  Ports			  [0, 1]
 	  Position		  [1050, 93, 1070, 107]
 	  ShowName		  off
@@ -11494,6 +11714,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Constant7"
+<<<<<<< HEAD
+=======
+	  SID			  "2728"
+>>>>>>> ska/master
 	  Ports			  [0, 1]
 	  Position		  [1050, 183, 1070, 197]
 	  ShowName		  off
@@ -11537,6 +11761,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay1"
+<<<<<<< HEAD
+=======
+	  SID			  "2729"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [790, 507, 820, 533]
 	  ShowName		  off
@@ -11573,6 +11801,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay3"
+<<<<<<< HEAD
+=======
+	  SID			  "2730"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [790, 597, 820, 623]
 	  ShowName		  off
@@ -11609,6 +11841,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From1"
+<<<<<<< HEAD
+=======
+	  SID			  "2731"
+>>>>>>> ska/master
 	  Position		  [420, 603, 490, 617]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -11617,6 +11853,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From2"
+<<<<<<< HEAD
+=======
+	  SID			  "2732"
+>>>>>>> ska/master
 	  Position		  [420, 578, 490, 592]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -11625,6 +11865,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From20"
+<<<<<<< HEAD
+=======
+	  SID			  "2733"
+>>>>>>> ska/master
 	  Position		  [475, 298, 545, 312]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -11633,6 +11877,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From21"
+<<<<<<< HEAD
+=======
+	  SID			  "2734"
+>>>>>>> ska/master
 	  Position		  [420, 503, 500, 517]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -11641,6 +11889,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From29"
+<<<<<<< HEAD
+=======
+	  SID			  "2735"
+>>>>>>> ska/master
 	  Position		  [420, 523, 490, 537]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -11649,6 +11901,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From3"
+<<<<<<< HEAD
+=======
+	  SID			  "2736"
+>>>>>>> ska/master
 	  Position		  [420, 653, 490, 667]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -11657,6 +11913,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From31"
+<<<<<<< HEAD
+=======
+	  SID			  "2737"
+>>>>>>> ska/master
 	  Position		  [1435, 63, 1505, 77]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -11665,6 +11925,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From4"
+<<<<<<< HEAD
+=======
+	  SID			  "2738"
+>>>>>>> ska/master
 	  Position		  [1205, 803, 1275, 817]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -11673,6 +11937,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From6"
+<<<<<<< HEAD
+=======
+	  SID			  "2739"
+>>>>>>> ska/master
 	  Position		  [645, 708, 715, 722]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -11681,6 +11949,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From7"
+<<<<<<< HEAD
+=======
+	  SID			  "2740"
+>>>>>>> ska/master
 	  Position		  [475, 418, 545, 432]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -11689,6 +11961,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From8"
+<<<<<<< HEAD
+=======
+	  SID			  "2741"
+>>>>>>> ska/master
 	  Position		  [475, 323, 555, 337]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -11697,6 +11973,10 @@ Library {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto1"
+<<<<<<< HEAD
+=======
+	  SID			  "2742"
+>>>>>>> ska/master
 	  Position		  [870, 313, 940, 327]
 	  ShowName		  off
 	  GotoTag		  "output_select"
@@ -11704,6 +11984,10 @@ Library {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto11"
+<<<<<<< HEAD
+=======
+	  SID			  "2743"
+>>>>>>> ska/master
 	  Position		  [855, 368, 940, 382]
 	  ShowName		  off
 	  GotoTag		  "writing_header"
@@ -11711,6 +11995,10 @@ Library {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto13"
+<<<<<<< HEAD
+=======
+	  SID			  "2744"
+>>>>>>> ska/master
 	  Position		  [325, 108, 395, 122]
 	  ShowName		  off
 	  GotoTag		  "writing_pld"
@@ -11718,6 +12006,10 @@ Library {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto2"
+<<<<<<< HEAD
+=======
+	  SID			  "2745"
+>>>>>>> ska/master
 	  Position		  [325, 28, 395, 42]
 	  ShowName		  off
 	  GotoTag		  "pkt_data"
@@ -11725,6 +12017,10 @@ Library {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto3"
+<<<<<<< HEAD
+=======
+	  SID			  "2746"
+>>>>>>> ska/master
 	  Position		  [625, 98, 695, 112]
 	  ShowName		  off
 	  GotoTag		  "new_sync"
@@ -11732,6 +12028,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Logical1"
+<<<<<<< HEAD
+=======
+	  SID			  "2747"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [770, 355, 810, 395]
 	  ShowName		  off
@@ -11771,6 +12071,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Logical2"
+<<<<<<< HEAD
+=======
+	  SID			  "2748"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [560, 85, 600, 125]
 	  ShowName		  off
@@ -11810,6 +12114,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Logical3"
+<<<<<<< HEAD
+=======
+	  SID			  "2749"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [585, 498, 625, 542]
 	  ShowName		  off
@@ -11849,6 +12157,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Logical4"
+<<<<<<< HEAD
+=======
+	  SID			  "2750"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [745, 685, 785, 725]
 	  ShowName		  off
@@ -11888,6 +12200,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Register1"
+<<<<<<< HEAD
+=======
+	  SID			  "2751"
+>>>>>>> ska/master
 	  Ports			  [3, 1]
 	  Position		  [485, 67, 535, 123]
 	  ShowName		  off
@@ -11922,6 +12238,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Register3"
+<<<<<<< HEAD
+=======
+	  SID			  "2752"
+>>>>>>> ska/master
 	  Ports			  [3, 1]
 	  Position		  [585, 417, 635, 473]
 	  ShowName		  off
@@ -11956,6 +12276,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Relational1"
+<<<<<<< HEAD
+=======
+	  SID			  "2753"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [630, 588, 675, 632]
 	  ShowName		  off
@@ -11990,6 +12314,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Relational2"
+<<<<<<< HEAD
+=======
+	  SID			  "2754"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [685, 343, 730, 387]
 	  ShowName		  off
@@ -12024,6 +12352,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "assert_data"
+<<<<<<< HEAD
+=======
+	  SID			  "2755"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [1315, 800, 1360, 820]
 	  SourceBlock		  "xbsIndex_r4/Assert"
@@ -12064,6 +12396,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "data_ctr"
+<<<<<<< HEAD
+=======
+	  SID			  "2756"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [525, 573, 575, 622]
 	  SourceBlock		  "xbsIndex_r4/Counter"
@@ -12111,6 +12447,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay_data"
+<<<<<<< HEAD
+=======
+	  SID			  "2757"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [225, 22, 255, 48]
 	  SourceBlock		  "xbsIndex_r4/Delay"
@@ -12119,7 +12459,7 @@ Library {
 	  rst			  off
 	  infoeditControl	  "Selection of Reset will increase slice count due to use of real FFs and instead of SRLs"
 	  en			  off
-	  latency		  "7"
+	  latency		  "8"
 	  dbl_ovrd		  off
 	  reg_retiming		  on
 	  xl_use_area		  off
@@ -12128,14 +12468,18 @@ Library {
 	  sggui_pos		  "20,44,419,315"
 	  block_type		  "delay"
 	  block_version		  "11.4"
-	  sg_icon_stat		  "30,26,1,1,white,blue,0,d93bb731,right,,[ ],[ ]"
+	  sg_icon_stat		  "30,26,1,1,white,blue,0,e47f993a,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 30 30 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 30 30 0 0 ],[0 0 26 26 0 ]);\npatch([8.325 12.66 15.66 18.66 21.66 15.66 11.325 8.325 ],[16.33 16.33 "
 	  "19.33 16.33 19.33 19.33 19.33 16.33 ],[1 1 1 ]);\npatch([11.325 15.66 12.66 8.325 11.325 ],[13.33 13.33 16.33 16.33"
 	  " 13.33 ],[0.931 0.946 0.973 ]);\npatch([8.325 12.66 15.66 11.325 8.325 ],[10.33 10.33 13.33 13.33 10.33 ],[1 1 1 ])"
 	  ";\npatch([11.325 21.66 18.66 15.66 12.66 8.325 11.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946 0.973"
 	  " ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\n\n\ncolor('black');disp('"
+<<<<<<< HEAD
 	  "z^{-7}','texmode','on');\nfprintf('','COMMENT: end icon text');"
+=======
+	  "z^{-8}','texmode','on');\nfprintf('','COMMENT: end icon text');"
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "d64"
@@ -12146,6 +12490,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay_data1"
+<<<<<<< HEAD
+=======
+	  SID			  "2758"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [175, 24, 195, 46]
 	  ShowName		  off
@@ -12176,6 +12524,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay_data2"
+<<<<<<< HEAD
+=======
+	  SID			  "2759"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [175, 104, 195, 126]
 	  ShowName		  off
@@ -12206,6 +12558,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay_valid"
+<<<<<<< HEAD
+=======
+	  SID			  "2760"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [225, 102, 255, 128]
 	  SourceBlock		  "xbsIndex_r4/Delay"
@@ -12214,7 +12570,7 @@ Library {
 	  rst			  off
 	  infoeditControl	  "Selection of Reset will increase slice count due to use of real FFs and instead of SRLs"
 	  en			  off
-	  latency		  "7"
+	  latency		  "8"
 	  dbl_ovrd		  off
 	  reg_retiming		  on
 	  xl_use_area		  off
@@ -12223,14 +12579,14 @@ Library {
 	  sggui_pos		  "20,44,419,315"
 	  block_type		  "delay"
 	  block_version		  "11.4"
-	  sg_icon_stat		  "30,26,1,1,white,blue,0,d93bb731,right,,[ ],[ ]"
+	  sg_icon_stat		  "30,26,1,1,white,blue,0,e47f993a,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 30 30 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 30 30 0 0 ],[0 0 26 26 0 ]);\npatch([8.325 12.66 15.66 18.66 21.66 15.66 11.325 8.325 ],[16.33 16.33 "
 	  "19.33 16.33 19.33 19.33 19.33 16.33 ],[1 1 1 ]);\npatch([11.325 15.66 12.66 8.325 11.325 ],[13.33 13.33 16.33 16.33"
 	  " 13.33 ],[0.931 0.946 0.973 ]);\npatch([8.325 12.66 15.66 11.325 8.325 ],[10.33 10.33 13.33 13.33 10.33 ],[1 1 1 ])"
 	  ";\npatch([11.325 21.66 18.66 15.66 12.66 8.325 11.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946 0.973"
 	  " ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\n\n\ncolor('black');disp('"
-	  "z^{-7}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
+	  "z^{-8}','texmode','on');\nfprintf('','COMMENT: end icon text');\n"
 	  Port {
 	    PortNumber		    1
 	    Name		    "wr_pld"
@@ -12241,6 +12597,10 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "edge_detect1"
+<<<<<<< HEAD
+=======
+	  SID			  "2761"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [325, 135, 370, 155]
 	  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
@@ -12255,6 +12615,7 @@ Library {
 	  FunctionWithSeparateData off
 	  Opaque		  off
 	  MaskHideContents	  off
+<<<<<<< HEAD
 	  MaskType		  "edge_detect"
 	  MaskDescription	  "Output is active for one-cycle after each edge of the specified type (i.e. rising, falling or bo"
 	  "th)."
@@ -12282,6 +12643,98 @@ Library {
 	  MaskIconUnits		  "normalized"
 	  MaskValueString	  "Rising|Active High|[0 0.08 0.08 0.16 0.16 0.24 0.24 0.32 0.32 0.4]|[-1 -1  1  1  1  1  1  1  1  "
 	  "1]|[0.6 0.68 0.68 0.76 0.76 0.84 0.84 0.92 0.92 1]|[-1 -1  1  1 -1 -1 -1 -1 -1 -1]"
+=======
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    36
+	    $ClassName		    "Simulink.Mask"
+	    Type		    "edge_detect"
+	    Description		    "Output is active for one-cycle after each edge of the specified type (i.e. rising, falling or b"
+	    "oth)."
+	    Help		    "Output is active for one-cycle after each edge of the specified type (i.e. rising, falling, or both). "
+	    " Latency is zero."
+	    Initialization	    "edge_detect_init(gcb,...\n    'edge',edge,...\n    'polarity',polarity,...\n    'x_in',x_in,."
+	    "..\n    'x_out',x_out,...\n    'y_in',y_in,...\n    'y_out',y_out);\n\nx_in_num=str2num(getfield(getfield(get_par"
+	    "am(gcb,'UserData'),'parameters'),'x_in'));\nx_out_num=str2num(getfield(getfield(get_param(gcb,'UserData'),'parame"
+	    "ters'),'x_out'));\ny_in_num=str2num(getfield(getfield(get_param(gcb,'UserData'),'parameters'),'y_in'));\ny_out_nu"
+	    "m=str2num(getfield(getfield(get_param(gcb,'UserData'),'parameters'),'y_out'));"
+	    SelfModifiable	    "on"
+	    Display		    "plot(x_in_num,0.5+y_in_num*0.2);\nplot(x_out_num,0.5+y_out_num*0.2);"
+	    IconUnits		    "normalized"
+	    Array {
+	      Type		      "Simulink.MaskParameter"
+	      Dimension		      6
+	      Object {
+		$ObjectID		37
+		Type			"popup"
+		Array {
+		  Type			  "Cell"
+		  Dimension		  3
+		  Cell			  "Rising"
+		  Cell			  "Falling"
+		  Cell			  "Both"
+		  PropName		  "TypeOptions"
+		}
+		Name			"edge"
+		Prompt			"Edge Type"
+		Value			"Rising"
+		Evaluate		"off"
+	      }
+	      Object {
+		$ObjectID		38
+		Type			"popup"
+		Array {
+		  Type			  "Cell"
+		  Dimension		  2
+		  Cell			  "Active High"
+		  Cell			  "Active Low"
+		  PropName		  "TypeOptions"
+		}
+		Name			"polarity"
+		Prompt			"Output Polarity"
+		Value			"Active High"
+		Evaluate		"off"
+	      }
+	      Object {
+		$ObjectID		39
+		Type			"edit"
+		Name			"x_in"
+		Prompt			"Input X Positions"
+		Value			"[0 0.08 0.08 0.16 0.16 0.24 0.24 0.32 0.32 0.4]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      Object {
+		$ObjectID		40
+		Type			"edit"
+		Name			"y_in"
+		Prompt			"Input Y Positions"
+		Value			"[-1 -1  1  1  1  1  1  1  1  1]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      Object {
+		$ObjectID		41
+		Type			"edit"
+		Name			"x_out"
+		Prompt			"Output X Positions"
+		Value			"[0.6 0.68 0.68 0.76 0.76 0.84 0.84 0.92 0.92 1]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      Object {
+		$ObjectID		42
+		Type			"edit"
+		Name			"y_out"
+		Prompt			"Output Y Positions"
+		Value			"[-1 -1  1  1 -1 -1 -1 -1 -1 -1]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      PropName		      "Parameters"
+	    }
+	  }
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "rst"
@@ -12306,12 +12759,20 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "in"
+<<<<<<< HEAD
+=======
+	      SID		      "2761:1"
+>>>>>>> ska/master
 	      Position		      [50, 53, 80, 67]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Delay"
+<<<<<<< HEAD
+=======
+	      SID		      "2761:2"
+>>>>>>> ska/master
 	      Ports		      [1, 1]
 	      Position		      [180, 72, 225, 88]
 	      ShowName		      off
@@ -12343,6 +12804,10 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Inverter"
+<<<<<<< HEAD
+=======
+	      SID		      "2761:3"
+>>>>>>> ska/master
 	      Ports		      [1, 1]
 	      Position		      [180, 52, 225, 68]
 	      ShowName		      off
@@ -12370,6 +12835,10 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "edge_op"
+<<<<<<< HEAD
+=======
+	      SID		      "2761:4"
+>>>>>>> ska/master
 	      Ports		      [2, 1]
 	      Position		      [275, 48, 320, 92]
 	      SourceBlock	      "xbsIndex_r4/Logical"
@@ -12402,6 +12871,10 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "out"
+<<<<<<< HEAD
+=======
+	      SID		      "2761:5"
+>>>>>>> ska/master
 	      Position		      [380, 63, 410, 77]
 	      IconDisplay	      "Port number"
 	    }
@@ -12442,6 +12915,10 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "edge_detect2"
+<<<<<<< HEAD
+=======
+	  SID			  "2762"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [400, 85, 445, 105]
 	  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
@@ -12456,6 +12933,7 @@ Library {
 	  FunctionWithSeparateData off
 	  Opaque		  off
 	  MaskHideContents	  off
+<<<<<<< HEAD
 	  MaskType		  "edge_detect"
 	  MaskDescription	  "Output is active for one-cycle after each edge of the specified type (i.e. rising, falling or bo"
 	  "th)."
@@ -12483,6 +12961,98 @@ Library {
 	  MaskIconUnits		  "normalized"
 	  MaskValueString	  "Rising|Active High|[0 0.08 0.08 0.16 0.16 0.24 0.24 0.32 0.32 0.4]|[-1 -1  1  1  1  1  1  1  1  "
 	  "1]|[0.6 0.68 0.68 0.76 0.76 0.84 0.84 0.92 0.92 1]|[-1 -1  1  1 -1 -1 -1 -1 -1 -1]"
+=======
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    43
+	    $ClassName		    "Simulink.Mask"
+	    Type		    "edge_detect"
+	    Description		    "Output is active for one-cycle after each edge of the specified type (i.e. rising, falling or b"
+	    "oth)."
+	    Help		    "Output is active for one-cycle after each edge of the specified type (i.e. rising, falling, or both). "
+	    " Latency is zero."
+	    Initialization	    "edge_detect_init(gcb,...\n    'edge',edge,...\n    'polarity',polarity,...\n    'x_in',x_in,."
+	    "..\n    'x_out',x_out,...\n    'y_in',y_in,...\n    'y_out',y_out);\n\nx_in_num=str2num(getfield(getfield(get_par"
+	    "am(gcb,'UserData'),'parameters'),'x_in'));\nx_out_num=str2num(getfield(getfield(get_param(gcb,'UserData'),'parame"
+	    "ters'),'x_out'));\ny_in_num=str2num(getfield(getfield(get_param(gcb,'UserData'),'parameters'),'y_in'));\ny_out_nu"
+	    "m=str2num(getfield(getfield(get_param(gcb,'UserData'),'parameters'),'y_out'));"
+	    SelfModifiable	    "on"
+	    Display		    "plot(x_in_num,0.5+y_in_num*0.2);\nplot(x_out_num,0.5+y_out_num*0.2);"
+	    IconUnits		    "normalized"
+	    Array {
+	      Type		      "Simulink.MaskParameter"
+	      Dimension		      6
+	      Object {
+		$ObjectID		44
+		Type			"popup"
+		Array {
+		  Type			  "Cell"
+		  Dimension		  3
+		  Cell			  "Rising"
+		  Cell			  "Falling"
+		  Cell			  "Both"
+		  PropName		  "TypeOptions"
+		}
+		Name			"edge"
+		Prompt			"Edge Type"
+		Value			"Rising"
+		Evaluate		"off"
+	      }
+	      Object {
+		$ObjectID		45
+		Type			"popup"
+		Array {
+		  Type			  "Cell"
+		  Dimension		  2
+		  Cell			  "Active High"
+		  Cell			  "Active Low"
+		  PropName		  "TypeOptions"
+		}
+		Name			"polarity"
+		Prompt			"Output Polarity"
+		Value			"Active High"
+		Evaluate		"off"
+	      }
+	      Object {
+		$ObjectID		46
+		Type			"edit"
+		Name			"x_in"
+		Prompt			"Input X Positions"
+		Value			"[0 0.08 0.08 0.16 0.16 0.24 0.24 0.32 0.32 0.4]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      Object {
+		$ObjectID		47
+		Type			"edit"
+		Name			"y_in"
+		Prompt			"Input Y Positions"
+		Value			"[-1 -1  1  1  1  1  1  1  1  1]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      Object {
+		$ObjectID		48
+		Type			"edit"
+		Name			"x_out"
+		Prompt			"Output X Positions"
+		Value			"[0.6 0.68 0.68 0.76 0.76 0.84 0.84 0.92 0.92 1]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      Object {
+		$ObjectID		49
+		Type			"edit"
+		Name			"y_out"
+		Prompt			"Output Y Positions"
+		Value			"[-1 -1  1  1 -1 -1 -1 -1 -1 -1]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      PropName		      "Parameters"
+	    }
+	  }
+>>>>>>> ska/master
 	  System {
 	    Name		    "edge_detect2"
 	    Location		    [0, 25, 1920, 1080]
@@ -12501,12 +13071,20 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "in"
+<<<<<<< HEAD
+=======
+	      SID		      "2762:1"
+>>>>>>> ska/master
 	      Position		      [50, 53, 80, 67]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Delay"
+<<<<<<< HEAD
+=======
+	      SID		      "2762:2"
+>>>>>>> ska/master
 	      Ports		      [1, 1]
 	      Position		      [180, 72, 225, 88]
 	      ShowName		      off
@@ -12538,6 +13116,10 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Inverter"
+<<<<<<< HEAD
+=======
+	      SID		      "2762:3"
+>>>>>>> ska/master
 	      Ports		      [1, 1]
 	      Position		      [180, 52, 225, 68]
 	      ShowName		      off
@@ -12565,6 +13147,10 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "edge_op"
+<<<<<<< HEAD
+=======
+	      SID		      "2762:4"
+>>>>>>> ska/master
 	      Ports		      [2, 1]
 	      Position		      [275, 48, 320, 92]
 	      SourceBlock	      "xbsIndex_r4/Logical"
@@ -12597,6 +13183,10 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "out"
+<<<<<<< HEAD
+=======
+	      SID		      "2762:5"
+>>>>>>> ska/master
 	      Position		      [380, 63, 410, 77]
 	      IconDisplay	      "Port number"
 	    }
@@ -12637,6 +13227,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "hdr_ctr"
+<<<<<<< HEAD
+=======
+	  SID			  "2763"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [595, 293, 645, 342]
 	  SourceBlock		  "xbsIndex_r4/Counter"
@@ -12644,7 +13238,7 @@ Library {
 	  infoedit		  "Hardware notes: Free running counters are the least expensive in hardware.  A count limited counter is"
 	  " implemented by combining a counter with a comparator."
 	  cnt_type		  "Count Limited"
-	  cnt_to		  "7"
+	  cnt_to		  "8"
 	  operation		  "Up"
 	  start_count		  "0"
 	  cnt_by_val		  "1"
@@ -12685,8 +13279,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "hdra_1"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [70, 178, 100, 192]
+=======
+	  SID			  "3299"
+	  Ports			  [1, 1]
+	  Position		  [70, 178, 100, 192]
+	  ZOrder		  5190
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Assert"
 	  SourceType		  "Xilinx Assert Block"
@@ -12726,8 +13327,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "hdra_2"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [70, 208, 100, 222]
+=======
+	  SID			  "3306"
+	  Ports			  [1, 1]
+	  Position		  [70, 208, 100, 222]
+	  ZOrder		  5197
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Assert"
 	  SourceType		  "Xilinx Assert Block"
@@ -12767,8 +13375,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "hdra_3"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [70, 238, 100, 252]
+=======
+	  SID			  "3313"
+	  Ports			  [1, 1]
+	  Position		  [70, 238, 100, 252]
+	  ZOrder		  5204
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Assert"
 	  SourceType		  "Xilinx Assert Block"
@@ -12808,8 +13423,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "hdra_4"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [70, 268, 100, 282]
+=======
+	  SID			  "3320"
+	  Ports			  [1, 1]
+	  Position		  [70, 268, 100, 282]
+	  ZOrder		  5211
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Assert"
 	  SourceType		  "Xilinx Assert Block"
@@ -12841,7 +13463,7 @@ Library {
 	  "('','COMMENT: end icon text');"
 	  Port {
 	    PortNumber		    1
-	    Name		    "hdr_pkt_len"
+	    Name		    "hdr_pkt_len_words"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -12849,8 +13471,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "hdra_5"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [70, 298, 100, 312]
+=======
+	  SID			  "3331"
+	  Ports			  [1, 1]
+	  Position		  [70, 298, 100, 312]
+	  ZOrder		  5222
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Assert"
 	  SourceType		  "Xilinx Assert Block"
@@ -12882,7 +13511,7 @@ Library {
 	  "('','COMMENT: end icon text');"
 	  Port {
 	    PortNumber		    1
-	    Name		    "hdr5_0x006f"
+	    Name		    "hdr5_0x1600_DIR"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -12890,8 +13519,59 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "hdra_6"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [70, 328, 100, 342]
+=======
+	  SID			  "3339"
+	  Ports			  [1, 1]
+	  Position		  [70, 328, 100, 342]
+	  ZOrder		  5230
+	  ShowName		  off
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Assert"
+	  SourceType		  "Xilinx Assert Block"
+	  infoedit		  "Asserts a user-defined sample rate and/or type on a signal.<br><br>Hardware notes: In hardware this bl"
+	  "ock costs nothing."
+	  assert_type		  on
+	  type_source		  "Explicitly"
+	  gui_display_data_type	  "Fixed-point"
+	  arith_type		  "Unsigned"
+	  n_bits		  "spead_lsw"
+	  bin_pt		  "0"
+	  preci_type		  "Single"
+	  exp_width		  "8"
+	  frac_width		  "24"
+	  assert_rate		  off
+	  rate_source		  "Explicitly"
+	  period		  "1"
+	  output_port		  on
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "assert"
+	  sg_icon_stat		  "30,14,1,1,white,blue,0,9657e937,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 30 30 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 30 30 0 0 ],[0 0 14 14 0 ]);\npatch([10.55 13.44 15.44 17.44 19.44 15.44 12.55 10.55 ],[9.22 9.22 11."
+	  "22 9.22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([12.55 15.44 13.44 10.55 12.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0."
+	  "931 0.946 0.973 ]);\npatch([10.55 13.44 15.44 12.55 10.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([12.55 19"
+	  ".44 17.44 15.44 13.44 10.55 12.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMME"
+	  "NT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\n\n\ncolor('black');disp('Assert');\nfprintf('','"
+	  "COMMENT: end icon text');"
+	  Port {
+	    PortNumber		    1
+	    Name		    "hdr6_0x1234_DIR"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "hdra_7"
+	  SID			  "3347"
+	  Ports			  [1, 1]
+	  Position		  [70, 358, 100, 372]
+	  ZOrder		  5238
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Assert"
 	  SourceType		  "Xilinx Assert Block"
@@ -12923,7 +13603,7 @@ Library {
 	  "('','COMMENT: end icon text');"
 	  Port {
 	    PortNumber		    1
-	    Name		    "hdr6_0x00de"
+	    Name		    "hdr7_0x1800"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -12931,8 +13611,16 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "hdrd_1"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [120, 178, 140, 192]
+=======
+	  SID			  "3300"
+	  Ports			  [1, 1]
+	  Position		  [120, 178, 140, 192]
+	  ZOrder		  5191
+	  LibraryVersion	  "1.2"
+>>>>>>> ska/master
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
@@ -12959,8 +13647,16 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "hdrd_2"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [120, 208, 140, 222]
+=======
+	  SID			  "3307"
+	  Ports			  [1, 1]
+	  Position		  [120, 208, 140, 222]
+	  ZOrder		  5198
+	  LibraryVersion	  "1.2"
+>>>>>>> ska/master
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
@@ -12987,8 +13683,16 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "hdrd_3"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [120, 238, 140, 252]
+=======
+	  SID			  "3314"
+	  Ports			  [1, 1]
+	  Position		  [120, 238, 140, 252]
+	  ZOrder		  5205
+	  LibraryVersion	  "1.2"
+>>>>>>> ska/master
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
@@ -13015,8 +13719,16 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "hdrd_4"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [120, 268, 140, 282]
+=======
+	  SID			  "3321"
+	  Ports			  [1, 1]
+	  Position		  [120, 268, 140, 282]
+	  ZOrder		  5212
+	  LibraryVersion	  "1.2"
+>>>>>>> ska/master
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
@@ -13043,8 +13755,16 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "hdrd_5"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [120, 298, 140, 312]
+=======
+	  SID			  "3332"
+	  Ports			  [1, 1]
+	  Position		  [120, 298, 140, 312]
+	  ZOrder		  5223
+	  LibraryVersion	  "1.2"
+>>>>>>> ska/master
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
@@ -13071,8 +13791,16 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "hdrd_6"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [120, 328, 140, 342]
+=======
+	  SID			  "3340"
+	  Ports			  [1, 1]
+	  Position		  [120, 328, 140, 342]
+	  ZOrder		  5231
+	  LibraryVersion	  "1.2"
+>>>>>>> ska/master
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
 	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
@@ -13098,9 +13826,155 @@ Library {
 	}
 	Block {
 	  BlockType		  Reference
+	  Name			  "hdrd_7"
+	  SID			  "3348"
+	  Ports			  [1, 1]
+	  Position		  [120, 358, 140, 372]
+	  ZOrder		  5239
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Delay"
+	  SourceType		  "Xilinx Delay Block"
+	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
+	  rst			  off
+	  infoeditControl	  "Selection of Reset will increase slice count due to use of real FFs and instead of SRLs"
+	  en			  off
+	  latency		  "8"
+	  dbl_ovrd		  off
+	  reg_retiming		  off
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "delay"
+	  sg_icon_stat		  "20,14,1,1,white,blue,0,e47f993a,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 20 20 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 20 20 0 0 ],[0 0 14 14 0 ]);\npatch([5.55 8.44 10.44 12.44 14.44 10.44 7.55 5.55 ],[9.22 9.22 11.22 9"
+	  ".22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([7.55 10.44 8.44 5.55 7.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0.931 0.94"
+	  "6 0.973 ]);\npatch([5.55 8.44 10.44 7.55 5.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([7.55 14.44 12.44 10."
+	  "44 8.44 5.55 7.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMMENT: end icon gra"
+	  "phics');\nfprintf('','COMMENT: begin icon text');\n\n\ncolor('black');disp('z^{-8}','texmode','on');\nfprintf('','C"
+	  "OMMENT: end icon text');"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "header_4cast4"
+	  SID			  "3325"
+	  Ports			  [1, 1]
+	  Position		  [1265, 473, 1315, 487]
+	  ZOrder		  5216
+	  ShowName		  off
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Convert"
+	  SourceType		  "Xilinx Type Converter Block"
+	  infoedit		  "Hardware notes: rounding and saturating require hardware resources; truncating and wrapping do not."
+	  gui_display_data_type	  "Fixed-point"
+	  arith_type		  "Unsigned"
+	  n_bits		  "spead_lsw - 3"
+	  bin_pt		  "0"
+	  float_type		  "Single"
+	  exp_bits		  "8"
+	  fraction_bits		  "24"
+	  quantization		  "Truncate"
+	  overflow		  "Wrap"
+	  en			  off
+	  latency		  "0"
+	  dbl_ovrd		  off
+	  pipeline		  on
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "convert"
+	  sg_icon_stat		  "50,14,1,1,white,blue,0,edca21da,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 14 14 0 ]);\npatch([20.55 23.44 25.44 27.44 29.44 25.44 22.55 20.55 ],[9.22 9.22 11."
+	  "22 9.22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([22.55 25.44 23.44 20.55 22.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0."
+	  "931 0.946 0.973 ]);\npatch([20.55 23.44 25.44 22.55 20.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([22.55 29"
+	  ".44 27.44 25.44 23.44 20.55 22.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMME"
+	  "NT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\n\ncolor('black');port_label('output',1,'cast');\n"
+	  "fprintf('','COMMENT: end icon text');"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "header_4cat4"
+	  SID			  "3327"
+	  Ports			  [2, 1]
+	  Position		  [1340, 473, 1390, 502]
+	  ZOrder		  5218
+	  ShowName		  off
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Concat"
+	  SourceType		  "Xilinx Bus Concatenator Block"
+	  infoedit		  "Concatenates two or more inputs.  Output will be cast to an unsigned value with the binary point at ze"
+	  "ro."
+	  num_inputs		  "2"
+	  dbl_ovrd		  off
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "concat"
+	  sg_icon_stat		  "50,29,2,1,white,blue,0,16398980,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 29 29 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 29 29 0 ]);\npatch([16.1 21.88 25.88 29.88 33.88 25.88 20.1 16.1 ],[18.44 18.44 22.4"
+	  "4 18.44 22.44 22.44 22.44 18.44 ],[1 1 1 ]);\npatch([20.1 25.88 21.88 16.1 20.1 ],[14.44 14.44 18.44 18.44 14.44 ],"
+	  "[0.931 0.946 0.973 ]);\npatch([16.1 21.88 25.88 20.1 16.1 ],[10.44 10.44 14.44 14.44 10.44 ],[1 1 1 ]);\npatch([20."
+	  "1 33.88 29.88 25.88 21.88 16.1 20.1 ],[6.44 6.44 10.44 6.44 10.44 10.44 6.44 ],[0.931 0.946 0.973 ]);\nfprintf('','"
+	  "COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,'hi');\n"
+	  "color('black');port_label('input',2,'lo');\n\ncolor('black');disp('\\fontsize{20}\\}','texmode','on');\nfprintf('',"
+	  "'COMMENT: end icon text');"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "header_4const4"
+	  SID			  "3326"
+	  Ports			  [0, 1]
+	  Position		  [1265, 493, 1315, 507]
+	  ZOrder		  5217
+	  ShowName		  off
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Constant"
+	  SourceType		  "Xilinx Constant Block Block"
+	  const			  "0"
+	  gui_display_data_type	  "Fixed-point"
+	  arith_type		  "Unsigned"
+	  n_bits		  "3"
+	  bin_pt		  "0"
+	  preci_type		  "Single"
+	  exp_width		  "8"
+	  frac_width		  "24"
+	  explicit_period	  off
+	  period		  "1"
+	  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
+	  equ			  "P=C"
+	  opselect		  "C"
+	  inp2			  "PCIN>>17"
+	  opr			  "+"
+	  inp1			  "P"
+	  carry			  "CIN"
+	  dbl_ovrd		  off
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "constant"
+	  sg_icon_stat		  "50,14,0,1,white,blue,0,bf4ddd8b,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 14 14 0 ]);\npatch([20.55 23.44 25.44 27.44 29.44 25.44 22.55 20.55 ],[9.22 9.22 11."
+	  "22 9.22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([22.55 25.44 23.44 20.55 22.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0."
+	  "931 0.946 0.973 ]);\npatch([20.55 23.44 25.44 22.55 20.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([22.55 29"
+	  ".44 27.44 25.44 23.44 20.55 22.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMME"
+	  "NT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'0');\nfpri"
+	  "ntf('','COMMENT: end icon text');"
+	}
+	Block {
+	  BlockType		  Reference
 	  Name			  "header_assert1"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1470, 223, 1500, 237]
+=======
+	  SID			  "3305"
+	  Ports			  [1, 1]
+	  Position		  [1470, 223, 1500, 237]
+	  ZOrder		  5196
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Assert"
 	  SourceType		  "Xilinx Assert Block"
@@ -13134,8 +14008,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_assert2"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1470, 298, 1500, 312]
+=======
+	  SID			  "3312"
+	  Ports			  [1, 1]
+	  Position		  [1470, 298, 1500, 312]
+	  ZOrder		  5203
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Assert"
 	  SourceType		  "Xilinx Assert Block"
@@ -13169,8 +14050,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_assert3"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1470, 373, 1500, 387]
+=======
+	  SID			  "3319"
+	  Ports			  [1, 1]
+	  Position		  [1470, 373, 1500, 387]
+	  ZOrder		  5210
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Assert"
 	  SourceType		  "Xilinx Assert Block"
@@ -13204,8 +14092,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_assert4"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1470, 448, 1500, 462]
+=======
+	  SID			  "3329"
+	  Ports			  [1, 1]
+	  Position		  [1470, 448, 1500, 462]
+	  ZOrder		  5220
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Assert"
 	  SourceType		  "Xilinx Assert Block"
@@ -13239,8 +14134,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_assert5"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1470, 523, 1500, 537]
+=======
+	  SID			  "3337"
+	  Ports			  [1, 1]
+	  Position		  [1470, 523, 1500, 537]
+	  ZOrder		  5228
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Assert"
 	  SourceType		  "Xilinx Assert Block"
@@ -13274,8 +14176,53 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_assert6"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1470, 598, 1500, 612]
+=======
+	  SID			  "3345"
+	  Ports			  [1, 1]
+	  Position		  [1470, 598, 1500, 612]
+	  ZOrder		  5236
+	  ShowName		  off
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Assert"
+	  SourceType		  "Xilinx Assert Block"
+	  infoedit		  "Asserts a user-defined sample rate and/or type on a signal.<br><br>Hardware notes: In hardware this bl"
+	  "ock costs nothing."
+	  assert_type		  on
+	  type_source		  "Explicitly"
+	  gui_display_data_type	  "Fixed-point"
+	  arith_type		  "Unsigned"
+	  n_bits		  "spead_msw"
+	  bin_pt		  "0"
+	  preci_type		  "Single"
+	  exp_width		  "8"
+	  frac_width		  "24"
+	  assert_rate		  off
+	  rate_source		  "Explicitly"
+	  period		  "1"
+	  output_port		  on
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "assert"
+	  sg_icon_stat		  "30,14,1,1,white,blue,0,9657e937,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 30 30 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 30 30 0 0 ],[0 0 14 14 0 ]);\npatch([10.55 13.44 15.44 17.44 19.44 15.44 12.55 10.55 ],[9.22 9.22 11."
+	  "22 9.22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([12.55 15.44 13.44 10.55 12.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0."
+	  "931 0.946 0.973 ]);\npatch([10.55 13.44 15.44 12.55 10.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([12.55 19"
+	  ".44 17.44 15.44 13.44 10.55 12.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMME"
+	  "NT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\n\n\ncolor('black');disp('Assert');\nfprintf('','"
+	  "COMMENT: end icon text');"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "header_assert7"
+	  SID			  "3353"
+	  Ports			  [1, 1]
+	  Position		  [1470, 673, 1500, 687]
+	  ZOrder		  5244
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Assert"
 	  SourceType		  "Xilinx Assert Block"
@@ -13309,8 +14256,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_cat1"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1415, 225, 1455, 265]
+=======
+	  SID			  "3304"
+	  Ports			  [2, 1]
+	  Position		  [1415, 225, 1455, 265]
+	  ZOrder		  5195
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Concat"
 	  SourceType		  "Xilinx Bus Concatenator Block"
@@ -13334,8 +14288,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_cat2"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1415, 300, 1455, 340]
+=======
+	  SID			  "3311"
+	  Ports			  [2, 1]
+	  Position		  [1415, 300, 1455, 340]
+	  ZOrder		  5202
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Concat"
 	  SourceType		  "Xilinx Bus Concatenator Block"
@@ -13359,8 +14320,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_cat3"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1415, 375, 1455, 415]
+=======
+	  SID			  "3318"
+	  Ports			  [2, 1]
+	  Position		  [1415, 375, 1455, 415]
+	  ZOrder		  5209
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Concat"
 	  SourceType		  "Xilinx Bus Concatenator Block"
@@ -13384,8 +14352,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_cat4"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1415, 450, 1455, 490]
+=======
+	  SID			  "3328"
+	  Ports			  [2, 1]
+	  Position		  [1415, 450, 1455, 490]
+	  ZOrder		  5219
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Concat"
 	  SourceType		  "Xilinx Bus Concatenator Block"
@@ -13409,8 +14384,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_cat5"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1415, 525, 1455, 565]
+=======
+	  SID			  "3336"
+	  Ports			  [2, 1]
+	  Position		  [1415, 525, 1455, 565]
+	  ZOrder		  5227
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Concat"
 	  SourceType		  "Xilinx Bus Concatenator Block"
@@ -13434,8 +14416,43 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_cat6"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1415, 600, 1455, 640]
+=======
+	  SID			  "3344"
+	  Ports			  [2, 1]
+	  Position		  [1415, 600, 1455, 640]
+	  ZOrder		  5235
+	  ShowName		  off
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Concat"
+	  SourceType		  "Xilinx Bus Concatenator Block"
+	  infoedit		  "Concatenates two or more inputs.  Output will be cast to an unsigned value with the binary point at ze"
+	  "ro."
+	  num_inputs		  "2"
+	  dbl_ovrd		  off
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "concat"
+	  sg_icon_stat		  "40,40,2,1,white,blue,0,16398980,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 40 40 0 0 ],[0 0 40 40 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 40 40 0 0 ],[0 0 40 40 0 ]);\npatch([8.875 16.1 21.1 26.1 31.1 21.1 13.875 8.875 ],[25.55 25.55 30.55"
+	  " 25.55 30.55 30.55 30.55 25.55 ],[1 1 1 ]);\npatch([13.875 21.1 16.1 8.875 13.875 ],[20.55 20.55 25.55 25.55 20.55 "
+	  "],[0.931 0.946 0.973 ]);\npatch([8.875 16.1 21.1 13.875 8.875 ],[15.55 15.55 20.55 20.55 15.55 ],[1 1 1 ]);\npatch("
+	  "[13.875 31.1 26.1 21.1 16.1 8.875 13.875 ],[10.55 10.55 15.55 10.55 15.55 15.55 10.55 ],[0.931 0.946 0.973 ]);\nfpr"
+	  "intf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',"
+	  "1,'hi');\ncolor('black');port_label('input',2,'lo');\n\ncolor('black');disp('\\fontsize{20}\\}','texmode','on');\nf"
+	  "printf('','COMMENT: end icon text');"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "header_cat7"
+	  SID			  "3352"
+	  Ports			  [2, 1]
+	  Position		  [1415, 675, 1455, 715]
+	  ZOrder		  5243
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Concat"
 	  SourceType		  "Xilinx Bus Concatenator Block"
@@ -13459,12 +14476,19 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_const1"
+<<<<<<< HEAD
 	  Ports			  [0, 1]
 	  Position		  [1340, 223, 1390, 237]
+=======
+	  SID			  "3302"
+	  Ports			  [0, 1]
+	  Position		  [1340, 223, 1390, 237]
+	  ZOrder		  5193
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
-	  const			  "1"
+	  const			  "8388609"
 	  gui_display_data_type	  "Fixed-point"
 	  arith_type		  "Unsigned"
 	  n_bits		  "spead_msw - spead_lsw"
@@ -13485,6 +14509,7 @@ Library {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
+<<<<<<< HEAD
 	  sg_icon_stat		  "50,14,0,1,white,blue,0,1c72b5be,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ],[16.33 16.3"
@@ -13493,6 +14518,16 @@ Library {
 	  " 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
 	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
 	  "_label('output',1,'1');\nfprintf('','COMMENT: end icon text');"
+=======
+	  sg_icon_stat		  "50,14,0,1,white,blue,0,b59e164e,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 14 14 0 ]);\npatch([20.55 23.44 25.44 27.44 29.44 25.44 22.55 20.55 ],[9.22 9.22 11."
+	  "22 9.22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([22.55 25.44 23.44 20.55 22.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0."
+	  "931 0.946 0.973 ]);\npatch([20.55 23.44 25.44 22.55 20.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([22.55 29"
+	  ".44 27.44 25.44 23.44 20.55 22.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMME"
+	  "NT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'8388609');"
+	  "\nfprintf('','COMMENT: end icon text');"
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "spid1"
@@ -13503,12 +14538,19 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_const2"
+<<<<<<< HEAD
 	  Ports			  [0, 1]
 	  Position		  [1340, 298, 1390, 312]
+=======
+	  SID			  "3309"
+	  Ports			  [0, 1]
+	  Position		  [1340, 298, 1390, 312]
+	  ZOrder		  5200
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
-	  const			  "2"
+	  const			  "8388610"
 	  gui_display_data_type	  "Fixed-point"
 	  arith_type		  "Unsigned"
 	  n_bits		  "spead_msw - spead_lsw"
@@ -13529,6 +14571,7 @@ Library {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
+<<<<<<< HEAD
 	  sg_icon_stat		  "50,14,0,1,white,blue,0,fca86624,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ],[16.33 16.3"
@@ -13537,6 +14580,16 @@ Library {
 	  " 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
 	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
 	  "_label('output',1,'1');\nfprintf('','COMMENT: end icon text');"
+=======
+	  sg_icon_stat		  "50,14,0,1,white,blue,0,4ea4e63d,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 14 14 0 ]);\npatch([20.55 23.44 25.44 27.44 29.44 25.44 22.55 20.55 ],[9.22 9.22 11."
+	  "22 9.22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([22.55 25.44 23.44 20.55 22.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0."
+	  "931 0.946 0.973 ]);\npatch([20.55 23.44 25.44 22.55 20.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([22.55 29"
+	  ".44 27.44 25.44 23.44 20.55 22.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMME"
+	  "NT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'8388610');"
+	  "\nfprintf('','COMMENT: end icon text');"
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "spid2"
@@ -13547,12 +14600,19 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_const3"
+<<<<<<< HEAD
 	  Ports			  [0, 1]
 	  Position		  [1340, 373, 1390, 387]
+=======
+	  SID			  "3316"
+	  Ports			  [0, 1]
+	  Position		  [1340, 373, 1390, 387]
+	  ZOrder		  5207
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
-	  const			  "3"
+	  const			  "8388611"
 	  gui_display_data_type	  "Fixed-point"
 	  arith_type		  "Unsigned"
 	  n_bits		  "spead_msw - spead_lsw"
@@ -13573,6 +14633,7 @@ Library {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
+<<<<<<< HEAD
 	  sg_icon_stat		  "50,14,0,1,white,blue,0,279a71c8,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ],[16.33 16.3"
@@ -13581,6 +14642,16 @@ Library {
 	  " 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
 	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
 	  "_label('output',1,'1');\nfprintf('','COMMENT: end icon text');"
+=======
+	  sg_icon_stat		  "50,14,0,1,white,blue,0,984a1ea9,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 14 14 0 ]);\npatch([20.55 23.44 25.44 27.44 29.44 25.44 22.55 20.55 ],[9.22 9.22 11."
+	  "22 9.22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([22.55 25.44 23.44 20.55 22.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0."
+	  "931 0.946 0.973 ]);\npatch([20.55 23.44 25.44 22.55 20.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([22.55 29"
+	  ".44 27.44 25.44 23.44 20.55 22.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMME"
+	  "NT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'8388611');"
+	  "\nfprintf('','COMMENT: end icon text');"
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "spid3"
@@ -13591,12 +14662,19 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_const4"
+<<<<<<< HEAD
 	  Ports			  [0, 1]
 	  Position		  [1340, 448, 1390, 462]
+=======
+	  SID			  "3323"
+	  Ports			  [0, 1]
+	  Position		  [1340, 448, 1390, 462]
+	  ZOrder		  5214
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
-	  const			  "4"
+	  const			  "8388612"
 	  gui_display_data_type	  "Fixed-point"
 	  arith_type		  "Unsigned"
 	  n_bits		  "spead_msw - spead_lsw"
@@ -13617,6 +14695,7 @@ Library {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
+<<<<<<< HEAD
 	  sg_icon_stat		  "50,14,0,1,white,blue,0,85f36853,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ],[16.33 16.3"
@@ -13625,6 +14704,16 @@ Library {
 	  " 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
 	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
 	  "_label('output',1,'1');\nfprintf('','COMMENT: end icon text');"
+=======
+	  sg_icon_stat		  "50,14,0,1,white,blue,0,e40e59ce,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 14 14 0 ]);\npatch([20.55 23.44 25.44 27.44 29.44 25.44 22.55 20.55 ],[9.22 9.22 11."
+	  "22 9.22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([22.55 25.44 23.44 20.55 22.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0."
+	  "931 0.946 0.973 ]);\npatch([20.55 23.44 25.44 22.55 20.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([22.55 29"
+	  ".44 27.44 25.44 23.44 20.55 22.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMME"
+	  "NT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'8388612');"
+	  "\nfprintf('','COMMENT: end icon text');"
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "spid4"
@@ -13635,12 +14724,19 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_const5"
+<<<<<<< HEAD
 	  Ports			  [0, 1]
 	  Position		  [1340, 523, 1390, 537]
+=======
+	  SID			  "3334"
+	  Ports			  [0, 1]
+	  Position		  [1340, 523, 1390, 537]
+	  ZOrder		  5225
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
-	  const			  "111"
+	  const			  "8394240"
 	  gui_display_data_type	  "Fixed-point"
 	  arith_type		  "Unsigned"
 	  n_bits		  "spead_msw - spead_lsw"
@@ -13661,6 +14757,7 @@ Library {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
+<<<<<<< HEAD
 	  sg_icon_stat		  "50,14,0,1,white,blue,0,0ec89db1,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ],[16.33 16.3"
@@ -13669,6 +14766,16 @@ Library {
 	  " 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
 	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
 	  "_label('output',1,'1');\nfprintf('','COMMENT: end icon text');"
+=======
+	  sg_icon_stat		  "50,14,0,1,white,blue,0,16fa8a83,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 14 14 0 ]);\npatch([20.55 23.44 25.44 27.44 29.44 25.44 22.55 20.55 ],[9.22 9.22 11."
+	  "22 9.22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([22.55 25.44 23.44 20.55 22.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0."
+	  "931 0.946 0.973 ]);\npatch([20.55 23.44 25.44 22.55 20.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([22.55 29"
+	  ".44 27.44 25.44 23.44 20.55 22.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMME"
+	  "NT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'8394240');"
+	  "\nfprintf('','COMMENT: end icon text');"
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "spid5"
@@ -13679,12 +14786,19 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_const6"
+<<<<<<< HEAD
 	  Ports			  [0, 1]
 	  Position		  [1340, 598, 1390, 612]
+=======
+	  SID			  "3342"
+	  Ports			  [0, 1]
+	  Position		  [1340, 598, 1390, 612]
+	  ZOrder		  5233
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
-	  const			  "222"
+	  const			  "8393268"
 	  gui_display_data_type	  "Fixed-point"
 	  arith_type		  "Unsigned"
 	  n_bits		  "spead_msw - spead_lsw"
@@ -13705,6 +14819,7 @@ Library {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
+<<<<<<< HEAD
 	  sg_icon_stat		  "50,14,0,1,white,blue,0,b34cac66,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ],[16.33 16.3"
@@ -13713,6 +14828,16 @@ Library {
 	  " 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
 	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
 	  "_label('output',1,'1');\nfprintf('','COMMENT: end icon text');"
+=======
+	  sg_icon_stat		  "50,14,0,1,white,blue,0,f63297fc,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 14 14 0 ]);\npatch([20.55 23.44 25.44 27.44 29.44 25.44 22.55 20.55 ],[9.22 9.22 11."
+	  "22 9.22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([22.55 25.44 23.44 20.55 22.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0."
+	  "931 0.946 0.973 ]);\npatch([20.55 23.44 25.44 22.55 20.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([22.55 29"
+	  ".44 27.44 25.44 23.44 20.55 22.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMME"
+	  "NT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'8393268');"
+	  "\nfprintf('','COMMENT: end icon text');"
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "spid6"
@@ -13721,92 +14846,235 @@ Library {
 	  }
 	}
 	Block {
+<<<<<<< HEAD
 	  BlockType		  From
 	  Name			  "header_from1"
 	  Position		  [1340, 248, 1390, 262]
+=======
+	  BlockType		  Reference
+	  Name			  "header_const7"
+	  SID			  "3350"
+	  Ports			  [0, 1]
+	  Position		  [1340, 673, 1390, 687]
+	  ZOrder		  5241
+>>>>>>> ska/master
+	  ShowName		  off
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Constant"
+	  SourceType		  "Xilinx Constant Block Block"
+	  const			  "6144"
+	  gui_display_data_type	  "Fixed-point"
+	  arith_type		  "Unsigned"
+	  n_bits		  "spead_msw - spead_lsw"
+	  bin_pt		  "0"
+	  preci_type		  "Single"
+	  exp_width		  "8"
+	  frac_width		  "24"
+	  explicit_period	  off
+	  period		  "1"
+	  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
+	  equ			  "P=C"
+	  opselect		  "C"
+	  inp2			  "PCIN>>17"
+	  opr			  "+"
+	  inp1			  "P"
+	  carry			  "CIN"
+	  dbl_ovrd		  off
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "constant"
+	  sg_icon_stat		  "50,14,0,1,white,blue,0,1f4f18b8,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 14 14 0 ]);\npatch([20.55 23.44 25.44 27.44 29.44 25.44 22.55 20.55 ],[9.22 9.22 11."
+	  "22 9.22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([22.55 25.44 23.44 20.55 22.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0."
+	  "931 0.946 0.973 ]);\npatch([20.55 23.44 25.44 22.55 20.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([22.55 29"
+	  ".44 27.44 25.44 23.44 20.55 22.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMME"
+	  "NT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'6144');\nf"
+	  "printf('','COMMENT: end icon text');"
+	  Port {
+	    PortNumber		    1
+	    Name		    "spid7"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  From
+	  Name			  "header_from1"
+	  SID			  "3303"
+	  Position		  [1340, 248, 1390, 262]
+	  ZOrder		  5194
 	  ShowName		  off
 	  GotoTag		  "hdr_1"
 	}
 	Block {
 	  BlockType		  From
 	  Name			  "header_from2"
+<<<<<<< HEAD
 	  Position		  [1340, 323, 1390, 337]
+=======
+	  SID			  "3310"
+	  Position		  [1340, 323, 1390, 337]
+	  ZOrder		  5201
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "hdr_2"
 	}
 	Block {
 	  BlockType		  From
 	  Name			  "header_from3"
+<<<<<<< HEAD
 	  Position		  [1340, 398, 1390, 412]
+=======
+	  SID			  "3317"
+	  Position		  [1340, 398, 1390, 412]
+	  ZOrder		  5208
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "hdr_3"
 	}
 	Block {
 	  BlockType		  From
 	  Name			  "header_from4"
+<<<<<<< HEAD
 	  Position		  [1340, 473, 1390, 487]
+=======
+	  SID			  "3324"
+	  Position		  [1195, 473, 1245, 487]
+	  ZOrder		  5215
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "hdr_4"
 	}
 	Block {
 	  BlockType		  From
 	  Name			  "header_from5"
+<<<<<<< HEAD
 	  Position		  [1340, 548, 1390, 562]
+=======
+	  SID			  "3335"
+	  Position		  [1340, 548, 1390, 562]
+	  ZOrder		  5226
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "hdr_5"
 	}
 	Block {
 	  BlockType		  From
 	  Name			  "header_from6"
+<<<<<<< HEAD
 	  Position		  [1340, 623, 1390, 637]
+=======
+	  SID			  "3343"
+	  Position		  [1340, 623, 1390, 637]
+	  ZOrder		  5234
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "hdr_6"
 	}
 	Block {
+	  BlockType		  From
+	  Name			  "header_from7"
+	  SID			  "3351"
+	  Position		  [1340, 698, 1390, 712]
+	  ZOrder		  5242
+	  ShowName		  off
+	  GotoTag		  "hdr_7"
+	}
+	Block {
 	  BlockType		  Goto
 	  Name			  "header_to1"
+<<<<<<< HEAD
 	  Position		  [160, 178, 180, 192]
+=======
+	  SID			  "3301"
+	  Position		  [160, 178, 180, 192]
+	  ZOrder		  5192
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "hdr_1"
 	}
 	Block {
 	  BlockType		  Goto
 	  Name			  "header_to2"
+<<<<<<< HEAD
 	  Position		  [160, 208, 180, 222]
+=======
+	  SID			  "3308"
+	  Position		  [160, 208, 180, 222]
+	  ZOrder		  5199
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "hdr_2"
 	}
 	Block {
 	  BlockType		  Goto
 	  Name			  "header_to3"
+<<<<<<< HEAD
 	  Position		  [160, 238, 180, 252]
+=======
+	  SID			  "3315"
+	  Position		  [160, 238, 180, 252]
+	  ZOrder		  5206
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "hdr_3"
 	}
 	Block {
 	  BlockType		  Goto
 	  Name			  "header_to4"
+<<<<<<< HEAD
 	  Position		  [160, 268, 180, 282]
+=======
+	  SID			  "3322"
+	  Position		  [160, 268, 180, 282]
+	  ZOrder		  5213
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "hdr_4"
 	}
 	Block {
 	  BlockType		  Goto
 	  Name			  "header_to5"
+<<<<<<< HEAD
 	  Position		  [160, 298, 180, 312]
+=======
+	  SID			  "3333"
+	  Position		  [160, 298, 180, 312]
+	  ZOrder		  5224
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "hdr_5"
 	}
 	Block {
 	  BlockType		  Goto
 	  Name			  "header_to6"
+<<<<<<< HEAD
 	  Position		  [160, 328, 180, 342]
+=======
+	  SID			  "3341"
+	  Position		  [160, 328, 180, 342]
+	  ZOrder		  5232
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "hdr_6"
 	}
 	Block {
+	  BlockType		  Goto
+	  Name			  "header_to7"
+	  SID			  "3349"
+	  Position		  [160, 358, 180, 372]
+	  ZOrder		  5240
+	  ShowName		  off
+	  GotoTag		  "hdr_7"
+	}
+	Block {
 	  BlockType		  Reference
 	  Name			  "heap_addr_width"
+<<<<<<< HEAD
+=======
+	  SID			  "2809"
+>>>>>>> ska/master
 	  Ports			  [0, 1]
 	  Position		  [1050, 153, 1070, 167]
 	  SourceBlock		  "xbsIndex_r4/Constant"
@@ -13833,6 +15101,7 @@ Library {
 	  sggui_pos		  "490,101,414,491"
 	  block_type		  "constant"
 	  block_version		  "10.1.3"
+<<<<<<< HEAD
 	  sg_icon_stat		  "20,14,0,1,white,blue,0,f0403ad7,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ],[16.33 16.3"
@@ -13841,10 +15110,24 @@ Library {
 	  " 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
 	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
 	  "_label('output',1,'1');\nfprintf('','COMMENT: end icon text');"
+=======
+	  sg_icon_stat		  "20,14,0,1,white,blue,0,98872051,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 20 20 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 20 20 0 0 ],[0 0 14 14 0 ]);\npatch([5.55 8.44 10.44 12.44 14.44 10.44 7.55 5.55 ],[9.22 9.22 11.22 9"
+	  ".22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([7.55 10.44 8.44 5.55 7.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0.931 0.94"
+	  "6 0.973 ]);\npatch([5.55 8.44 10.44 7.55 5.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([7.55 14.44 12.44 10."
+	  "44 8.44 5.55 7.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMMENT: end icon gra"
+	  "phics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'5');\nfprintf('','COMMENT:"
+	  " end icon text');"
+>>>>>>> ska/master
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "item_id_width"
+<<<<<<< HEAD
+=======
+	  SID			  "2810"
+>>>>>>> ska/master
 	  Ports			  [0, 1]
 	  Position		  [1050, 123, 1070, 137]
 	  SourceBlock		  "xbsIndex_r4/Constant"
@@ -13871,6 +15154,7 @@ Library {
 	  sggui_pos		  "490,101,414,491"
 	  block_type		  "constant"
 	  block_version		  "10.1.3"
+<<<<<<< HEAD
 	  sg_icon_stat		  "20,14,0,1,white,blue,0,fca86624,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ],[16.33 16.3"
@@ -13879,15 +15163,33 @@ Library {
 	  " 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
 	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
 	  "_label('output',1,'1');\nfprintf('','COMMENT: end icon text');"
+=======
+	  sg_icon_stat		  "20,14,0,1,white,blue,0,279a71c8,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 20 20 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 20 20 0 0 ],[0 0 14 14 0 ]);\npatch([5.55 8.44 10.44 12.44 14.44 10.44 7.55 5.55 ],[9.22 9.22 11.22 9"
+	  ".22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([7.55 10.44 8.44 5.55 7.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0.931 0.94"
+	  "6 0.973 ]);\npatch([5.55 8.44 10.44 7.55 5.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([7.55 14.44 12.44 10."
+	  "44 8.44 5.55 7.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMMENT: end icon gra"
+	  "phics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'3');\nfprintf('','COMMENT:"
+	  " end icon text');"
+>>>>>>> ska/master
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "mainmux"
+<<<<<<< HEAD
 	  Ports			  [9, 1]
 	  Position		  [1585, 34, 1640, 866]
+=======
+	  SID			  "2811"
+	  Ports			  [10, 1]
+	  Position		  [1585, 128, 1640, 1007]
+	  ZOrder		  -94
+	  LibraryVersion	  "1.2"
+>>>>>>> ska/master
 	  SourceBlock		  "xbsIndex_r4/Mux"
 	  SourceType		  "Xilinx Bus Multiplexer Block"
-	  inputs		  "8"
+	  inputs		  "9"
 	  en			  off
 	  latency		  "1"
 	  precision		  "Full"
@@ -13903,18 +15205,23 @@ Library {
 	  sggui_pos		  "20,25,402,369"
 	  block_type		  "mux"
 	  block_version		  "10.1.3"
-	  sg_icon_stat		  "55,832,9,1,white,blue,3,f1dfe151,right,,[ ],[ ]"
-	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 118.857 713.143 832 0 ],[0."
-	  "77 0.82 0.91 ]);\nplot([0 55 55 0 0 ],[0 118.857 713.143 832 0 ]);\npatch([11.425 21.54 28.54 35.54 42.54 28.54 18."
-	  "425 11.425 ],[423.77 423.77 430.77 423.77 430.77 430.77 430.77 423.77 ],[1 1 1 ]);\npatch([18.425 28.54 21.54 11.42"
-	  "5 18.425 ],[416.77 416.77 423.77 423.77 416.77 ],[0.931 0.946 0.973 ]);\npatch([11.425 21.54 28.54 18.425 11.425 ],"
-	  "[409.77 409.77 416.77 416.77 409.77 ],[1 1 1 ]);\npatch([18.425 42.54 35.54 28.54 21.54 11.425 18.425 ],[402.77 402"
-	  ".77 409.77 402.77 409.77 409.77 402.77 ],[0.931 0.946 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf"
+	  sg_icon_stat		  "55,879,10,1,white,blue,3,08448c4f,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 125.571 753.429 879 0 ],[0."
+	  "77 0.82 0.91 ]);\nplot([0 55 55 0 0 ],[0 125.571 753.429 879 0 ]);\npatch([11.425 21.54 28.54 35.54 42.54 28.54 18."
+	  "425 11.425 ],[446.77 446.77 453.77 446.77 453.77 453.77 453.77 446.77 ],[1 1 1 ]);\npatch([18.425 28.54 21.54 11.42"
+	  "5 18.425 ],[439.77 439.77 446.77 446.77 439.77 ],[0.931 0.946 0.973 ]);\npatch([11.425 21.54 28.54 18.425 11.425 ],"
+	  "[432.77 432.77 439.77 439.77 432.77 ],[1 1 1 ]);\npatch([18.425 42.54 35.54 28.54 21.54 11.425 18.425 ],[425.77 425"
+	  ".77 432.77 425.77 432.77 432.77 425.77 ],[0.931 0.946 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf"
 	  "('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,'sel');\ncolor('black');port_label('input',2,"
 	  "'d0');\ncolor('black');port_label('input',3,'d1');\ncolor('black');port_label('input',4,'d2');\ncolor('black');port"
 	  "_label('input',5,'d3');\ncolor('black');port_label('input',6,'d4');\ncolor('black');port_label('input',7,'d5');\nco"
+<<<<<<< HEAD
 	  "lor('black');port_label('input',8,'d6');\ncolor('black');port_label('input',9,'d7');\n\ncolor('black');disp('\\bf{ "
 	  " z^{-1}}','texmode','on');\nfprintf('','COMMENT: end icon text');"
+=======
+	  "lor('black');port_label('input',8,'d6');\ncolor('black');port_label('input',9,'d7');\ncolor('black');port_label('in"
+	  "put',10,'d8');\n\ncolor('black');disp('\\bf{  z^{-1}}','texmode','on');\nfprintf('','COMMENT: end icon text');"
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "dout"
@@ -13925,11 +15232,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "num_headers"
+<<<<<<< HEAD
+=======
+	  SID			  "2812"
+>>>>>>> ska/master
 	  Ports			  [0, 1]
 	  Position		  [615, 368, 635, 382]
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
-	  const			  "7"
+	  const			  "8"
 	  gui_display_data_type	  "Fixed-point"
 	  arith_type		  "Unsigned"
 	  n_bits		  "4"
@@ -13951,23 +15262,27 @@ Library {
 	  sggui_pos		  "490,101,474,491"
 	  block_type		  "constant"
 	  block_version		  "10.1.3"
-	  sg_icon_stat		  "20,14,0,1,white,blue,0,2a6960a5,right,,[ ],[ ]"
+	  sg_icon_stat		  "20,14,0,1,white,blue,0,7a8c02d8,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 20 20 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 20 20 0 0 ],[0 0 14 14 0 ]);\npatch([5.55 8.44 10.44 12.44 14.44 10.44 7.55 5.55 ],[9.22 9.22 11.22 9"
 	  ".22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([7.55 10.44 8.44 5.55 7.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0.931 0.94"
 	  "6 0.973 ]);\npatch([5.55 8.44 10.44 7.55 5.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([7.55 14.44 12.44 10."
 	  "44 8.44 5.55 7.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMMENT: end icon gra"
-	  "phics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'7');\nfprintf('','COMMENT:"
+	  "phics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'8');\nfprintf('','COMMENT:"
 	  " end icon text');"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "num_item_pts"
+<<<<<<< HEAD
+=======
+	  SID			  "2813"
+>>>>>>> ska/master
 	  Ports			  [0, 1]
 	  Position		  [1050, 213, 1070, 227]
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
-	  const			  "6"
+	  const			  "7"
 	  gui_display_data_type	  "Fixed-point"
 	  arith_type		  "Unsigned"
 	  n_bits		  "16"
@@ -13989,18 +15304,22 @@ Library {
 	  sggui_pos		  "1201,406,478,491"
 	  block_type		  "constant"
 	  block_version		  "10.1.3"
-	  sg_icon_stat		  "20,14,0,1,white,blue,0,f0403ad7,right,,[ ],[ ]"
+	  sg_icon_stat		  "20,14,0,1,white,blue,0,2a6960a5,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 20 20 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 20 20 0 0 ],[0 0 14 14 0 ]);\npatch([5.55 8.44 10.44 12.44 14.44 10.44 7.55 5.55 ],[9.22 9.22 11.22 9"
 	  ".22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([7.55 10.44 8.44 5.55 7.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0.931 0.94"
 	  "6 0.973 ]);\npatch([5.55 8.44 10.44 7.55 5.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([7.55 14.44 12.44 10."
 	  "44 8.44 5.55 7.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMMENT: end icon gra"
-	  "phics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'6');\nfprintf('','COMMENT:"
+	  "phics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'7');\nfprintf('','COMMENT:"
 	  " end icon text');\n"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "only_one"
+<<<<<<< HEAD
+=======
+	  SID			  "2814"
+>>>>>>> ska/master
 	  Ports			  [0, 1]
 	  Position		  [420, 678, 460, 692]
 	  SourceBlock		  "xbsIndex_r4/Constant"
@@ -14039,12 +15358,20 @@ Library {
 	Block {
 	  BlockType		  Outport
 	  Name			  "data_out"
+<<<<<<< HEAD
+=======
+	  SID			  "2815"
+>>>>>>> ska/master
 	  Position		  [1785, 438, 1815, 452]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "valid_out"
+<<<<<<< HEAD
+=======
+	  SID			  "2816"
+>>>>>>> ska/master
 	  Position		  [880, 513, 910, 527]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -14052,6 +15379,10 @@ Library {
 	Block {
 	  BlockType		  Outport
 	  Name			  "eof"
+<<<<<<< HEAD
+=======
+	  SID			  "2817"
+>>>>>>> ska/master
 	  Position		  [880, 603, 910, 617]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -14059,6 +15390,10 @@ Library {
 	Block {
 	  BlockType		  Outport
 	  Name			  "data_overflow"
+<<<<<<< HEAD
+=======
+	  SID			  "2818"
+>>>>>>> ska/master
 	  Position		  [880, 698, 910, 712]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
@@ -14373,7 +15708,7 @@ Library {
 	  Labels		  [2, 1]
 	  SrcBlock		  "mainmux"
 	  SrcPort		  1
-	  Points		  [0, -5]
+	  Points		  [0, -125]
 	  DstBlock		  "Assert18"
 	  DstPort		  1
 	}
@@ -14496,7 +15831,7 @@ Library {
 	Line {
 	  SrcBlock		  "header_assert1"
 	  SrcPort		  1
-	  Points		  [30, 0; 0, 40]
+	  Points		  [30, 0; 0, 125]
 	  DstBlock		  "mainmux"
 	  DstPort		  3
 	}
@@ -14545,7 +15880,7 @@ Library {
 	Line {
 	  SrcBlock		  "header_assert2"
 	  SrcPort		  1
-	  Points		  [30, 0; 0, 55]
+	  Points		  [20, 0; 0, 135]
 	  DstBlock		  "mainmux"
 	  DstPort		  4
 	}
@@ -14594,18 +15929,18 @@ Library {
 	Line {
 	  SrcBlock		  "header_assert3"
 	  SrcPort		  1
-	  Points		  [30, 0; 0, 70]
+	  Points		  [10, 0; 0, 145]
 	  DstBlock		  "mainmux"
 	  DstPort		  5
 	}
 	Line {
-	  SrcBlock		  "hdr_pkt_len"
+	  SrcBlock		  "hdr_pkt_len_words"
 	  SrcPort		  1
 	  DstBlock		  "hdra_4"
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "hdr_pkt_len"
+	  Name			  "hdr_pkt_len_words"
 	  Labels		  [0, 0]
 	  SrcBlock		  "hdra_4"
 	  SrcPort		  1
@@ -14630,6 +15965,26 @@ Library {
 	Line {
 	  SrcBlock		  "header_from4"
 	  SrcPort		  1
+	  DstBlock		  "header_4cast4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "header_4cast4"
+	  SrcPort		  1
+	  DstBlock		  "header_4cat4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "header_4const4"
+	  SrcPort		  1
+	  Points		  [0, -5]
+	  DstBlock		  "header_4cat4"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "header_4cat4"
+	  SrcPort		  1
+	  Points		  [0, -10]
 	  DstBlock		  "header_cat4"
 	  DstPort		  2
 	}
@@ -14643,18 +15998,18 @@ Library {
 	Line {
 	  SrcBlock		  "header_assert4"
 	  SrcPort		  1
-	  Points		  [20, 0; 0, 85]
+	  Points		  [60, 0; 0, 155]
 	  DstBlock		  "mainmux"
 	  DstPort		  6
 	}
 	Line {
-	  SrcBlock		  "hdr5_0x006f"
+	  SrcBlock		  "hdr5_0x1600_DIR"
 	  SrcPort		  1
 	  DstBlock		  "hdra_5"
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "hdr5_0x006f"
+	  Name			  "hdr5_0x1600_DIR"
 	  Labels		  [0, 0]
 	  SrcBlock		  "hdra_5"
 	  SrcPort		  1
@@ -14692,18 +16047,18 @@ Library {
 	Line {
 	  SrcBlock		  "header_assert5"
 	  SrcPort		  1
-	  Points		  [10, 0; 0, 100]
+	  Points		  [0, 70; 50, 0; 0, 95]
 	  DstBlock		  "mainmux"
 	  DstPort		  7
 	}
 	Line {
-	  SrcBlock		  "hdr6_0x00de"
+	  SrcBlock		  "hdr6_0x1234_DIR"
 	  SrcPort		  1
 	  DstBlock		  "hdra_6"
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "hdr6_0x00de"
+	  Name			  "hdr6_0x1234_DIR"
 	  Labels		  [0, 0]
 	  SrcBlock		  "hdra_6"
 	  SrcPort		  1
@@ -14741,59 +16096,141 @@ Library {
 	Line {
 	  SrcBlock		  "header_assert6"
 	  SrcPort		  1
-	  Points		  [0, 115]
+	  Points		  [30, 0; 0, 175]
 	  DstBlock		  "mainmux"
 	  DstPort		  8
+	}
+	Line {
+	  SrcBlock		  "hdr7_0x1800"
+	  SrcPort		  1
+	  DstBlock		  "hdra_7"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "hdr7_0x1800"
+	  Labels		  [0, 0]
+	  SrcBlock		  "hdra_7"
+	  SrcPort		  1
+	  DstBlock		  "hdrd_7"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "hdrd_7"
+	  SrcPort		  1
+	  DstBlock		  "header_to7"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "spid7"
+	  Labels		  [0, 0]
+	  SrcBlock		  "header_const7"
+	  SrcPort		  1
+	  Points		  [0, 5]
+	  DstBlock		  "header_cat7"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "header_from7"
+	  SrcPort		  1
+	  DstBlock		  "header_cat7"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "header_cat7"
+	  SrcPort		  1
+	  Points		  [0, -15]
+	  DstBlock		  "header_assert7"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "header_assert7"
+	  SrcPort		  1
+	  Points		  [20, 0; 0, 185]
+	  DstBlock		  "mainmux"
+	  DstPort		  9
 	}
 	Line {
 	  Name			  "pkt_data"
 	  Labels		  [0, 0]
 	  SrcBlock		  "assert_data"
 	  SrcPort		  1
+	  Points		  [100, 0; 0, 140]
 	  DstBlock		  "mainmux"
-	  DstPort		  9
+	  DstPort		  10
 	}
 	Annotation {
+<<<<<<< HEAD
+=======
+	  SID			  "2826"
+>>>>>>> ska/master
 	  Name			  "eof ON the last valid data."
 	  Position		  [852, 650]
 	  DropShadow		  on
 	}
 	Annotation {
+<<<<<<< HEAD
+=======
+	  SID			  "2825"
+>>>>>>> ska/master
 	  Name			  "SPEAD header"
 	  Position		  [1057, 31]
 	  DropShadow		  on
 	}
 	Annotation {
+<<<<<<< HEAD
+=======
+	  SID			  "2824"
+>>>>>>> ska/master
 	  Name			  "magic number - 0x53"
 	  Position		  [924, 68]
 	  HorizontalAlignment	  "left"
 	  DropShadow		  on
 	}
 	Annotation {
+<<<<<<< HEAD
+=======
+	  SID			  "2823"
+>>>>>>> ska/master
 	  Name			  "spead version"
 	  Position		  [924, 98]
 	  HorizontalAlignment	  "left"
 	  DropShadow		  on
 	}
 	Annotation {
+<<<<<<< HEAD
+=======
+	  SID			  "2822"
+>>>>>>> ska/master
 	  Name			  "item id width in bytes"
 	  Position		  [924, 128]
 	  HorizontalAlignment	  "left"
 	  DropShadow		  on
 	}
 	Annotation {
+<<<<<<< HEAD
+=======
+	  SID			  "2821"
+>>>>>>> ska/master
 	  Name			  "heap addr width in bytes"
 	  Position		  [924, 158]
 	  HorizontalAlignment	  "left"
 	  DropShadow		  on
 	}
 	Annotation {
+<<<<<<< HEAD
+=======
+	  SID			  "2820"
+>>>>>>> ska/master
 	  Name			  "<reserved>"
 	  Position		  [924, 188]
 	  HorizontalAlignment	  "left"
 	  DropShadow		  on
 	}
 	Annotation {
+<<<<<<< HEAD
+=======
+	  SID			  "2819"
+>>>>>>> ska/master
 	  Name			  "num item pointers -\nafter this header"
 	  Position		  [924, 218]
 	  HorizontalAlignment	  "left"
@@ -14804,9 +16241,17 @@ Library {
     Block {
       BlockType		      SubSystem
       Name		      "spead_unpack"
+<<<<<<< HEAD
       Tag		      "casper:spead_unpack"
       Ports		      [3, 11]
       Position		      [660, 47, 800, 343]
+=======
+      SID		      "2827"
+      Tag		      "casper:spead_unpack"
+      Ports		      [3, 12]
+      Position		      [655, 47, 800, 368]
+      ZOrder		      10906
+>>>>>>> ska/master
       BackgroundColor	      "[0.501961, 1.000000, 0.501961]"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -14814,6 +16259,7 @@ Library {
       FunctionWithSeparateData off
       Opaque		      off
       MaskHideContents	      off
+<<<<<<< HEAD
       MaskType		      "spead_unpack_mask"
       MaskDescription	      "This block receives a 64-bit-word stream that contains a SPEAD stream. It checks the SPEA"
       "D headers are being correctly received. It presents the user with all headers on the first valid cycle of data a"
@@ -14834,6 +16280,75 @@ Library {
       MaskIconRotate	      "none"
       MaskIconUnits	      "autoscale"
       MaskValueString	      "10|[222 333]|64|48|4|on"
+=======
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		50
+	$ClassName		"Simulink.Mask"
+	Type			"spead_unpack_mask"
+	Description		"This block receives a 64-bit-word stream that contains a SPEAD stream. It checks the SPEAD headers are "
+	"being correctly received. It presents the user with all headers on the first valid cycle of data along with a flag to"
+	" indicate a header or packet-length error."
+	Initialization		"spead_unpack_init(gcb)"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  7
+	  Object {
+	    $ObjectID		    51
+	    Type		    "edit"
+	    Name		    "max_pkt_len_bits"
+	    Prompt		    "Max pkt length, 2^? 64-bit words"
+	    Value		    "10"
+	  }
+	  Object {
+	    $ObjectID		    52
+	    Type		    "edit"
+	    Name		    "header_ids"
+	    Prompt		    "SPEAD direct header IDs (decimal)"
+	    Value		    "0x1600, 0x1234"
+	    Evaluate		    "off"
+	  }
+	  Object {
+	    $ObjectID		    53
+	    Type		    "edit"
+	    Name		    "header_ind_ids"
+	    Prompt		    "SPEAD indirect address IDs (decimal)"
+	    Value		    "0x1800"
+	    Evaluate		    "off"
+	  }
+	  Object {
+	    $ObjectID		    54
+	    Type		    "edit"
+	    Name		    "spead_msw"
+	    Prompt		    "SPEAD Flavour (MSw)"
+	    Value		    "64"
+	  }
+	  Object {
+	    $ObjectID		    55
+	    Type		    "edit"
+	    Name		    "spead_lsw"
+	    Prompt		    "SPEAD Flavour (LSw)"
+	    Value		    "40"
+	  }
+	  Object {
+	    $ObjectID		    56
+	    Type		    "edit"
+	    Name		    "spead_version"
+	    Prompt		    "SPEAD version"
+	    Value		    "4"
+	  }
+	  Object {
+	    $ObjectID		    57
+	    Type		    "checkbox"
+	    Name		    "combine_errors"
+	    Prompt		    "Combine error flags"
+	    Value		    "on"
+	    Visible		    "off"
+	  }
+	  PropName		  "Parameters"
+	}
+      }
+>>>>>>> ska/master
       System {
 	Name			"spead_unpack"
 	Location		[1920, 0, 3200, 1024]
@@ -14848,16 +16363,24 @@ Library {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"50"
+	ZoomFactor		"174"
 	Block {
 	  BlockType		  Inport
 	  Name			  "pkt_data"
+<<<<<<< HEAD
+=======
+	  SID			  "2828"
+>>>>>>> ska/master
 	  Position		  [30, 63, 60, 77]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "pkt_valid"
+<<<<<<< HEAD
+=======
+	  SID			  "2829"
+>>>>>>> ska/master
 	  Position		  [30, 113, 60, 127]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -14865,6 +16388,10 @@ Library {
 	Block {
 	  BlockType		  Inport
 	  Name			  "pkt_eof"
+<<<<<<< HEAD
+=======
+	  SID			  "2830"
+>>>>>>> ska/master
 	  Position		  [30, 163, 60, 177]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -14872,6 +16399,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Assert1"
+<<<<<<< HEAD
+=======
+	  SID			  "2831"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [1300, 125, 1335, 145]
 	  ShowName		  off
@@ -14908,6 +16439,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Assert5"
+<<<<<<< HEAD
+=======
+	  SID			  "2832"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [105, 60, 140, 80]
 	  ShowName		  off
@@ -14944,6 +16479,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Assert6"
+<<<<<<< HEAD
+=======
+	  SID			  "2833"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [105, 160, 140, 180]
 	  ShowName		  off
@@ -14969,17 +16508,21 @@ Library {
 	  block_type		  "assert"
 	  block_version		  "10.1.3"
 	  sg_icon_stat		  "35,20,1,1,white,blue,0,9657e937,right,,[ ],[ ]"
-	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 60 60 0 0 ],[0 0 30 30 0 ],[0.77 0.82 0.91"
-	  " ]);\nplot([0 60 60 0 0 ],[0 0 30 30 0 ]);\npatch([21.1 26.88 30.88 34.88 38.88 30.88 25.1 21.1 ],[19.44 19.44 23.4"
-	  "4 19.44 23.44 23.44 23.44 19.44 ],[1 1 1 ]);\npatch([25.1 30.88 26.88 21.1 25.1 ],[15.44 15.44 19.44 19.44 15.44 ],"
-	  "[0.931 0.946 0.973 ]);\npatch([21.1 26.88 30.88 25.1 21.1 ],[11.44 11.44 15.44 15.44 11.44 ],[1 1 1 ]);\npatch([25."
-	  "1 38.88 34.88 30.88 26.88 21.1 25.1 ],[7.44 7.44 11.44 7.44 11.44 11.44 7.44 ],[0.931 0.946 0.973 ]);\nfprintf('','"
-	  "COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\n\n\ncolor('black');disp('Assert');\nfprintf"
-	  "('','COMMENT: end icon text');"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 35 35 0 0 ],[0 0 20 20 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 35 35 0 0 ],[0 0 20 20 0 ]);\npatch([12.55 15.44 17.44 19.44 21.44 17.44 14.55 12.55 ],[12.22 12.22 1"
+	  "4.22 12.22 14.22 14.22 14.22 12.22 ],[1 1 1 ]);\npatch([14.55 17.44 15.44 12.55 14.55 ],[10.22 10.22 12.22 12.22 10"
+	  ".22 ],[0.931 0.946 0.973 ]);\npatch([12.55 15.44 17.44 14.55 12.55 ],[8.22 8.22 10.22 10.22 8.22 ],[1 1 1 ]);\npatc"
+	  "h([14.55 21.44 19.44 17.44 15.44 12.55 14.55 ],[6.22 6.22 8.22 6.22 8.22 8.22 6.22 ],[0.931 0.946 0.973 ]);\nfprint"
+	  "f('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\n\n\ncolor('black');disp('Assert');\nf"
+	  "printf('','COMMENT: end icon text');"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Assert7"
+<<<<<<< HEAD
+=======
+	  SID			  "2834"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [105, 110, 140, 130]
 	  ShowName		  off
@@ -15016,6 +16559,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Constant3"
+<<<<<<< HEAD
+=======
+	  SID			  "2835"
+>>>>>>> ska/master
 	  Ports			  [0, 1]
 	  Position		  [1150, 53, 1170, 67]
 	  ShowName		  off
@@ -15059,6 +16606,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Constant4"
+<<<<<<< HEAD
+=======
+	  SID			  "2836"
+>>>>>>> ska/master
 	  Ports			  [0, 1]
 	  Position		  [1150, 83, 1170, 97]
 	  ShowName		  off
@@ -15087,17 +16638,21 @@ Library {
 	  block_type		  "constant"
 	  block_version		  "10.1.3"
 	  sg_icon_stat		  "20,14,0,1,white,blue,0,85f36853,right,,[ ],[ ]"
-	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
-	  " ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ],[16.33 16.3"
-	  "3 19.33 16.33 19.33 19.33 19.33 16.33 ],[1 1 1 ]);\npatch([23.325 27.66 24.66 20.325 23.325 ],[13.33 13.33 16.33 16"
-	  ".33 13.33 ],[0.931 0.946 0.973 ]);\npatch([20.325 24.66 27.66 23.325 20.325 ],[10.33 10.33 13.33 13.33 10.33 ],[1 1"
-	  " 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
-	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
-	  "_label('output',1,'1');\nfprintf('','COMMENT: end icon text');"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 20 20 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 20 20 0 0 ],[0 0 14 14 0 ]);\npatch([5.55 8.44 10.44 12.44 14.44 10.44 7.55 5.55 ],[9.22 9.22 11.22 9"
+	  ".22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([7.55 10.44 8.44 5.55 7.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0.931 0.94"
+	  "6 0.973 ]);\npatch([5.55 8.44 10.44 7.55 5.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([7.55 14.44 12.44 10."
+	  "44 8.44 5.55 7.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMMENT: end icon gra"
+	  "phics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'4');\nfprintf('','COMMENT:"
+	  " end icon text');"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Constant7"
+<<<<<<< HEAD
+=======
+	  SID			  "2837"
+>>>>>>> ska/master
 	  Ports			  [0, 1]
 	  Position		  [1150, 173, 1170, 187]
 	  ShowName		  off
@@ -15141,6 +16696,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay1"
+<<<<<<< HEAD
+=======
+	  SID			  "2838"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [200, 157, 230, 183]
 	  ShowName		  off
@@ -15177,6 +16736,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay2"
+<<<<<<< HEAD
+=======
+	  SID			  "2839"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [200, 107, 230, 133]
 	  ShowName		  off
@@ -15213,6 +16776,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay3"
+<<<<<<< HEAD
+=======
+	  SID			  "2840"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [440, 1034, 465, 1056]
 	  ShowName		  off
@@ -15243,6 +16810,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay4"
+<<<<<<< HEAD
+=======
+	  SID			  "2841"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [200, 57, 230, 83]
 	  ShowName		  off
@@ -15279,6 +16850,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From1"
+<<<<<<< HEAD
+=======
+	  SID			  "2842"
+>>>>>>> ska/master
 	  Position		  [25, 562, 95, 578]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -15287,6 +16862,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From10"
+<<<<<<< HEAD
+=======
+	  SID			  "2843"
+>>>>>>> ska/master
 	  Position		  [1335, 17, 1405, 33]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -15302,6 +16881,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From11"
+<<<<<<< HEAD
+=======
+	  SID			  "2844"
+>>>>>>> ska/master
 	  Position		  [490, 632, 560, 648]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -15310,6 +16893,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From12"
+<<<<<<< HEAD
+=======
+	  SID			  "2845"
+>>>>>>> ska/master
 	  Position		  [20, 357, 90, 373]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -15318,6 +16905,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From2"
+<<<<<<< HEAD
+=======
+	  SID			  "2846"
+>>>>>>> ska/master
 	  Position		  [20, 412, 90, 428]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -15326,6 +16917,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From3"
+<<<<<<< HEAD
+=======
+	  SID			  "2847"
+>>>>>>> ska/master
 	  Position		  [20, 342, 90, 358]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -15334,6 +16929,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From4"
+<<<<<<< HEAD
+=======
+	  SID			  "2848"
+>>>>>>> ska/master
 	  Position		  [25, 637, 95, 653]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -15342,6 +16941,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From6"
+<<<<<<< HEAD
+=======
+	  SID			  "2849"
+>>>>>>> ska/master
 	  Position		  [20, 312, 90, 328]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -15350,6 +16953,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From8"
+<<<<<<< HEAD
+=======
+	  SID			  "2850"
+>>>>>>> ska/master
 	  Position		  [25, 667, 95, 683]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -15358,6 +16965,10 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "From9"
+<<<<<<< HEAD
+=======
+	  SID			  "2851"
+>>>>>>> ska/master
 	  Position		  [345, 1037, 415, 1053]
 	  ShowName		  off
 	  CloseFcn		  "tagdialog Close"
@@ -15366,6 +16977,10 @@ Library {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto1"
+<<<<<<< HEAD
+=======
+	  SID			  "2852"
+>>>>>>> ska/master
 	  Position		  [360, 213, 430, 227]
 	  ShowName		  off
 	  GotoTag		  "gbe_start"
@@ -15373,6 +16988,10 @@ Library {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto14"
+<<<<<<< HEAD
+=======
+	  SID			  "2853"
+>>>>>>> ska/master
 	  Position		  [360, 113, 430, 127]
 	  ShowName		  off
 	  GotoTag		  "gbe_valid"
@@ -15380,6 +16999,10 @@ Library {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto2"
+<<<<<<< HEAD
+=======
+	  SID			  "2854"
+>>>>>>> ska/master
 	  Position		  [360, 163, 430, 177]
 	  ShowName		  off
 	  GotoTag		  "gbe_eof"
@@ -15387,6 +17010,10 @@ Library {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto3"
+<<<<<<< HEAD
+=======
+	  SID			  "2855"
+>>>>>>> ska/master
 	  Position		  [725, 348, 795, 362]
 	  ShowName		  off
 	  GotoTag		  "hdr_busy"
@@ -15394,6 +17021,10 @@ Library {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto4"
+<<<<<<< HEAD
+=======
+	  SID			  "2856"
+>>>>>>> ska/master
 	  Position		  [725, 373, 795, 387]
 	  ShowName		  off
 	  GotoTag		  "hdr_done"
@@ -15401,6 +17032,10 @@ Library {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto5"
+<<<<<<< HEAD
+=======
+	  SID			  "2857"
+>>>>>>> ska/master
 	  Position		  [215, 278, 330, 292]
 	  ShowName		  off
 	  GotoTag		  "hdr_word_change"
@@ -15408,6 +17043,10 @@ Library {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto6"
+<<<<<<< HEAD
+=======
+	  SID			  "2858"
+>>>>>>> ska/master
 	  Position		  [695, 693, 765, 707]
 	  ShowName		  off
 	  GotoTag		  "eof_out"
@@ -15415,6 +17054,10 @@ Library {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto9"
+<<<<<<< HEAD
+=======
+	  SID			  "2859"
+>>>>>>> ska/master
 	  Position		  [360, 63, 430, 77]
 	  ShowName		  off
 	  GotoTag		  "gbe_data"
@@ -15422,6 +17065,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Inverter"
+<<<<<<< HEAD
+=======
+	  SID			  "2860"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [150, 591, 180, 609]
 	  ShowName		  off
@@ -15448,6 +17095,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Logical"
+<<<<<<< HEAD
+=======
+	  SID			  "2861"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [470, 350, 525, 410]
 	  ShowName		  off
@@ -15486,6 +17137,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Logical1"
+<<<<<<< HEAD
+=======
+	  SID			  "2862"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [210, 555, 265, 615]
 	  ShowName		  off
@@ -15524,6 +17179,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Logical2"
+<<<<<<< HEAD
+=======
+	  SID			  "2863"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [125, 340, 160, 375]
 	  ShowName		  off
@@ -15562,6 +17221,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Register"
+<<<<<<< HEAD
+=======
+	  SID			  "2864"
+>>>>>>> ska/master
 	  Ports			  [3, 1]
 	  Position		  [220, 392, 280, 448]
 	  SourceBlock		  "xbsIndex_r4/Register"
@@ -15594,6 +17257,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Relational"
+<<<<<<< HEAD
+=======
+	  SID			  "2865"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [380, 322, 435, 378]
 	  ShowName		  off
@@ -15621,6 +17288,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "badpktand"
+<<<<<<< HEAD
+=======
+	  SID			  "2866"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [495, 1000, 550, 1060]
 	  SourceBlock		  "xbsIndex_r4/Logical"
@@ -15652,6 +17323,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "check_datalen"
+<<<<<<< HEAD
+=======
+	  SID			  "2867"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [275, 647, 330, 703]
 	  SourceBlock		  "xbsIndex_r4/Relational"
@@ -15684,6 +17359,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "data_ctr"
+<<<<<<< HEAD
+=======
+	  SID			  "2868"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [140, 630, 200, 690]
 	  SourceBlock		  "xbsIndex_r4/Counter"
@@ -15717,8 +17396,9 @@ Library {
 	  "8 38.88 46.88 46.88 46.88 38.88 ],[1 1 1 ]);\npatch([20.2 31.76 23.76 12.2 20.2 ],[30.88 30.88 38.88 38.88 30.88 ],"
 	  "[0.931 0.946 0.973 ]);\npatch([12.2 23.76 31.76 20.2 12.2 ],[22.88 22.88 30.88 30.88 22.88 ],[1 1 1 ]);\npatch([20."
 	  "2 47.76 39.76 31.76 23.76 12.2 20.2 ],[14.88 14.88 22.88 14.88 22.88 22.88 14.88 ],[0.931 0.946 0.973 ]);\nfprintf("
-	  "'','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\n\ncolor('black');disp('{\\fontsize{14}\\"
-	  "bf++}','texmode','on');\nfprintf('','COMMENT: end icon text');"
+	  "'','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,'rs"
+	  "t');\ncolor('black');port_label('input',2,'en');\n\ncolor('black');disp('{\\fontsize{14}\\bf++}','texmode','on');\n"
+	  "fprintf('','COMMENT: end icon text');"
 	  Port {
 	    PortNumber		    1
 	    Name		    "data_ctr"
@@ -15729,6 +17409,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay"
+<<<<<<< HEAD
+=======
+	  SID			  "2869"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [600, 520, 630, 540]
 	  ShowName		  off
@@ -15764,6 +17448,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay1"
+<<<<<<< HEAD
+=======
+	  SID			  "2870"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [1595, 15, 1625, 35]
 	  ShowName		  off
@@ -15799,6 +17487,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay4"
+<<<<<<< HEAD
+=======
+	  SID			  "2871"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [600, 575, 630, 595]
 	  ShowName		  off
@@ -15834,6 +17526,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay5"
+<<<<<<< HEAD
+=======
+	  SID			  "2872"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [600, 630, 630, 650]
 	  ShowName		  off
@@ -15869,6 +17565,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "delay_one"
+<<<<<<< HEAD
+=======
+	  SID			  "2873"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [1595, 85, 1625, 105]
 	  SourceBlock		  "xbsIndex_r4/Delay"
@@ -15903,6 +17603,10 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "edge_detect1"
+<<<<<<< HEAD
+=======
+	  SID			  "2874"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [270, 210, 315, 230]
 	  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
@@ -15917,6 +17621,7 @@ Library {
 	  FunctionWithSeparateData off
 	  Opaque		  off
 	  MaskHideContents	  off
+<<<<<<< HEAD
 	  MaskType		  "edge_detect"
 	  MaskDescription	  "Output is active for one-cycle after each edge of the specified type (i.e. rising, falling or bo"
 	  "th)."
@@ -15944,6 +17649,98 @@ Library {
 	  MaskIconUnits		  "normalized"
 	  MaskValueString	  "Falling|Active High|[0 0.08 0.08 0.16 0.16 0.24 0.24 0.32 0.32 0.4]|[-1 -1  1  1  1  1  1  1  1 "
 	  " 1]|[0.6 0.68 0.68 0.76 0.76 0.84 0.84 0.92 0.92 1]|[-1 -1  1  1 -1 -1 -1 -1 -1 -1]"
+=======
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    58
+	    $ClassName		    "Simulink.Mask"
+	    Type		    "edge_detect"
+	    Description		    "Output is active for one-cycle after each edge of the specified type (i.e. rising, falling or b"
+	    "oth)."
+	    Help		    "Output is active for one-cycle after each edge of the specified type (i.e. rising, falling, or both). "
+	    " Latency is zero."
+	    Initialization	    "edge_detect_init(gcb,...\n    'edge',edge,...\n    'polarity',polarity,...\n    'x_in',x_in,."
+	    "..\n    'x_out',x_out,...\n    'y_in',y_in,...\n    'y_out',y_out);\n\nx_in_num=str2num(getfield(getfield(get_par"
+	    "am(gcb,'UserData'),'parameters'),'x_in'));\nx_out_num=str2num(getfield(getfield(get_param(gcb,'UserData'),'parame"
+	    "ters'),'x_out'));\ny_in_num=str2num(getfield(getfield(get_param(gcb,'UserData'),'parameters'),'y_in'));\ny_out_nu"
+	    "m=str2num(getfield(getfield(get_param(gcb,'UserData'),'parameters'),'y_out'));"
+	    SelfModifiable	    "on"
+	    Display		    "plot(x_in_num,0.5+y_in_num*0.2);\nplot(x_out_num,0.5+y_out_num*0.2);"
+	    IconUnits		    "normalized"
+	    Array {
+	      Type		      "Simulink.MaskParameter"
+	      Dimension		      6
+	      Object {
+		$ObjectID		59
+		Type			"popup"
+		Array {
+		  Type			  "Cell"
+		  Dimension		  3
+		  Cell			  "Rising"
+		  Cell			  "Falling"
+		  Cell			  "Both"
+		  PropName		  "TypeOptions"
+		}
+		Name			"edge"
+		Prompt			"Edge Type"
+		Value			"Falling"
+		Evaluate		"off"
+	      }
+	      Object {
+		$ObjectID		60
+		Type			"popup"
+		Array {
+		  Type			  "Cell"
+		  Dimension		  2
+		  Cell			  "Active High"
+		  Cell			  "Active Low"
+		  PropName		  "TypeOptions"
+		}
+		Name			"polarity"
+		Prompt			"Output Polarity"
+		Value			"Active High"
+		Evaluate		"off"
+	      }
+	      Object {
+		$ObjectID		61
+		Type			"edit"
+		Name			"x_in"
+		Prompt			"Input X Positions"
+		Value			"[0 0.08 0.08 0.16 0.16 0.24 0.24 0.32 0.32 0.4]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      Object {
+		$ObjectID		62
+		Type			"edit"
+		Name			"y_in"
+		Prompt			"Input Y Positions"
+		Value			"[-1 -1  1  1  1  1  1  1  1  1]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      Object {
+		$ObjectID		63
+		Type			"edit"
+		Name			"x_out"
+		Prompt			"Output X Positions"
+		Value			"[0.6 0.68 0.68 0.76 0.76 0.84 0.84 0.92 0.92 1]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      Object {
+		$ObjectID		64
+		Type			"edit"
+		Name			"y_out"
+		Prompt			"Output Y Positions"
+		Value			"[-1 -1  1  1 -1 -1 -1 -1 -1 -1]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      PropName		      "Parameters"
+	    }
+	  }
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "gbe_start"
@@ -15968,12 +17765,20 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "in"
+<<<<<<< HEAD
+=======
+	      SID		      "2874:1"
+>>>>>>> ska/master
 	      Position		      [50, 53, 80, 67]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Delay"
+<<<<<<< HEAD
+=======
+	      SID		      "2874:2"
+>>>>>>> ska/master
 	      Ports		      [1, 1]
 	      Position		      [180, 72, 225, 88]
 	      ShowName		      off
@@ -16005,6 +17810,10 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Inverter"
+<<<<<<< HEAD
+=======
+	      SID		      "2874:3"
+>>>>>>> ska/master
 	      Ports		      [1, 1]
 	      Position		      [180, 52, 225, 68]
 	      ShowName		      off
@@ -16032,6 +17841,10 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "edge_op"
+<<<<<<< HEAD
+=======
+	      SID		      "2874:4"
+>>>>>>> ska/master
 	      Ports		      [2, 1]
 	      Position		      [275, 48, 320, 92]
 	      SourceBlock	      "xbsIndex_r4/Logical"
@@ -16064,6 +17877,10 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "out"
+<<<<<<< HEAD
+=======
+	      SID		      "2874:5"
+>>>>>>> ska/master
 	      Position		      [380, 63, 410, 77]
 	      IconDisplay	      "Port number"
 	    }
@@ -16104,6 +17921,10 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "edge_detect2"
+<<<<<<< HEAD
+=======
+	  SID			  "2875"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [595, 370, 640, 390]
 	  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
@@ -16118,6 +17939,7 @@ Library {
 	  FunctionWithSeparateData off
 	  Opaque		  off
 	  MaskHideContents	  off
+<<<<<<< HEAD
 	  MaskType		  "edge_detect"
 	  MaskDescription	  "Output is active for one-cycle after each edge of the specified type (i.e. rising, falling or bo"
 	  "th)."
@@ -16145,6 +17967,98 @@ Library {
 	  MaskIconUnits		  "normalized"
 	  MaskValueString	  "Falling|Active High|[0 0.08 0.08 0.16 0.16 0.24 0.24 0.32 0.32 0.4]|[-1 -1  1  1  1  1  1  1  1 "
 	  " 1]|[0.6 0.68 0.68 0.76 0.76 0.84 0.84 0.92 0.92 1]|[-1 -1  1  1 -1 -1 -1 -1 -1 -1]"
+=======
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    65
+	    $ClassName		    "Simulink.Mask"
+	    Type		    "edge_detect"
+	    Description		    "Output is active for one-cycle after each edge of the specified type (i.e. rising, falling or b"
+	    "oth)."
+	    Help		    "Output is active for one-cycle after each edge of the specified type (i.e. rising, falling, or both). "
+	    " Latency is zero."
+	    Initialization	    "edge_detect_init(gcb,...\n    'edge',edge,...\n    'polarity',polarity,...\n    'x_in',x_in,."
+	    "..\n    'x_out',x_out,...\n    'y_in',y_in,...\n    'y_out',y_out);\n\nx_in_num=str2num(getfield(getfield(get_par"
+	    "am(gcb,'UserData'),'parameters'),'x_in'));\nx_out_num=str2num(getfield(getfield(get_param(gcb,'UserData'),'parame"
+	    "ters'),'x_out'));\ny_in_num=str2num(getfield(getfield(get_param(gcb,'UserData'),'parameters'),'y_in'));\ny_out_nu"
+	    "m=str2num(getfield(getfield(get_param(gcb,'UserData'),'parameters'),'y_out'));"
+	    SelfModifiable	    "on"
+	    Display		    "plot(x_in_num,0.5+y_in_num*0.2);\nplot(x_out_num,0.5+y_out_num*0.2);"
+	    IconUnits		    "normalized"
+	    Array {
+	      Type		      "Simulink.MaskParameter"
+	      Dimension		      6
+	      Object {
+		$ObjectID		66
+		Type			"popup"
+		Array {
+		  Type			  "Cell"
+		  Dimension		  3
+		  Cell			  "Rising"
+		  Cell			  "Falling"
+		  Cell			  "Both"
+		  PropName		  "TypeOptions"
+		}
+		Name			"edge"
+		Prompt			"Edge Type"
+		Value			"Falling"
+		Evaluate		"off"
+	      }
+	      Object {
+		$ObjectID		67
+		Type			"popup"
+		Array {
+		  Type			  "Cell"
+		  Dimension		  2
+		  Cell			  "Active High"
+		  Cell			  "Active Low"
+		  PropName		  "TypeOptions"
+		}
+		Name			"polarity"
+		Prompt			"Output Polarity"
+		Value			"Active High"
+		Evaluate		"off"
+	      }
+	      Object {
+		$ObjectID		68
+		Type			"edit"
+		Name			"x_in"
+		Prompt			"Input X Positions"
+		Value			"[0 0.08 0.08 0.16 0.16 0.24 0.24 0.32 0.32 0.4]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      Object {
+		$ObjectID		69
+		Type			"edit"
+		Name			"y_in"
+		Prompt			"Input Y Positions"
+		Value			"[-1 -1  1  1  1  1  1  1  1  1]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      Object {
+		$ObjectID		70
+		Type			"edit"
+		Name			"x_out"
+		Prompt			"Output X Positions"
+		Value			"[0.6 0.68 0.68 0.76 0.76 0.84 0.84 0.92 0.92 1]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      Object {
+		$ObjectID		71
+		Type			"edit"
+		Name			"y_out"
+		Prompt			"Output Y Positions"
+		Value			"[-1 -1  1  1 -1 -1 -1 -1 -1 -1]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      PropName		      "Parameters"
+	    }
+	  }
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "hdr_done"
@@ -16169,12 +18083,20 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "in"
+<<<<<<< HEAD
+=======
+	      SID		      "2875:1"
+>>>>>>> ska/master
 	      Position		      [50, 53, 80, 67]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Delay"
+<<<<<<< HEAD
+=======
+	      SID		      "2875:2"
+>>>>>>> ska/master
 	      Ports		      [1, 1]
 	      Position		      [180, 72, 225, 88]
 	      ShowName		      off
@@ -16206,6 +18128,10 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Inverter"
+<<<<<<< HEAD
+=======
+	      SID		      "2875:3"
+>>>>>>> ska/master
 	      Ports		      [1, 1]
 	      Position		      [180, 52, 225, 68]
 	      ShowName		      off
@@ -16233,6 +18159,10 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "edge_op"
+<<<<<<< HEAD
+=======
+	      SID		      "2875:4"
+>>>>>>> ska/master
 	      Ports		      [2, 1]
 	      Position		      [275, 48, 320, 92]
 	      SourceBlock	      "xbsIndex_r4/Logical"
@@ -16265,6 +18195,10 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "out"
+<<<<<<< HEAD
+=======
+	      SID		      "2875:5"
+>>>>>>> ska/master
 	      Position		      [380, 63, 410, 77]
 	      IconDisplay	      "Port number"
 	    }
@@ -16305,6 +18239,10 @@ Library {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "edge_detect3"
+<<<<<<< HEAD
+=======
+	  SID			  "2876"
+>>>>>>> ska/master
 	  Ports			  [1, 1]
 	  Position		  [270, 160, 315, 180]
 	  BackgroundColor	  "[0.501961, 1.000000, 0.501961]"
@@ -16319,6 +18257,7 @@ Library {
 	  FunctionWithSeparateData off
 	  Opaque		  off
 	  MaskHideContents	  off
+<<<<<<< HEAD
 	  MaskType		  "edge_detect"
 	  MaskDescription	  "Output is active for one-cycle after each edge of the specified type (i.e. rising, falling or bo"
 	  "th)."
@@ -16346,6 +18285,98 @@ Library {
 	  MaskIconUnits		  "normalized"
 	  MaskValueString	  "Rising|Active High|[0 0.08 0.08 0.16 0.16 0.24 0.24 0.32 0.32 0.4]|[-1 -1  1  1  1  1  1  1  1  "
 	  "1]|[0.6 0.68 0.68 0.76 0.76 0.84 0.84 0.92 0.92 1]|[-1 -1  1  1 -1 -1 -1 -1 -1 -1]"
+=======
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    72
+	    $ClassName		    "Simulink.Mask"
+	    Type		    "edge_detect"
+	    Description		    "Output is active for one-cycle after each edge of the specified type (i.e. rising, falling or b"
+	    "oth)."
+	    Help		    "Output is active for one-cycle after each edge of the specified type (i.e. rising, falling, or both). "
+	    " Latency is zero."
+	    Initialization	    "edge_detect_init(gcb,...\n    'edge',edge,...\n    'polarity',polarity,...\n    'x_in',x_in,."
+	    "..\n    'x_out',x_out,...\n    'y_in',y_in,...\n    'y_out',y_out);\n\nx_in_num=str2num(getfield(getfield(get_par"
+	    "am(gcb,'UserData'),'parameters'),'x_in'));\nx_out_num=str2num(getfield(getfield(get_param(gcb,'UserData'),'parame"
+	    "ters'),'x_out'));\ny_in_num=str2num(getfield(getfield(get_param(gcb,'UserData'),'parameters'),'y_in'));\ny_out_nu"
+	    "m=str2num(getfield(getfield(get_param(gcb,'UserData'),'parameters'),'y_out'));"
+	    SelfModifiable	    "on"
+	    Display		    "plot(x_in_num,0.5+y_in_num*0.2);\nplot(x_out_num,0.5+y_out_num*0.2);"
+	    IconUnits		    "normalized"
+	    Array {
+	      Type		      "Simulink.MaskParameter"
+	      Dimension		      6
+	      Object {
+		$ObjectID		73
+		Type			"popup"
+		Array {
+		  Type			  "Cell"
+		  Dimension		  3
+		  Cell			  "Rising"
+		  Cell			  "Falling"
+		  Cell			  "Both"
+		  PropName		  "TypeOptions"
+		}
+		Name			"edge"
+		Prompt			"Edge Type"
+		Value			"Rising"
+		Evaluate		"off"
+	      }
+	      Object {
+		$ObjectID		74
+		Type			"popup"
+		Array {
+		  Type			  "Cell"
+		  Dimension		  2
+		  Cell			  "Active High"
+		  Cell			  "Active Low"
+		  PropName		  "TypeOptions"
+		}
+		Name			"polarity"
+		Prompt			"Output Polarity"
+		Value			"Active High"
+		Evaluate		"off"
+	      }
+	      Object {
+		$ObjectID		75
+		Type			"edit"
+		Name			"x_in"
+		Prompt			"Input X Positions"
+		Value			"[0 0.08 0.08 0.16 0.16 0.24 0.24 0.32 0.32 0.4]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      Object {
+		$ObjectID		76
+		Type			"edit"
+		Name			"y_in"
+		Prompt			"Input Y Positions"
+		Value			"[-1 -1  1  1  1  1  1  1  1  1]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      Object {
+		$ObjectID		77
+		Type			"edit"
+		Name			"x_out"
+		Prompt			"Output X Positions"
+		Value			"[0.6 0.68 0.68 0.76 0.76 0.84 0.84 0.92 0.92 1]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      Object {
+		$ObjectID		78
+		Type			"edit"
+		Name			"y_out"
+		Prompt			"Output Y Positions"
+		Value			"[-1 -1  1  1 -1 -1 -1 -1 -1 -1]"
+		Evaluate		"off"
+		Visible			"off"
+	      }
+	      PropName		      "Parameters"
+	    }
+	  }
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "eof"
@@ -16370,12 +18401,20 @@ Library {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "in"
+<<<<<<< HEAD
+=======
+	      SID		      "2876:1"
+>>>>>>> ska/master
 	      Position		      [50, 53, 80, 67]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Delay"
+<<<<<<< HEAD
+=======
+	      SID		      "2876:2"
+>>>>>>> ska/master
 	      Ports		      [1, 1]
 	      Position		      [180, 72, 225, 88]
 	      ShowName		      off
@@ -16407,6 +18446,10 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Inverter"
+<<<<<<< HEAD
+=======
+	      SID		      "2876:3"
+>>>>>>> ska/master
 	      Ports		      [1, 1]
 	      Position		      [180, 52, 225, 68]
 	      ShowName		      off
@@ -16434,6 +18477,10 @@ Library {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "edge_op"
+<<<<<<< HEAD
+=======
+	      SID		      "2876:4"
+>>>>>>> ska/master
 	      Ports		      [2, 1]
 	      Position		      [275, 48, 320, 92]
 	      SourceBlock	      "xbsIndex_r4/Logical"
@@ -16466,6 +18513,10 @@ Library {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "out"
+<<<<<<< HEAD
+=======
+	      SID		      "2876:5"
+>>>>>>> ska/master
 	      Position		      [380, 63, 410, 77]
 	      IconDisplay	      "Port number"
 	    }
@@ -16506,15 +18557,28 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "eof_out_from"
+<<<<<<< HEAD
 	  Position		  [1665, 743, 1720, 757]
+=======
+	  SID			  "2877"
+	  Position		  [1665, 818, 1720, 832]
+	  ZOrder		  4677
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "eof_out"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "error_gate"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1760, 675, 1800, 715]
+=======
+	  SID			  "2878"
+	  Ports			  [2, 1]
+	  Position		  [1760, 750, 1800, 790]
+	  ZOrder		  4678
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Logical"
 	  SourceType		  "Xilinx Logical Block Block"
@@ -16545,13 +18609,20 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "error_or"
+<<<<<<< HEAD
 	  Ports			  [8, 1]
 	  Position		  [1665, 675, 1720, 745]
+=======
+	  SID			  "2879"
+	  Ports			  [9, 1]
+	  Position		  [1665, 750, 1720, 830]
+	  ZOrder		  4627
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Logical"
 	  SourceType		  "Xilinx Logical Block Block"
 	  logical_function	  "OR"
-	  inputs		  "8"
+	  inputs		  "9"
 	  en			  off
 	  latency		  "0"
 	  precision		  "Full"
@@ -16565,24 +18636,32 @@ Library {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "logical"
-	  sg_icon_stat		  "55,70,8,1,white,blue,0,8c57207a,right,,[ ],[ ]"
-	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 70 70 0 ],[0.77 0.82 0.91"
-	  " ]);\nplot([0 55 55 0 0 ],[0 0 70 70 0 ]);\npatch([11.425 21.54 28.54 35.54 42.54 28.54 18.425 11.425 ],[42.77 42.7"
-	  "7 49.77 42.77 49.77 49.77 49.77 42.77 ],[1 1 1 ]);\npatch([18.425 28.54 21.54 11.425 18.425 ],[35.77 35.77 42.77 42"
-	  ".77 35.77 ],[0.931 0.946 0.973 ]);\npatch([11.425 21.54 28.54 18.425 11.425 ],[28.77 28.77 35.77 35.77 28.77 ],[1 1"
-	  " 1 ]);\npatch([18.425 42.54 35.54 28.54 21.54 11.425 18.425 ],[21.77 21.77 28.77 21.77 28.77 28.77 21.77 ],[0.931 0"
+	  sg_icon_stat		  "55,80,9,1,white,blue,0,1a52a79d,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 80 80 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 55 55 0 0 ],[0 0 80 80 0 ]);\npatch([11.425 21.54 28.54 35.54 42.54 28.54 18.425 11.425 ],[47.77 47.7"
+	  "7 54.77 47.77 54.77 54.77 54.77 47.77 ],[1 1 1 ]);\npatch([18.425 28.54 21.54 11.425 18.425 ],[40.77 40.77 47.77 47"
+	  ".77 40.77 ],[0.931 0.946 0.973 ]);\npatch([11.425 21.54 28.54 18.425 11.425 ],[33.77 33.77 40.77 40.77 33.77 ],[1 1"
+	  " 1 ]);\npatch([18.425 42.54 35.54 28.54 21.54 11.425 18.425 ],[26.77 26.77 33.77 26.77 33.77 33.77 26.77 ],[0.931 0"
 	  ".946 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\n\n\n\n\n\n\n\n\n"
-	  "\ncolor('black');disp('or');\nfprintf('','COMMENT: end icon text');"
+	  "\n\ncolor('black');disp('or');\nfprintf('','COMMENT: end icon text');"
 	}
 	Block {
 	  BlockType		  From
 	  Name			  "from"
+<<<<<<< HEAD
+=======
+	  SID			  "2880"
+>>>>>>> ska/master
 	  Position		  [1355, 98, 1475, 112]
 	  GotoTag		  "hdr_word_change"
 	}
 	Block {
 	  BlockType		  From
 	  Name			  "from_gbe_data"
+<<<<<<< HEAD
+=======
+	  SID			  "2881"
+>>>>>>> ska/master
 	  Position		  [490, 522, 560, 538]
 	  CloseFcn		  "tagdialog Close"
 	  GotoTag		  "gbe_data"
@@ -16590,6 +18669,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "hdr_chk"
+<<<<<<< HEAD
+=======
+	  SID			  "2882"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [1660, 90, 1680, 110]
 	  SourceBlock		  "xbsIndex_r4/Relational"
@@ -16616,6 +18699,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "hdr_ctr"
+<<<<<<< HEAD
+=======
+	  SID			  "2883"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [220, 305, 280, 365]
 	  SourceBlock		  "xbsIndex_r4/Counter"
@@ -16649,8 +18736,9 @@ Library {
 	  "8 38.88 46.88 46.88 46.88 38.88 ],[1 1 1 ]);\npatch([20.2 31.76 23.76 12.2 20.2 ],[30.88 30.88 38.88 38.88 30.88 ],"
 	  "[0.931 0.946 0.973 ]);\npatch([12.2 23.76 31.76 20.2 12.2 ],[22.88 22.88 30.88 30.88 22.88 ],[1 1 1 ]);\npatch([20."
 	  "2 47.76 39.76 31.76 23.76 12.2 20.2 ],[14.88 14.88 22.88 14.88 22.88 22.88 14.88 ],[0.931 0.946 0.973 ]);\nfprintf("
-	  "'','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\n\ncolor('black');disp('{\\fontsize{14}\\"
-	  "bf++}','texmode','on');\nfprintf('','COMMENT: end icon text');"
+	  "'','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,'rs"
+	  "t');\ncolor('black');port_label('input',2,'en');\n\ncolor('black');disp('{\\fontsize{14}\\bf++}','texmode','on');\n"
+	  "fprintf('','COMMENT: end icon text');"
 	  Port {
 	    PortNumber		    1
 	    Name		    "hdr_ctr"
@@ -16661,12 +18749,19 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_const1"
+<<<<<<< HEAD
 	  Ports			  [0, 1]
 	  Position		  [1500, 195, 1550, 205]
+=======
+	  SID			  "3067"
+	  Ports			  [0, 1]
+	  Position		  [1500, 195, 1550, 205]
+	  ZOrder		  5260
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
-	  const			  "1"
+	  const			  "8388609"
 	  gui_display_data_type	  "Fixed-point"
 	  arith_type		  "Unsigned"
 	  n_bits		  "spead_msw - spead_lsw"
@@ -16687,6 +18782,7 @@ Library {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
+<<<<<<< HEAD
 	  sg_icon_stat		  "50,10,0,1,white,blue,0,1c72b5be,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ],[16.33 16.3"
@@ -16695,6 +18791,16 @@ Library {
 	  " 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
 	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
 	  "_label('output',1,'1');\nfprintf('','COMMENT: end icon text');"
+=======
+	  sg_icon_stat		  "50,10,0,1,white,blue,0,b59e164e,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 10 10 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 10 10 0 ]);\npatch([22.775 24.22 25.22 26.22 27.22 25.22 23.775 22.775 ],[6.11 6.11 "
+	  "7.11 6.11 7.11 7.11 7.11 6.11 ],[1 1 1 ]);\npatch([23.775 25.22 24.22 22.775 23.775 ],[5.11 5.11 6.11 6.11 5.11 ],["
+	  "0.931 0.946 0.973 ]);\npatch([22.775 24.22 25.22 23.775 22.775 ],[4.11 4.11 5.11 5.11 4.11 ],[1 1 1 ]);\npatch([23."
+	  "775 27.22 26.22 25.22 24.22 22.775 23.775 ],[3.11 3.11 4.11 3.11 4.11 4.11 3.11 ],[0.931 0.946 0.973 ]);\nfprintf('"
+	  "','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'83"
+	  "88609');\nfprintf('','COMMENT: end icon text');"
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "exp1"
@@ -16705,12 +18811,19 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_const2"
+<<<<<<< HEAD
 	  Ports			  [0, 1]
 	  Position		  [1450, 270, 1500, 280]
+=======
+	  SID			  "3074"
+	  Ports			  [0, 1]
+	  Position		  [1450, 270, 1500, 280]
+	  ZOrder		  5267
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
-	  const			  "2"
+	  const			  "8388610"
 	  gui_display_data_type	  "Fixed-point"
 	  arith_type		  "Unsigned"
 	  n_bits		  "spead_msw - spead_lsw"
@@ -16731,6 +18844,7 @@ Library {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
+<<<<<<< HEAD
 	  sg_icon_stat		  "50,10,0,1,white,blue,0,fca86624,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ],[16.33 16.3"
@@ -16739,6 +18853,16 @@ Library {
 	  " 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
 	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
 	  "_label('output',1,'1');\nfprintf('','COMMENT: end icon text');"
+=======
+	  sg_icon_stat		  "50,10,0,1,white,blue,0,4ea4e63d,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 10 10 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 10 10 0 ]);\npatch([22.775 24.22 25.22 26.22 27.22 25.22 23.775 22.775 ],[6.11 6.11 "
+	  "7.11 6.11 7.11 7.11 7.11 6.11 ],[1 1 1 ]);\npatch([23.775 25.22 24.22 22.775 23.775 ],[5.11 5.11 6.11 6.11 5.11 ],["
+	  "0.931 0.946 0.973 ]);\npatch([22.775 24.22 25.22 23.775 22.775 ],[4.11 4.11 5.11 5.11 4.11 ],[1 1 1 ]);\npatch([23."
+	  "775 27.22 26.22 25.22 24.22 22.775 23.775 ],[3.11 3.11 4.11 3.11 4.11 4.11 3.11 ],[0.931 0.946 0.973 ]);\nfprintf('"
+	  "','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'83"
+	  "88610');\nfprintf('','COMMENT: end icon text');"
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "exp2"
@@ -16749,12 +18873,19 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_const3"
+<<<<<<< HEAD
 	  Ports			  [0, 1]
 	  Position		  [1400, 345, 1450, 355]
+=======
+	  SID			  "3081"
+	  Ports			  [0, 1]
+	  Position		  [1400, 345, 1450, 355]
+	  ZOrder		  5274
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
-	  const			  "3"
+	  const			  "8388611"
 	  gui_display_data_type	  "Fixed-point"
 	  arith_type		  "Unsigned"
 	  n_bits		  "spead_msw - spead_lsw"
@@ -16775,6 +18906,7 @@ Library {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
+<<<<<<< HEAD
 	  sg_icon_stat		  "50,10,0,1,white,blue,0,279a71c8,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ],[16.33 16.3"
@@ -16783,6 +18915,16 @@ Library {
 	  " 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
 	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
 	  "_label('output',1,'1');\nfprintf('','COMMENT: end icon text');"
+=======
+	  sg_icon_stat		  "50,10,0,1,white,blue,0,984a1ea9,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 10 10 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 10 10 0 ]);\npatch([22.775 24.22 25.22 26.22 27.22 25.22 23.775 22.775 ],[6.11 6.11 "
+	  "7.11 6.11 7.11 7.11 7.11 6.11 ],[1 1 1 ]);\npatch([23.775 25.22 24.22 22.775 23.775 ],[5.11 5.11 6.11 6.11 5.11 ],["
+	  "0.931 0.946 0.973 ]);\npatch([22.775 24.22 25.22 23.775 22.775 ],[4.11 4.11 5.11 5.11 4.11 ],[1 1 1 ]);\npatch([23."
+	  "775 27.22 26.22 25.22 24.22 22.775 23.775 ],[3.11 3.11 4.11 3.11 4.11 4.11 3.11 ],[0.931 0.946 0.973 ]);\nfprintf('"
+	  "','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'83"
+	  "88611');\nfprintf('','COMMENT: end icon text');"
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "exp3"
@@ -16793,12 +18935,19 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_const4"
+<<<<<<< HEAD
 	  Ports			  [0, 1]
 	  Position		  [1350, 420, 1400, 430]
+=======
+	  SID			  "3088"
+	  Ports			  [0, 1]
+	  Position		  [1350, 420, 1400, 430]
+	  ZOrder		  5281
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
-	  const			  "4"
+	  const			  "8388612"
 	  gui_display_data_type	  "Fixed-point"
 	  arith_type		  "Unsigned"
 	  n_bits		  "spead_msw - spead_lsw"
@@ -16819,6 +18968,7 @@ Library {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
+<<<<<<< HEAD
 	  sg_icon_stat		  "50,10,0,1,white,blue,0,85f36853,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ],[16.33 16.3"
@@ -16827,6 +18977,16 @@ Library {
 	  " 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
 	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
 	  "_label('output',1,'1');\nfprintf('','COMMENT: end icon text');"
+=======
+	  sg_icon_stat		  "50,10,0,1,white,blue,0,e40e59ce,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 10 10 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 10 10 0 ]);\npatch([22.775 24.22 25.22 26.22 27.22 25.22 23.775 22.775 ],[6.11 6.11 "
+	  "7.11 6.11 7.11 7.11 7.11 6.11 ],[1 1 1 ]);\npatch([23.775 25.22 24.22 22.775 23.775 ],[5.11 5.11 6.11 6.11 5.11 ],["
+	  "0.931 0.946 0.973 ]);\npatch([22.775 24.22 25.22 23.775 22.775 ],[4.11 4.11 5.11 5.11 4.11 ],[1 1 1 ]);\npatch([23."
+	  "775 27.22 26.22 25.22 24.22 22.775 23.775 ],[3.11 3.11 4.11 3.11 4.11 4.11 3.11 ],[0.931 0.946 0.973 ]);\nfprintf('"
+	  "','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'83"
+	  "88612');\nfprintf('','COMMENT: end icon text');"
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "exp4"
@@ -16837,12 +18997,19 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_const5"
+<<<<<<< HEAD
 	  Ports			  [0, 1]
 	  Position		  [1300, 495, 1350, 505]
+=======
+	  SID			  "3095"
+	  Ports			  [0, 1]
+	  Position		  [1300, 495, 1350, 505]
+	  ZOrder		  5288
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
-	  const			  "222"
+	  const			  "8394240"
 	  gui_display_data_type	  "Fixed-point"
 	  arith_type		  "Unsigned"
 	  n_bits		  "spead_msw - spead_lsw"
@@ -16863,6 +19030,7 @@ Library {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
+<<<<<<< HEAD
 	  sg_icon_stat		  "50,10,0,1,white,blue,0,b34cac66,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ],[16.33 16.3"
@@ -16871,6 +19039,16 @@ Library {
 	  " 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
 	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
 	  "_label('output',1,'1');\nfprintf('','COMMENT: end icon text');"
+=======
+	  sg_icon_stat		  "50,10,0,1,white,blue,0,16fa8a83,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 10 10 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 10 10 0 ]);\npatch([22.775 24.22 25.22 26.22 27.22 25.22 23.775 22.775 ],[6.11 6.11 "
+	  "7.11 6.11 7.11 7.11 7.11 6.11 ],[1 1 1 ]);\npatch([23.775 25.22 24.22 22.775 23.775 ],[5.11 5.11 6.11 6.11 5.11 ],["
+	  "0.931 0.946 0.973 ]);\npatch([22.775 24.22 25.22 23.775 22.775 ],[4.11 4.11 5.11 5.11 4.11 ],[1 1 1 ]);\npatch([23."
+	  "775 27.22 26.22 25.22 24.22 22.775 23.775 ],[3.11 3.11 4.11 3.11 4.11 4.11 3.11 ],[0.931 0.946 0.973 ]);\nfprintf('"
+	  "','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'83"
+	  "94240');\nfprintf('','COMMENT: end icon text');"
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "exp5"
@@ -16881,12 +19059,19 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_const6"
+<<<<<<< HEAD
 	  Ports			  [0, 1]
 	  Position		  [1250, 570, 1300, 580]
+=======
+	  SID			  "3103"
+	  Ports			  [0, 1]
+	  Position		  [1250, 570, 1300, 580]
+	  ZOrder		  5296
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
-	  const			  "333"
+	  const			  "8393268"
 	  gui_display_data_type	  "Fixed-point"
 	  arith_type		  "Unsigned"
 	  n_bits		  "spead_msw - spead_lsw"
@@ -16907,6 +19092,7 @@ Library {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "-1,-1,-1,-1"
 	  block_type		  "constant"
+<<<<<<< HEAD
 	  sg_icon_stat		  "50,10,0,1,white,blue,0,eb8fa019,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ],[16.33 16.3"
@@ -16915,6 +19101,16 @@ Library {
 	  " 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
 	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
 	  "_label('output',1,'1');\nfprintf('','COMMENT: end icon text');"
+=======
+	  sg_icon_stat		  "50,10,0,1,white,blue,0,f63297fc,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 10 10 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 10 10 0 ]);\npatch([22.775 24.22 25.22 26.22 27.22 25.22 23.775 22.775 ],[6.11 6.11 "
+	  "7.11 6.11 7.11 7.11 7.11 6.11 ],[1 1 1 ]);\npatch([23.775 25.22 24.22 22.775 23.775 ],[5.11 5.11 6.11 6.11 5.11 ],["
+	  "0.931 0.946 0.973 ]);\npatch([22.775 24.22 25.22 23.775 22.775 ],[4.11 4.11 5.11 5.11 4.11 ],[1 1 1 ]);\npatch([23."
+	  "775 27.22 26.22 25.22 24.22 22.775 23.775 ],[3.11 3.11 4.11 3.11 4.11 4.11 3.11 ],[0.931 0.946 0.973 ]);\nfprintf('"
+	  "','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'83"
+	  "93268');\nfprintf('','COMMENT: end icon text');"
+>>>>>>> ska/master
 	  Port {
 	    PortNumber		    1
 	    Name		    "exp6"
@@ -16924,9 +19120,63 @@ Library {
 	}
 	Block {
 	  BlockType		  Reference
+	  Name			  "header_const7"
+	  SID			  "3111"
+	  Ports			  [0, 1]
+	  Position		  [1200, 645, 1250, 655]
+	  ZOrder		  5304
+	  ShowName		  off
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Constant"
+	  SourceType		  "Xilinx Constant Block Block"
+	  const			  "6144"
+	  gui_display_data_type	  "Fixed-point"
+	  arith_type		  "Unsigned"
+	  n_bits		  "spead_msw - spead_lsw"
+	  bin_pt		  "0"
+	  preci_type		  "Single"
+	  exp_width		  "8"
+	  frac_width		  "24"
+	  explicit_period	  off
+	  period		  "1"
+	  dsp48_infoedit	  "The use of this block for DSP48 instructions is deprecated.  Please use the Opmode block."
+	  equ			  "P=C"
+	  opselect		  "C"
+	  inp2			  "PCIN>>17"
+	  opr			  "+"
+	  inp1			  "P"
+	  carry			  "CIN"
+	  dbl_ovrd		  off
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "constant"
+	  sg_icon_stat		  "50,10,0,1,white,blue,0,1f4f18b8,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 10 10 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 10 10 0 ]);\npatch([22.775 24.22 25.22 26.22 27.22 25.22 23.775 22.775 ],[6.11 6.11 "
+	  "7.11 6.11 7.11 7.11 7.11 6.11 ],[1 1 1 ]);\npatch([23.775 25.22 24.22 22.775 23.775 ],[5.11 5.11 6.11 6.11 5.11 ],["
+	  "0.931 0.946 0.973 ]);\npatch([22.775 24.22 25.22 23.775 22.775 ],[4.11 4.11 5.11 5.11 4.11 ],[1 1 1 ]);\npatch([23."
+	  "775 27.22 26.22 25.22 24.22 22.775 23.775 ],[3.11 3.11 4.11 3.11 4.11 4.11 3.11 ],[0.931 0.946 0.973 ]);\nfprintf('"
+	  "','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'61"
+	  "44');\nfprintf('','COMMENT: end icon text');"
+	  Port {
+	    PortNumber		    1
+	    Name		    "exp7"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
 	  Name			  "header_delay1"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1660, 145, 1680, 165]
+=======
+	  SID			  "3069"
+	  Ports			  [1, 1]
+	  Position		  [1660, 145, 1680, 165]
+	  ZOrder		  5262
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
@@ -16960,8 +19210,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_delay2"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1610, 220, 1630, 240]
+=======
+	  SID			  "3076"
+	  Ports			  [1, 1]
+	  Position		  [1610, 220, 1630, 240]
+	  ZOrder		  5269
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
@@ -16995,8 +19252,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_delay3"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1560, 295, 1580, 315]
+=======
+	  SID			  "3083"
+	  Ports			  [1, 1]
+	  Position		  [1560, 295, 1580, 315]
+	  ZOrder		  5276
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
@@ -17030,8 +19294,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_delay4"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1510, 370, 1530, 390]
+=======
+	  SID			  "3090"
+	  Ports			  [1, 1]
+	  Position		  [1510, 370, 1530, 390]
+	  ZOrder		  5283
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
@@ -17065,8 +19336,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_delay5"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1460, 445, 1480, 465]
+=======
+	  SID			  "3097"
+	  Ports			  [1, 1]
+	  Position		  [1460, 445, 1480, 465]
+	  ZOrder		  5290
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
@@ -17092,7 +19370,7 @@ Library {
 	  "rintf('','COMMENT: end icon text');"
 	  Port {
 	    PortNumber		    1
-	    Name		    "hdr5_0x00de"
+	    Name		    "hdr5_0x1600_DIR"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -17100,8 +19378,53 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_delay6"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1410, 520, 1430, 540]
+=======
+	  SID			  "3105"
+	  Ports			  [1, 1]
+	  Position		  [1410, 520, 1430, 540]
+	  ZOrder		  5298
+	  ShowName		  off
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Delay"
+	  SourceType		  "Xilinx Delay Block"
+	  infoedit		  "Hardware notes: A delay line is a chain, each link of which is an SRL16 followed by a flip-flop."
+	  rst			  off
+	  infoeditControl	  "Selection of Reset will increase slice count due to use of real FFs and instead of SRLs"
+	  en			  off
+	  latency		  "2"
+	  dbl_ovrd		  off
+	  reg_retiming		  off
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "delay"
+	  sg_icon_stat		  "20,20,1,1,white,blue,0,85ce9542,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 20 20 0 0 ],[0 0 20 20 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 20 20 0 0 ],[0 0 20 20 0 ]);\npatch([5.55 8.44 10.44 12.44 14.44 10.44 7.55 5.55 ],[12.22 12.22 14.22"
+	  " 12.22 14.22 14.22 14.22 12.22 ],[1 1 1 ]);\npatch([7.55 10.44 8.44 5.55 7.55 ],[10.22 10.22 12.22 12.22 10.22 ],[0"
+	  ".931 0.946 0.973 ]);\npatch([5.55 8.44 10.44 7.55 5.55 ],[8.22 8.22 10.22 10.22 8.22 ],[1 1 1 ]);\npatch([7.55 14.4"
+	  "4 12.44 10.44 8.44 5.55 7.55 ],[6.22 6.22 8.22 6.22 8.22 8.22 6.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMMENT: e"
+	  "nd icon graphics');\nfprintf('','COMMENT: begin icon text');\n\n\ncolor('black');disp('z^{-2}','texmode','on');\nfp"
+	  "rintf('','COMMENT: end icon text');"
+	  Port {
+	    PortNumber		    1
+	    Name		    "hdr6_0x1234_DIR"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "header_delay7"
+	  SID			  "3113"
+	  Ports			  [1, 1]
+	  Position		  [1360, 595, 1380, 615]
+	  ZOrder		  5306
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Delay"
 	  SourceType		  "Xilinx Delay Block"
@@ -17127,7 +19450,7 @@ Library {
 	  "rintf('','COMMENT: end icon text');"
 	  Port {
 	    PortNumber		    1
-	    Name		    "hdr6_0x014d"
+	    Name		    "hdr7_0x1800"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -17135,48 +19458,97 @@ Library {
 	Block {
 	  BlockType		  From
 	  Name			  "header_from1"
+<<<<<<< HEAD
 	  Position		  [1450, 168, 1460, 182]
+=======
+	  SID			  "3066"
+	  Position		  [1450, 168, 1460, 182]
+	  ZOrder		  5259
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "hdr_word_change"
 	}
 	Block {
 	  BlockType		  From
 	  Name			  "header_from2"
+<<<<<<< HEAD
 	  Position		  [1400, 243, 1410, 257]
+=======
+	  SID			  "3073"
+	  Position		  [1400, 243, 1410, 257]
+	  ZOrder		  5266
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "hdr_word_change"
 	}
 	Block {
 	  BlockType		  From
 	  Name			  "header_from3"
+<<<<<<< HEAD
 	  Position		  [1350, 318, 1360, 332]
+=======
+	  SID			  "3080"
+	  Position		  [1350, 318, 1360, 332]
+	  ZOrder		  5273
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "hdr_word_change"
 	}
 	Block {
 	  BlockType		  From
 	  Name			  "header_from4"
+<<<<<<< HEAD
 	  Position		  [1300, 393, 1310, 407]
+=======
+	  SID			  "3087"
+	  Position		  [1300, 393, 1310, 407]
+	  ZOrder		  5280
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "hdr_word_change"
 	}
 	Block {
 	  BlockType		  From
 	  Name			  "header_from5"
+<<<<<<< HEAD
 	  Position		  [1250, 468, 1260, 482]
+=======
+	  SID			  "3094"
+	  Position		  [1250, 468, 1260, 482]
+	  ZOrder		  5287
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "hdr_word_change"
 	}
 	Block {
 	  BlockType		  From
 	  Name			  "header_from6"
+<<<<<<< HEAD
 	  Position		  [1200, 543, 1210, 557]
+=======
+	  SID			  "3102"
+	  Position		  [1200, 543, 1210, 557]
+	  ZOrder		  5295
+	  ShowName		  off
+	  GotoTag		  "hdr_word_change"
+	}
+	Block {
+	  BlockType		  From
+	  Name			  "header_from7"
+	  SID			  "3110"
+	  Position		  [1150, 618, 1160, 632]
+	  ZOrder		  5303
+>>>>>>> ska/master
 	  ShowName		  off
 	  GotoTag		  "hdr_word_change"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_one"
+<<<<<<< HEAD
+=======
+	  SID			  "2902"
+>>>>>>> ska/master
 	  Ports			  [6, 1]
 	  Position		  [1195, 45, 1260, 225]
 	  SourceBlock		  "xbsIndex_r4/Concat"
@@ -17208,8 +19580,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_reg1"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1500, 145, 1550, 185]
+=======
+	  SID			  "3068"
+	  Ports			  [2, 1]
+	  Position		  [1500, 145, 1550, 185]
+	  ZOrder		  5261
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Register"
 	  SourceType		  "Xilinx Register Block"
@@ -17235,8 +19614,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_reg2"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1450, 220, 1500, 260]
+=======
+	  SID			  "3075"
+	  Ports			  [2, 1]
+	  Position		  [1450, 220, 1500, 260]
+	  ZOrder		  5268
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Register"
 	  SourceType		  "Xilinx Register Block"
@@ -17262,8 +19648,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_reg3"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1400, 295, 1450, 335]
+=======
+	  SID			  "3082"
+	  Ports			  [2, 1]
+	  Position		  [1400, 295, 1450, 335]
+	  ZOrder		  5275
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Register"
 	  SourceType		  "Xilinx Register Block"
@@ -17289,8 +19682,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_reg4"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1350, 370, 1400, 410]
+=======
+	  SID			  "3089"
+	  Ports			  [2, 1]
+	  Position		  [1350, 370, 1400, 410]
+	  ZOrder		  5282
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Register"
 	  SourceType		  "Xilinx Register Block"
@@ -17316,8 +19716,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_reg5"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1300, 445, 1350, 485]
+=======
+	  SID			  "3096"
+	  Ports			  [2, 1]
+	  Position		  [1300, 445, 1350, 485]
+	  ZOrder		  5289
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Register"
 	  SourceType		  "Xilinx Register Block"
@@ -17343,8 +19750,45 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_reg6"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1250, 520, 1300, 560]
+=======
+	  SID			  "3104"
+	  Ports			  [2, 1]
+	  Position		  [1250, 520, 1300, 560]
+	  ZOrder		  5297
+	  ShowName		  off
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Register"
+	  SourceType		  "Xilinx Register Block"
+	  init			  "0"
+	  rst			  off
+	  en			  on
+	  dbl_ovrd		  off
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "register"
+	  sg_icon_stat		  "50,40,2,1,white,blue,0,6bd0930c,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 50 50 0 0 ],[0 0 40 40 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 50 50 0 0 ],[0 0 40 40 0 ]);\npatch([13.875 21.1 26.1 31.1 36.1 26.1 18.875 13.875 ],[25.55 25.55 30."
+	  "55 25.55 30.55 30.55 30.55 25.55 ],[1 1 1 ]);\npatch([18.875 26.1 21.1 13.875 18.875 ],[20.55 20.55 25.55 25.55 20."
+	  "55 ],[0.931 0.946 0.973 ]);\npatch([13.875 21.1 26.1 18.875 13.875 ],[15.55 15.55 20.55 20.55 15.55 ],[1 1 1 ]);\np"
+	  "atch([18.875 36.1 31.1 26.1 21.1 13.875 18.875 ],[10.55 10.55 15.55 10.55 15.55 15.55 10.55 ],[0.931 0.946 0.973 ])"
+	  ";\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('i"
+	  "nput',1,'d');\ncolor('black');port_label('input',2,'en');\ncolor('black');port_label('output',1,'q');\ncolor('black"
+	  "');disp('z^{-1}','texmode','on');\nfprintf('','COMMENT: end icon text');"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "header_reg7"
+	  SID			  "3112"
+	  Ports			  [2, 1]
+	  Position		  [1200, 595, 1250, 635]
+	  ZOrder		  5305
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Register"
 	  SourceType		  "Xilinx Register Block"
@@ -17370,8 +19814,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_rel1"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1660, 175, 1680, 195]
+=======
+	  SID			  "3072"
+	  Ports			  [2, 1]
+	  Position		  [1660, 175, 1680, 195]
+	  ZOrder		  5265
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Relational"
 	  SourceType		  "Xilinx Arithmetic Relational Operator Block"
@@ -17403,8 +19854,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_rel2"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1610, 250, 1630, 270]
+=======
+	  SID			  "3079"
+	  Ports			  [2, 1]
+	  Position		  [1610, 250, 1630, 270]
+	  ZOrder		  5272
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Relational"
 	  SourceType		  "Xilinx Arithmetic Relational Operator Block"
@@ -17436,8 +19894,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_rel3"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1560, 325, 1580, 345]
+=======
+	  SID			  "3086"
+	  Ports			  [2, 1]
+	  Position		  [1560, 325, 1580, 345]
+	  ZOrder		  5279
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Relational"
 	  SourceType		  "Xilinx Arithmetic Relational Operator Block"
@@ -17469,8 +19934,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_rel4"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1510, 400, 1530, 420]
+=======
+	  SID			  "3093"
+	  Ports			  [2, 1]
+	  Position		  [1510, 400, 1530, 420]
+	  ZOrder		  5286
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Relational"
 	  SourceType		  "Xilinx Arithmetic Relational Operator Block"
@@ -17502,8 +19974,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_rel5"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1460, 475, 1480, 495]
+=======
+	  SID			  "3100"
+	  Ports			  [2, 1]
+	  Position		  [1460, 475, 1480, 495]
+	  ZOrder		  5293
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Relational"
 	  SourceType		  "Xilinx Arithmetic Relational Operator Block"
@@ -17535,8 +20014,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_rel6"
+<<<<<<< HEAD
 	  Ports			  [2, 1]
 	  Position		  [1410, 550, 1430, 570]
+=======
+	  SID			  "3108"
+	  Ports			  [2, 1]
+	  Position		  [1410, 550, 1430, 570]
+	  ZOrder		  5301
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Relational"
 	  SourceType		  "Xilinx Arithmetic Relational Operator Block"
@@ -17567,9 +20053,52 @@ Library {
 	}
 	Block {
 	  BlockType		  Reference
+	  Name			  "header_rel7"
+	  SID			  "3116"
+	  Ports			  [2, 1]
+	  Position		  [1360, 625, 1380, 645]
+	  ZOrder		  5309
+	  ShowName		  off
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Relational"
+	  SourceType		  "Xilinx Arithmetic Relational Operator Block"
+	  mode			  "a!=b"
+	  en			  off
+	  latency		  "1"
+	  dbl_ovrd		  off
+	  xl_use_area		  off
+	  xl_area		  "[0,0,0,0,0,0,0]"
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "relational"
+	  sg_icon_stat		  "20,20,2,1,white,blue,0,8d9aea79,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 20 20 0 0 ],[0 0 20 20 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 20 20 0 0 ],[0 0 20 20 0 ]);\npatch([5.55 8.44 10.44 12.44 14.44 10.44 7.55 5.55 ],[12.22 12.22 14.22"
+	  " 12.22 14.22 14.22 14.22 12.22 ],[1 1 1 ]);\npatch([7.55 10.44 8.44 5.55 7.55 ],[10.22 10.22 12.22 12.22 10.22 ],[0"
+	  ".931 0.946 0.973 ]);\npatch([5.55 8.44 10.44 7.55 5.55 ],[8.22 8.22 10.22 10.22 8.22 ],[1 1 1 ]);\npatch([7.55 14.4"
+	  "4 12.44 10.44 8.44 5.55 7.55 ],[6.22 6.22 8.22 6.22 8.22 8.22 6.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMMENT: e"
+	  "nd icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('input',1,'a');\ncolor('bla"
+	  "ck');port_label('input',2,'b');\ncolor('black');port_label('output',1,'\\bfa \\neq b','texmode','on');\ncolor('blac"
+	  "k');disp('z^{-1}\\newline ','texmode','on');\ncolor('black');disp(' \\n ');\nfprintf('','COMMENT: end icon text');"
+	  Port {
+	    PortNumber		    1
+	    Name		    "err7"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
 	  Name			  "header_slice1"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1600, 170, 1630, 190]
+=======
+	  SID			  "3071"
+	  Ports			  [1, 1]
+	  Position		  [1600, 170, 1630, 190]
+	  ZOrder		  5264
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Slice"
 	  SourceType		  "Xilinx Bit Slice Extractor Block"
@@ -17605,8 +20134,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_slice2"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1550, 245, 1580, 265]
+=======
+	  SID			  "3078"
+	  Ports			  [1, 1]
+	  Position		  [1550, 245, 1580, 265]
+	  ZOrder		  5271
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Slice"
 	  SourceType		  "Xilinx Bit Slice Extractor Block"
@@ -17642,8 +20178,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_slice3"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1500, 320, 1530, 340]
+=======
+	  SID			  "3085"
+	  Ports			  [1, 1]
+	  Position		  [1500, 320, 1530, 340]
+	  ZOrder		  5278
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Slice"
 	  SourceType		  "Xilinx Bit Slice Extractor Block"
@@ -17679,8 +20222,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_slice4"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1450, 395, 1480, 415]
+=======
+	  SID			  "3092"
+	  Ports			  [1, 1]
+	  Position		  [1450, 395, 1480, 415]
+	  ZOrder		  5285
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Slice"
 	  SourceType		  "Xilinx Bit Slice Extractor Block"
@@ -17716,8 +20266,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_slice5"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1400, 470, 1430, 490]
+=======
+	  SID			  "3099"
+	  Ports			  [1, 1]
+	  Position		  [1400, 470, 1430, 490]
+	  ZOrder		  5292
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Slice"
 	  SourceType		  "Xilinx Bit Slice Extractor Block"
@@ -17753,8 +20310,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_slice6"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1350, 545, 1380, 565]
+=======
+	  SID			  "3107"
+	  Ports			  [1, 1]
+	  Position		  [1350, 545, 1380, 565]
+	  ZOrder		  5300
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Slice"
 	  SourceType		  "Xilinx Bit Slice Extractor Block"
@@ -17789,9 +20353,56 @@ Library {
 	}
 	Block {
 	  BlockType		  Reference
+	  Name			  "header_slice7"
+	  SID			  "3115"
+	  Ports			  [1, 1]
+	  Position		  [1300, 620, 1330, 640]
+	  ZOrder		  5308
+	  ShowName		  off
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Slice"
+	  SourceType		  "Xilinx Bit Slice Extractor Block"
+	  infoedit		  "Extracts a given range of bits from each input sample and presents it at the output.  The output type "
+	  "is ordinarily unsigned with binary point at zero, but can be Boolean when the slice is one bit wide.<br><br>Hardwar"
+	  "e notes: In hardware this block costs nothing."
+	  nbits			  "spead_msw - spead_lsw"
+	  boolean_output	  off
+	  mode			  "Upper Bit Location + Width"
+	  bit1			  "0"
+	  base1			  "MSB of Input"
+	  bit0			  "0"
+	  base0			  "LSB of Input"
+	  dbl_ovrd		  off
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "slice"
+	  sg_icon_stat		  "30,20,1,1,white,blue,0,1fd851a7,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 30 30 0 0 ],[0 0 20 20 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 30 30 0 0 ],[0 0 20 20 0 ]);\npatch([10.55 13.44 15.44 17.44 19.44 15.44 12.55 10.55 ],[12.22 12.22 1"
+	  "4.22 12.22 14.22 14.22 14.22 12.22 ],[1 1 1 ]);\npatch([12.55 15.44 13.44 10.55 12.55 ],[10.22 10.22 12.22 12.22 10"
+	  ".22 ],[0.931 0.946 0.973 ]);\npatch([10.55 13.44 15.44 12.55 10.55 ],[8.22 8.22 10.22 10.22 8.22 ],[1 1 1 ]);\npatc"
+	  "h([12.55 19.44 17.44 15.44 13.44 10.55 12.55 ],[6.22 6.22 8.22 6.22 8.22 8.22 6.22 ],[0.931 0.946 0.973 ]);\nfprint"
+	  "f('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\n\ncolor('black');port_label('output',"
+	  "1,'[a:b]');\nfprintf('','COMMENT: end icon text');"
+	  Port {
+	    PortNumber		    1
+	    Name		    "spid7"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Reference
 	  Name			  "header_vslice1"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1600, 145, 1630, 165]
+=======
+	  SID			  "3070"
+	  Ports			  [1, 1]
+	  Position		  [1600, 145, 1630, 165]
+	  ZOrder		  5263
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Slice"
 	  SourceType		  "Xilinx Bit Slice Extractor Block"
@@ -17821,8 +20432,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_vslice2"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1550, 220, 1580, 240]
+=======
+	  SID			  "3077"
+	  Ports			  [1, 1]
+	  Position		  [1550, 220, 1580, 240]
+	  ZOrder		  5270
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Slice"
 	  SourceType		  "Xilinx Bit Slice Extractor Block"
@@ -17852,8 +20470,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_vslice3"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1500, 295, 1530, 315]
+=======
+	  SID			  "3084"
+	  Ports			  [1, 1]
+	  Position		  [1500, 295, 1530, 315]
+	  ZOrder		  5277
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Slice"
 	  SourceType		  "Xilinx Bit Slice Extractor Block"
@@ -17883,8 +20508,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_vslice4"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1450, 370, 1480, 390]
+=======
+	  SID			  "3091"
+	  Ports			  [1, 1]
+	  Position		  [1450, 370, 1480, 390]
+	  ZOrder		  5284
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Slice"
 	  SourceType		  "Xilinx Bit Slice Extractor Block"
@@ -17914,8 +20546,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_vslice5"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1400, 445, 1430, 465]
+=======
+	  SID			  "3098"
+	  Ports			  [1, 1]
+	  Position		  [1400, 445, 1430, 465]
+	  ZOrder		  5291
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Slice"
 	  SourceType		  "Xilinx Bit Slice Extractor Block"
@@ -17945,8 +20584,49 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "header_vslice6"
+<<<<<<< HEAD
 	  Ports			  [1, 1]
 	  Position		  [1350, 520, 1380, 540]
+=======
+	  SID			  "3106"
+	  Ports			  [1, 1]
+	  Position		  [1350, 520, 1380, 540]
+	  ZOrder		  5299
+	  ShowName		  off
+	  LibraryVersion	  "1.2"
+	  SourceBlock		  "xbsIndex_r4/Slice"
+	  SourceType		  "Xilinx Bit Slice Extractor Block"
+	  infoedit		  "Extracts a given range of bits from each input sample and presents it at the output.  The output type "
+	  "is ordinarily unsigned with binary point at zero, but can be Boolean when the slice is one bit wide.<br><br>Hardwar"
+	  "e notes: In hardware this block costs nothing."
+	  nbits			  "spead_lsw"
+	  boolean_output	  off
+	  mode			  "Lower Bit Location + Width"
+	  bit1			  "0"
+	  base1			  "MSB of Input"
+	  bit0			  "0"
+	  base0			  "LSB of Input"
+	  dbl_ovrd		  off
+	  has_advanced_control	  "0"
+	  sggui_pos		  "-1,-1,-1,-1"
+	  block_type		  "slice"
+	  sg_icon_stat		  "30,20,1,1,white,blue,0,1fd851a7,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 30 30 0 0 ],[0 0 20 20 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 30 30 0 0 ],[0 0 20 20 0 ]);\npatch([10.55 13.44 15.44 17.44 19.44 15.44 12.55 10.55 ],[12.22 12.22 1"
+	  "4.22 12.22 14.22 14.22 14.22 12.22 ],[1 1 1 ]);\npatch([12.55 15.44 13.44 10.55 12.55 ],[10.22 10.22 12.22 12.22 10"
+	  ".22 ],[0.931 0.946 0.973 ]);\npatch([10.55 13.44 15.44 12.55 10.55 ],[8.22 8.22 10.22 10.22 8.22 ],[1 1 1 ]);\npatc"
+	  "h([12.55 19.44 17.44 15.44 13.44 10.55 12.55 ],[6.22 6.22 8.22 6.22 8.22 8.22 6.22 ],[0.931 0.946 0.973 ]);\nfprint"
+	  "f('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\n\ncolor('black');port_label('output',"
+	  "1,'[a:b]');\nfprintf('','COMMENT: end icon text');"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "header_vslice7"
+	  SID			  "3114"
+	  Ports			  [1, 1]
+	  Position		  [1300, 595, 1330, 615]
+	  ZOrder		  5307
+>>>>>>> ska/master
 	  ShowName		  off
 	  SourceBlock		  "xbsIndex_r4/Slice"
 	  SourceType		  "Xilinx Bit Slice Extractor Block"
@@ -17976,6 +20656,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "heap_addr_width"
+<<<<<<< HEAD
+=======
+	  SID			  "2927"
+>>>>>>> ska/master
 	  Ports			  [0, 1]
 	  Position		  [1150, 143, 1170, 157]
 	  SourceBlock		  "xbsIndex_r4/Constant"
@@ -18002,14 +20686,14 @@ Library {
 	  sggui_pos		  "490,101,414,491"
 	  block_type		  "constant"
 	  block_version		  "10.1.3"
-	  sg_icon_stat		  "20,14,0,1,white,blue,0,f0403ad7,right,,[ ],[ ]"
-	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
-	  " ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ],[16.33 16.3"
-	  "3 19.33 16.33 19.33 19.33 19.33 16.33 ],[1 1 1 ]);\npatch([23.325 27.66 24.66 20.325 23.325 ],[13.33 13.33 16.33 16"
-	  ".33 13.33 ],[0.931 0.946 0.973 ]);\npatch([20.325 24.66 27.66 23.325 20.325 ],[10.33 10.33 13.33 13.33 10.33 ],[1 1"
-	  " 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
-	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
-	  "_label('output',1,'1');\nfprintf('','COMMENT: end icon text');"
+	  sg_icon_stat		  "20,14,0,1,white,blue,0,98872051,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 20 20 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 20 20 0 0 ],[0 0 14 14 0 ]);\npatch([5.55 8.44 10.44 12.44 14.44 10.44 7.55 5.55 ],[9.22 9.22 11.22 9"
+	  ".22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([7.55 10.44 8.44 5.55 7.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0.931 0.94"
+	  "6 0.973 ]);\npatch([5.55 8.44 10.44 7.55 5.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([7.55 14.44 12.44 10."
+	  "44 8.44 5.55 7.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMMENT: end icon gra"
+	  "phics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'5');\nfprintf('','COMMENT:"
+	  " end icon text');"
 	  sg_list_contents	  "{'table'=>{'carry'=>'popup(0|1|CIN|~SIGN(P or PCIN)|~SIGN(A*B or A:B)|~SIGND(A*B or A:B))','inp"
 	  "1'=>'popup(0|P|A:B|A*B|C|P+C|A:B+C)','inp2'=>'popup(0|PCIN|P|C|PCIN>>17|P>>17)','opselect'=>'popup(C + A*B|PCIN + A"
 	  "*B|P + A*B|A * B|C + A:B|C - A:B|C|Custom)','userSelections'=>{'carry'=>'CIN','inp1'=>'P','inp2'=>'PCIN>>17','opsel"
@@ -18018,6 +20702,10 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "item_id_width"
+<<<<<<< HEAD
+=======
+	  SID			  "2928"
+>>>>>>> ska/master
 	  Ports			  [0, 1]
 	  Position		  [1150, 113, 1170, 127]
 	  SourceBlock		  "xbsIndex_r4/Constant"
@@ -18044,14 +20732,14 @@ Library {
 	  sggui_pos		  "490,101,414,491"
 	  block_type		  "constant"
 	  block_version		  "10.1.3"
-	  sg_icon_stat		  "20,14,0,1,white,blue,0,fca86624,right,,[ ],[ ]"
-	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 55 55 0 0 ],[0 0 26 26 0 ],[0.77 0.82 0.91"
-	  " ]);\nplot([0 55 55 0 0 ],[0 0 26 26 0 ]);\npatch([20.325 24.66 27.66 30.66 33.66 27.66 23.325 20.325 ],[16.33 16.3"
-	  "3 19.33 16.33 19.33 19.33 19.33 16.33 ],[1 1 1 ]);\npatch([23.325 27.66 24.66 20.325 23.325 ],[13.33 13.33 16.33 16"
-	  ".33 13.33 ],[0.931 0.946 0.973 ]);\npatch([20.325 24.66 27.66 23.325 20.325 ],[10.33 10.33 13.33 13.33 10.33 ],[1 1"
-	  " 1 ]);\npatch([23.325 33.66 30.66 27.66 24.66 20.325 23.325 ],[7.33 7.33 10.33 7.33 10.33 10.33 7.33 ],[0.931 0.946"
-	  " 0.973 ]);\nfprintf('','COMMENT: end icon graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port"
-	  "_label('output',1,'1');\nfprintf('','COMMENT: end icon text');"
+	  sg_icon_stat		  "20,14,0,1,white,blue,0,279a71c8,right,,[ ],[ ]"
+	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 20 20 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
+	  " ]);\nplot([0 20 20 0 0 ],[0 0 14 14 0 ]);\npatch([5.55 8.44 10.44 12.44 14.44 10.44 7.55 5.55 ],[9.22 9.22 11.22 9"
+	  ".22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([7.55 10.44 8.44 5.55 7.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0.931 0.94"
+	  "6 0.973 ]);\npatch([5.55 8.44 10.44 7.55 5.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([7.55 14.44 12.44 10."
+	  "44 8.44 5.55 7.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMMENT: end icon gra"
+	  "phics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'3');\nfprintf('','COMMENT:"
+	  " end icon text');"
 	  sg_list_contents	  "{'table'=>{'carry'=>'popup(0|1|CIN|~SIGN(P or PCIN)|~SIGN(A*B or A:B)|~SIGND(A*B or A:B))','inp"
 	  "1'=>'popup(0|P|A:B|A*B|C|P+C|A:B+C)','inp2'=>'popup(0|PCIN|P|C|PCIN>>17|P>>17)','opselect'=>'popup(C + A*B|PCIN + A"
 	  "*B|P + A*B|A * B|C + A:B|C - A:B|C|Custom)','userSelections'=>{'carry'=>'CIN','inp1'=>'P','inp2'=>'PCIN>>17','opsel"
@@ -18060,11 +20748,15 @@ Library {
 	Block {
 	  BlockType		  Reference
 	  Name			  "num_headers"
+<<<<<<< HEAD
+=======
+	  SID			  "2929"
+>>>>>>> ska/master
 	  Ports			  [0, 1]
 	  Position		  [330, 357, 350, 373]
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
-	  const			  "7"
+	  const			  "8"
 	  gui_display_data_type	  "Fixed-point"
 	  arith_type		  "Unsigned"
 	  n_bits		  "4"
@@ -18085,23 +20777,27 @@ Library {
 	  has_advanced_control	  "0"
 	  sggui_pos		  "20,25,335,491"
 	  block_type		  "constant"
-	  sg_icon_stat		  "20,16,0,1,white,blue,0,2a6960a5,right,,[ ],[ ]"
+	  sg_icon_stat		  "20,16,0,1,white,blue,0,7a8c02d8,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 20 20 0 0 ],[0 0 16 16 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 20 20 0 0 ],[0 0 16 16 0 ]);\npatch([5.55 8.44 10.44 12.44 14.44 10.44 7.55 5.55 ],[10.22 10.22 12.22"
 	  " 10.22 12.22 12.22 12.22 10.22 ],[1 1 1 ]);\npatch([7.55 10.44 8.44 5.55 7.55 ],[8.22 8.22 10.22 10.22 8.22 ],[0.93"
 	  "1 0.946 0.973 ]);\npatch([5.55 8.44 10.44 7.55 5.55 ],[6.22 6.22 8.22 8.22 6.22 ],[1 1 1 ]);\npatch([7.55 14.44 12."
 	  "44 10.44 8.44 5.55 7.55 ],[4.22 4.22 6.22 4.22 6.22 6.22 4.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMMENT: end ic"
-	  "on graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'7');\nfprintf('','CO"
+	  "on graphics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'8');\nfprintf('','CO"
 	  "MMENT: end icon text');"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "num_item_pts"
+<<<<<<< HEAD
+=======
+	  SID			  "2930"
+>>>>>>> ska/master
 	  Ports			  [0, 1]
 	  Position		  [1150, 203, 1170, 217]
 	  SourceBlock		  "xbsIndex_r4/Constant"
 	  SourceType		  "Xilinx Constant Block Block"
-	  const			  "6"
+	  const			  "7"
 	  gui_display_data_type	  "Fixed-point"
 	  arith_type		  "Unsigned"
 	  n_bits		  "16"
@@ -18123,18 +20819,22 @@ Library {
 	  sggui_pos		  "1201,406,478,491"
 	  block_type		  "constant"
 	  block_version		  "10.1.3"
-	  sg_icon_stat		  "20,14,0,1,white,blue,0,f0403ad7,right,,[ ],[ ]"
+	  sg_icon_stat		  "20,14,0,1,white,blue,0,2a6960a5,right,,[ ],[ ]"
 	  sg_mask_display	  "fprintf('','COMMENT: begin icon graphics');\npatch([0 20 20 0 0 ],[0 0 14 14 0 ],[0.77 0.82 0.91"
 	  " ]);\nplot([0 20 20 0 0 ],[0 0 14 14 0 ]);\npatch([5.55 8.44 10.44 12.44 14.44 10.44 7.55 5.55 ],[9.22 9.22 11.22 9"
 	  ".22 11.22 11.22 11.22 9.22 ],[1 1 1 ]);\npatch([7.55 10.44 8.44 5.55 7.55 ],[7.22 7.22 9.22 9.22 7.22 ],[0.931 0.94"
 	  "6 0.973 ]);\npatch([5.55 8.44 10.44 7.55 5.55 ],[5.22 5.22 7.22 7.22 5.22 ],[1 1 1 ]);\npatch([7.55 14.44 12.44 10."
 	  "44 8.44 5.55 7.55 ],[3.22 3.22 5.22 3.22 5.22 5.22 3.22 ],[0.931 0.946 0.973 ]);\nfprintf('','COMMENT: end icon gra"
-	  "phics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'6');\nfprintf('','COMMENT:"
+	  "phics');\nfprintf('','COMMENT: begin icon text');\ncolor('black');port_label('output',1,'7');\nfprintf('','COMMENT:"
 	  " end icon text');"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "reg_hdr_one"
+<<<<<<< HEAD
+=======
+	  SID			  "2931"
+>>>>>>> ska/master
 	  Ports			  [2, 1]
 	  Position		  [1515, 75, 1565, 115]
 	  SourceBlock		  "xbsIndex_r4/Register"
@@ -18161,12 +20861,20 @@ Library {
 	Block {
 	  BlockType		  Outport
 	  Name			  "pkt_start"
+<<<<<<< HEAD
+=======
+	  SID			  "2932"
+>>>>>>> ska/master
 	  Position		  [1755, 18, 1785, 32]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "data64"
+<<<<<<< HEAD
+=======
+	  SID			  "2933"
+>>>>>>> ska/master
 	  Position		  [685, 523, 715, 537]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -18174,6 +20882,10 @@ Library {
 	Block {
 	  BlockType		  Outport
 	  Name			  "valid64"
+<<<<<<< HEAD
+=======
+	  SID			  "2934"
+>>>>>>> ska/master
 	  Position		  [685, 578, 715, 592]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -18181,6 +20893,10 @@ Library {
 	Block {
 	  BlockType		  Outport
 	  Name			  "eof64"
+<<<<<<< HEAD
+=======
+	  SID			  "2935"
+>>>>>>> ska/master
 	  Position		  [685, 633, 715, 647]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
@@ -18188,6 +20904,10 @@ Library {
 	Block {
 	  BlockType		  Outport
 	  Name			  "error"
+<<<<<<< HEAD
+=======
+	  SID			  "2936"
+>>>>>>> ska/master
 	  Position		  [1840, 1143, 1880, 1157]
 	  Port			  "5"
 	  IconDisplay		  "Port number"
@@ -18195,6 +20915,10 @@ Library {
 	Block {
 	  BlockType		  Outport
 	  Name			  "hdr_heap_id"
+<<<<<<< HEAD
+=======
+	  SID			  "2937"
+>>>>>>> ska/master
 	  Position		  [1755, 148, 1785, 162]
 	  Port			  "6"
 	  IconDisplay		  "Port number"
@@ -18202,6 +20926,10 @@ Library {
 	Block {
 	  BlockType		  Outport
 	  Name			  "hdr_heap_size"
+<<<<<<< HEAD
+=======
+	  SID			  "2938"
+>>>>>>> ska/master
 	  Position		  [1755, 223, 1785, 237]
 	  Port			  "7"
 	  IconDisplay		  "Port number"
@@ -18209,6 +20937,10 @@ Library {
 	Block {
 	  BlockType		  Outport
 	  Name			  "hdr_heap_offset"
+<<<<<<< HEAD
+=======
+	  SID			  "2939"
+>>>>>>> ska/master
 	  Position		  [1755, 298, 1785, 312]
 	  Port			  "8"
 	  IconDisplay		  "Port number"
@@ -18216,22 +20948,49 @@ Library {
 	Block {
 	  BlockType		  Outport
 	  Name			  "hdr_pkt_len"
+<<<<<<< HEAD
+=======
+	  SID			  "2940"
+>>>>>>> ska/master
 	  Position		  [1755, 373, 1785, 387]
 	  Port			  "9"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
+<<<<<<< HEAD
 	  Name			  "hdr5_0x00de"
 	  Position		  [1755, 448, 1785, 462]
+=======
+	  Name			  "hdr5_0x1600_DIR"
+	  SID			  "3101"
+	  Position		  [1755, 448, 1785, 462]
+	  ZOrder		  5294
+>>>>>>> ska/master
 	  Port			  "10"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
+<<<<<<< HEAD
 	  Name			  "hdr6_0x014d"
 	  Position		  [1755, 523, 1785, 537]
+=======
+	  Name			  "hdr6_0x1234_DIR"
+	  SID			  "3109"
+	  Position		  [1755, 523, 1785, 537]
+	  ZOrder		  5302
+>>>>>>> ska/master
 	  Port			  "11"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "hdr7_0x1800"
+	  SID			  "3117"
+	  Position		  [1755, 598, 1785, 612]
+	  ZOrder		  5310
+	  Port			  "12"
 	  IconDisplay		  "Port number"
 	}
 	Line {
@@ -18414,8 +21173,8 @@ Library {
 	    DstPort		    1
 	  }
 	  Branch {
-	    Points		    [15, 0; 0, -15; 655, 0]
-	    DstBlock		    "header_reg6"
+	    Points		    [15, 0; 0, 75]
+	    DstBlock		    "header_reg7"
 	    DstPort		    1
 	  }
 	}
@@ -18635,21 +21394,21 @@ Library {
 	Line {
 	  SrcBlock		  "badpktand"
 	  SrcPort		  1
-	  Points		  [545, 0; 0, -355]
+	  Points		  [545, 0; 0, -280]
 	  DstBlock		  "error_or"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "hdr_chk"
 	  SrcPort		  1
-	  Points		  [0, 565; -40, 0; 0, 20]
+	  Points		  [0, 640; -40, 0; 0, 20]
 	  DstBlock		  "error_or"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "error_or"
 	  SrcPort		  1
-	  Points		  [10, 0; 0, -25]
+	  Points		  [10, 0; 0, -30]
 	  DstBlock		  "error_gate"
 	  DstPort		  1
 	}
@@ -18663,7 +21422,7 @@ Library {
 	Line {
 	  SrcBlock		  "error_gate"
 	  SrcPort		  1
-	  Points		  [10, 0; 0, 455]
+	  Points		  [10, 0; 0, 380]
 	  DstBlock		  "error"
 	  DstPort		  1
 	}
@@ -18749,7 +21508,7 @@ Library {
 	  Labels		  [0, 0]
 	  SrcBlock		  "header_rel1"
 	  SrcPort		  1
-	  Points		  [0, 480; -40, 0; 0, 30]
+	  Points		  [0, 555; -40, 0; 0, 30]
 	  DstBlock		  "error_or"
 	  DstPort		  3
 	}
@@ -18815,7 +21574,7 @@ Library {
 	  Labels		  [0, 0]
 	  SrcBlock		  "header_rel2"
 	  SrcPort		  1
-	  Points		  [10, 0; 0, 445]
+	  Points		  [10, 0; 0, 520]
 	  DstBlock		  "error_or"
 	  DstPort		  4
 	}
@@ -18881,7 +21640,7 @@ Library {
 	  Labels		  [0, 0]
 	  SrcBlock		  "header_rel3"
 	  SrcPort		  1
-	  Points		  [60, 0; 0, 380]
+	  Points		  [60, 0; 0, 455]
 	  DstBlock		  "error_or"
 	  DstPort		  5
 	}
@@ -18946,7 +21705,7 @@ Library {
 	  }
 	  Branch {
 	    Labels		    [0, 0]
-	    Points		    [0, 15; -45, 0; 0, 230; -1235, 0; 0, 65]
+	    Points		    [0, 15; -45, 0; 0, 195; -770, 0; 0, 35; -465, 0; 0, 65]
 	    DstBlock		    "check_datalen"
 	    DstPort		    2
 	  }
@@ -18956,7 +21715,7 @@ Library {
 	  Labels		  [0, 0]
 	  SrcBlock		  "header_rel4"
 	  SrcPort		  1
-	  Points		  [110, 0; 0, 315]
+	  Points		  [110, 0; 0, 390]
 	  DstBlock		  "error_or"
 	  DstPort		  6
 	}
@@ -19010,11 +21769,11 @@ Library {
 	  DstPort		  2
 	}
 	Line {
-	  Name			  "hdr5_0x00de"
+	  Name			  "hdr5_0x1600_DIR"
 	  Labels		  [0, 0]
 	  SrcBlock		  "header_delay5"
 	  SrcPort		  1
-	  DstBlock		  "hdr5_0x00de"
+	  DstBlock		  "hdr5_0x1600_DIR"
 	  DstPort		  1
 	}
 	Line {
@@ -19022,9 +21781,29 @@ Library {
 	  Labels		  [0, 0]
 	  SrcBlock		  "header_rel5"
 	  SrcPort		  1
-	  Points		  [160, 0; 0, 250]
+	  Points		  [160, 0; 0, 325]
 	  DstBlock		  "error_or"
 	  DstPort		  7
+	}
+	Line {
+	  SrcBlock		  "header_reg7"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  Branch {
+	    Points		    [0, -30; -20, 0]
+	    DstBlock		    "header_reg6"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [15, 0; 0, 15]
+	    DstBlock		    "header_slice7"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [15, 0; 0, -10]
+	    DstBlock		    "header_vslice7"
+	    DstPort		    1
+	  }
 	}
 	Line {
 	  SrcBlock		  "header_from6"
@@ -19056,11 +21835,11 @@ Library {
 	  DstPort		  2
 	}
 	Line {
-	  Name			  "hdr6_0x014d"
+	  Name			  "hdr6_0x1234_DIR"
 	  Labels		  [0, 0]
 	  SrcBlock		  "header_delay6"
 	  SrcPort		  1
-	  DstBlock		  "hdr6_0x014d"
+	  DstBlock		  "hdr6_0x1234_DIR"
 	  DstPort		  1
 	}
 	Line {
@@ -19068,52 +21847,130 @@ Library {
 	  Labels		  [0, 0]
 	  SrcBlock		  "header_rel6"
 	  SrcPort		  1
-	  Points		  [210, 0; 0, 185]
+	  Points		  [210, 0; 0, 260]
 	  DstBlock		  "error_or"
 	  DstPort		  8
 	}
+	Line {
+	  SrcBlock		  "header_from7"
+	  SrcPort		  1
+	  DstBlock		  "header_reg7"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "spid7"
+	  Labels		  [0, 0]
+	  SrcBlock		  "header_slice7"
+	  SrcPort		  1
+	  DstBlock		  "header_rel7"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "header_vslice7"
+	  SrcPort		  1
+	  DstBlock		  "header_delay7"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "exp7"
+	  Labels		  [0, 0]
+	  SrcBlock		  "header_const7"
+	  SrcPort		  1
+	  Points		  [90, 0]
+	  DstBlock		  "header_rel7"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "hdr7_0x1800"
+	  Labels		  [0, 0]
+	  SrcBlock		  "header_delay7"
+	  SrcPort		  1
+	  DstBlock		  "hdr7_0x1800"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "err7"
+	  Labels		  [0, 0]
+	  SrcBlock		  "header_rel7"
+	  SrcPort		  1
+	  Points		  [260, 0; 0, 195]
+	  DstBlock		  "error_or"
+	  DstPort		  9
+	}
 	Annotation {
+<<<<<<< HEAD
+=======
+	  SID			  "2950"
+>>>>>>> ska/master
 	  Name			  "num item pointers -\nafter this header"
 	  Position		  [1024, 208]
 	  HorizontalAlignment	  "left"
 	  DropShadow		  on
 	}
 	Annotation {
+<<<<<<< HEAD
+=======
+	  SID			  "2949"
+>>>>>>> ska/master
 	  Name			  "<reserved>"
 	  Position		  [1024, 178]
 	  HorizontalAlignment	  "left"
 	  DropShadow		  on
 	}
 	Annotation {
+<<<<<<< HEAD
+=======
+	  SID			  "2948"
+>>>>>>> ska/master
 	  Name			  "heap addr width in bytes"
 	  Position		  [1024, 148]
 	  HorizontalAlignment	  "left"
 	  DropShadow		  on
 	}
 	Annotation {
+<<<<<<< HEAD
+=======
+	  SID			  "2947"
+>>>>>>> ska/master
 	  Name			  "item id width in bytes"
 	  Position		  [1024, 118]
 	  HorizontalAlignment	  "left"
 	  DropShadow		  on
 	}
 	Annotation {
+<<<<<<< HEAD
+=======
+	  SID			  "2946"
+>>>>>>> ska/master
 	  Name			  "spead version"
 	  Position		  [1024, 88]
 	  HorizontalAlignment	  "left"
 	  DropShadow		  on
 	}
 	Annotation {
+<<<<<<< HEAD
+=======
+	  SID			  "2945"
+>>>>>>> ska/master
 	  Name			  "magic number - 0x53"
 	  Position		  [1024, 58]
 	  HorizontalAlignment	  "left"
 	  DropShadow		  on
 	}
 	Annotation {
+<<<<<<< HEAD
+=======
+	  SID			  "2944"
+>>>>>>> ska/master
 	  Name			  "SPEAD header"
 	  Position		  [1157, 21]
 	  DropShadow		  on
 	}
 	Annotation {
+<<<<<<< HEAD
+=======
+	  SID			  "2943"
+>>>>>>> ska/master
 	  Name			  "woot"
 	  Position		  [52, 102]
 	  VerticalAlignment	  "top"
