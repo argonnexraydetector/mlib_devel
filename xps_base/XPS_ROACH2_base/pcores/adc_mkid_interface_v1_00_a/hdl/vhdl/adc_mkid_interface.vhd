@@ -21,7 +21,14 @@ use UNISIM.vcomponents.all;
 
 entity adc_mkid_interface is
   generic (
-    OUTPUT_CLK   : INTEGER := 0
+    OUTPUT_CLK   : INTEGER := 1
+  --  clkin_period    : real    :=10.0;  -- clock in period (ns)
+  --  mode            : integer :=0;    -- 1-channel mode
+  --  mmcm_m          : real    :=16.0;  -- MMCM multiplier value
+  --  mmcm_d          : integer :=12;    -- MMCM divide value
+  --  mmcm_o0         : real    :=8.0;  -- MMCM first clock divide
+  --  mmcm_o1         : integer :=2   -- MMCM second clock divide
+	 
     );   
   Port (
       
@@ -119,6 +126,37 @@ architecture Structural of adc_mkid_interface is
   signal fifo_full_i   : STD_LOGIC;
   signal fifo_full_q   : STD_LOGIC;
 
+
+----------------------------------------------------------------------------------
+----------------------MMCM
+
+  signal clkin1      : std_logic;
+  -- Output clock buffering / unused connectors
+  signal clkfbout         : std_logic;
+  signal clkfboutb_unused : std_logic;
+  signal clkout0          : std_logic;
+  signal clkout0b_unused  : std_logic;
+  signal clkout1          : std_logic;
+  signal clkout1b_unused  : std_logic;
+  signal clkout2          : std_logic;
+  signal clkout2b_unused  : std_logic;
+  signal clkout3          : std_logic;
+  signal clkout3b_unused  : std_logic;
+  signal clkout4_unused   : std_logic;
+  signal clkout5_unused   : std_logic;
+  signal clkout6_unused   : std_logic;
+  -- Dynamic programming unused signals
+  signal do_unused        : std_logic_vector(15 downto 0);
+  signal drdy_unused      : std_logic;
+  -- Unused status signals
+  signal clkfbstopped_unused : std_logic;
+  signal clkinstopped_unused : std_logic;
+  signal clkfb_in_buf_out : std_logic;
+  signal clkfb_bufg_out   : std_logic;
+  signal clkfb_oddr_out   : std_logic;
+
+----------------------------------------------------------------------------------
+
   
   ----------------------------------------
   -- Asynchronous FIFO
@@ -136,7 +174,87 @@ architecture Structural of adc_mkid_interface is
       full: OUT std_logic);
   end component;
 
-       
+--   component mmcm is
+--		port
+--			(-- Clock in ports
+--				CLK_IN1           : in     std_logic;
+--				CLKFB_IN          : in     std_logic;
+--  -- Clock out ports
+--				CLK_OUT1          : out    std_logic;
+--				CLK_OUT2          : out    std_logic;
+--				CLK_OUT3          : out    std_logic;
+--				CLK_OUT4          : out    std_logic;
+--				CLKFB_OUT         : out    std_logic;
+--  -- Dynamic phase shift ports
+--				PSCLK             : in     std_logic;
+--				PSEN              : in     std_logic;
+--				PSINCDEC          : in     std_logic;
+--				PSDONE            : out    std_logic;
+  -- Status and control signals
+--				LOCKED            : out    std_logic
+--			);
+--end component;
+
+
+    component MMCM_BASE
+        generic (
+            BANDWIDTH          : string  := "OPTIMIZED"; -- Jitter programming ("HIGH","LOW","OPTIMIZED")
+            CLKFBOUT_MULT_F    : integer := 5;           -- Multiply value for all CLKOUT (5.0-64.0). THIS IS THE MULTIPLIER
+            CLKFBOUT_PHASE     : real    := 0.0;
+            CLKIN1_PERIOD      : real    := 5.0;
+            CLKOUT0_DIVIDE_F   : integer := 5;           -- Divide amount for CLKOUT0 (1.000-128.000).
+            CLKOUT0_DUTY_CYCLE : real    := 0.5; 
+            CLKOUT1_DUTY_CYCLE : real    := 0.5;
+            CLKOUT2_DUTY_CYCLE : real    := 0.5;
+            CLKOUT3_DUTY_CYCLE : real    := 0.5;
+            CLKOUT4_DUTY_CYCLE : real    := 0.5;
+            CLKOUT5_DUTY_CYCLE : real    := 0.5;
+            CLKOUT6_DUTY_CYCLE : real    := 0.5;
+            CLKOUT0_PHASE      : real    := 0.0;
+            CLKOUT1_PHASE      : integer := 90;
+            CLKOUT2_PHASE      : integer := 180;
+            CLKOUT3_PHASE      : integer := 270;
+            CLKOUT4_PHASE      : real    := 0.0;
+            CLKOUT5_PHASE      : real    := 0.0;
+            CLKOUT6_PHASE      : real    := 0.0;
+            CLKOUT1_DIVIDE     : integer := 5;            -- THIS IS THE DIVISOR
+            CLKOUT2_DIVIDE     : integer := 5;
+            CLKOUT3_DIVIDE     : integer := 5;
+            CLKOUT4_DIVIDE     : integer := 1;
+            CLKOUT5_DIVIDE     : integer := 1;
+            CLKOUT6_DIVIDE     : integer := 1;
+            CLKOUT4_CASCADE    : string  := "FALSE";
+            CLOCK_HOLD         : string  := "FALSE";
+            DIVCLK_DIVIDE      : integer := 1;            -- Master division value (1-80)
+            REF_JITTER1        : real    := 0.0;
+            STARTUP_WAIT       : string  := "FALSE"
+        );
+        port (
+            CLKIN1    : in  std_logic;
+            CLKFBIN   : in  std_logic;
+            
+            CLKFBOUT  : out std_logic;
+            CLKFBOUTB : out std_logic;
+            
+            CLKOUT0   : out std_logic;
+            CLKOUT0B  : out std_logic;
+            CLKOUT1   : out std_logic;
+            CLKOUT1B  : out std_logic;
+            CLKOUT2   : out std_logic;
+            CLKOUT2B  : out std_logic;
+            CLKOUT3   : out std_logic;
+            CLKOUT3B  : out std_logic;
+            CLKOUT4   : out std_logic;
+            CLKOUT5   : out std_logic;
+            CLKOUT6   : out std_logic;
+            LOCKED    : out std_logic;
+            
+            PWRDWN    : in  std_logic;
+            RST       : in  std_logic
+        );
+    end component;
+
+
 
 
 begin
@@ -159,8 +277,6 @@ begin
         IB => DI_n(j)
         );
   end generate;
-
-
     
   IDDR_inst_generate_data_i : for j in 0 to 11 generate
     IDDR_inst_data_i : IDDR
@@ -177,8 +293,6 @@ begin
         S => '0'
         );
   end generate;
-
-    
   -- ADC input Q --
 
   IBUFDS_inst_generate_data_q : for j in 0 to 11 generate
@@ -319,7 +433,6 @@ begin
       IB => DRDY_I_n
       );
 
-
   -- BUFG
  
   BUFG_data_clk : BUFG
@@ -347,47 +460,322 @@ begin
     adc_clk270_out <= clk270;
   end generate;
 
-  -- DCM 
-  CLK_DCM : DCM
-    generic map(
-      CLK_FEEDBACK          => "1X",
-      CLKDV_DIVIDE          => 2.000000,
-      CLKFX_DIVIDE          => 1,
-      CLKFX_MULTIPLY        => 4,
-      CLKIN_DIVIDE_BY_2     => FALSE,
-      CLKIN_PERIOD          => 0.000000,
-      CLKOUT_PHASE_SHIFT    => "NONE",
-      DESKEW_ADJUST         => "SYSTEM_SYNCHRONOUS",
-      DFS_FREQUENCY_MODE    => "HIGH",
-      DLL_FREQUENCY_MODE    => "HIGH",
-      DUTY_CYCLE_CORRECTION => TRUE,
-      FACTORY_JF            => x"F0F0",
-      PHASE_SHIFT           => 0,
-      STARTUP_WAIT          => FALSE)
-    port map (
-      CLKFB                 => clk,
-      CLKIN                 => data_clk,
-      DSSEN                 => '0',
-      PSCLK                 => '0',
-      PSEN                  => '0',
-      PSINCDEC              => '0',
-      RST                   => '0',
-      CLKDV                 => open,
-      CLKFX                 => open,
-      CLKFX180              => open,
-      CLK0                  => dcm_clk,
-      CLK2X                 => open,
-      CLK2X180              => open,
-      CLK90                 => dcm_clk90,
-      CLK180                => dcm_clk180,
-      CLK270                => dcm_clk270,
-      LOCKED                => adc_dcm_locked,
-      PSDONE                => open,
-      STATUS                => open
-      );
+--  -- DCM 
+--  CLK_DCM : DCM
+--    generic map(
+--      CLK_FEEDBACK          => "1X",
+--      CLKDV_DIVIDE          => 2.000000,
+--      CLKFX_DIVIDE          => 1,
+--      CLKFX_MULTIPLY        => 4,
+--      CLKIN_DIVIDE_BY_2     => FALSE,
+--      CLKIN_PERIOD          => 0.000000,
+--      CLKOUT_PHASE_SHIFT    => "NONE",
+--      DESKEW_ADJUST         => "SYSTEM_SYNCHRONOUS",
+--      DFS_FREQUENCY_MODE    => "HIGH",
+--      DLL_FREQUENCY_MODE    => "HIGH",
+--      DUTY_CYCLE_CORRECTION => TRUE,
+--      FACTORY_JF            => x"F0F0",
+--      PHASE_SHIFT           => 0,
+--      STARTUP_WAIT          => FALSE)
+--    port map (
+--      CLKFB                 => clk,
+--      CLKIN                 => data_clk,
+--      DSSEN                 => '0',
+--      PSCLK                 => '0',
+--      PSEN                  => '0',
+--      PSINCDEC              => '0',
+--      RST                   => '0',
+--      CLKDV                 => open,
+--      CLKFX                 => open,
+--      CLKFX180              => open,
+--      CLK0                  => dcm_clk,
+--      CLK2X                 => open,
+--      CLK2X180              => open,
+--      CLK90                 => dcm_clk90,
+--      CLK180                => dcm_clk180,
+--      CLK270                => dcm_clk270,
+--      LOCKED                => adc_dcm_locked,
+--      PSDONE                => open,
+--      STATUS                => open
+--      );
+--		
+		
+--	MMCM_ADV_inst : MMCM_ADV
+--		generic map (
+--			BANDWIDTH 			=> "OPTIMIZED",
+--			CLKFBOUT_MULT_F 		=> 8.000,
+--			CLKFBOUT_PHASE 			=> 0.0,
+--			CLKFBOUT_USE_FINE_PS 		=> FALSE,
+--			CLKIN1_PERIOD 			=> 0.0,
+--			CLKIN2_PERIOD 			=> 0.0,
+--			CLKOUT0_DIVIDE_F 		=> 2.0,
+--			CLKOUT0_DUTY_CYCLE 		=> 0.5,
+--			CLKOUT0_PHASE 			=> 0.0,
+--			CLKOUT0_USE_FINE_PS 		=> FALSE,
+--			CLKOUT1_DIVIDE			=> 2,
+--			CLKOUT1_DUTY_CYCLE 		=> 0.5,
+--			CLKOUT1_PHASE 			=> 90.0,
+--			CLKOUT1_USE_FINE_PS 		=> FALSE,
+--			CLKOUT2_DIVIDE 			=> 2,
+--			CLKOUT2_DUTY_CYCLE 		=> 0.5,
+--			CLKOUT2_PHASE 			=> 180.0,
+--			CLKOUT2_USE_FINE_PS 		=> FALSE,
+--			CLKOUT3_DIVIDE 			=> 2,
+--			CLKOUT3_DUTY_CYCLE 		=> 0.5,
+--			CLKOUT3_PHASE 			=> 270.0,
+--			CLKOUT3_USE_FINE_PS		=> FALSE,
+--			CLKOUT4_CASCADE 		=> FALSE,
+--			CLKOUT4_DIVIDE 			=> 2,
+--			CLKOUT4_DUTY_CYCLE 		=> 0.5,
+--			CLKOUT4_PHASE 			=> 0.0,
+--			CLKOUT4_USE_FINE_PS 		=> FALSE,
+--			CLKOUT5_DIVIDE 			=> 1,
+--			CLKOUT5_DUTY_CYCLE 		=> 0.5,
+--			CLKOUT5_PHASE 			=> 0.0,
+--			CLKOUT5_USE_FINE_PS 		=> FALSE,
+--			CLKOUT6_DIVIDE 			=> 1,
+--			CLKOUT6_DUTY_CYCLE 		=> 0.5,
+--			CLKOUT6_PHASE 			=> 0.0,
+--			CLKOUT6_USE_FINE_PS 		=> FALSE,
+--			CLOCK_HOLD 			=> FALSE,
+--			COMPENSATION 			=> "SYSTEM_SYNCHRONOUS",
+--			DIVCLK_DIVIDE 			=> 1,
+--			REF_JITTER1 			=> 0.0,
+--			REF_JITTER2 			=> 0.0,
+--			STARTUP_WAIT 			=> FALSE
+--			)
+--			port map (
+--			CLKFBOUT 			=> open,
+--			CLKFBOUTB 			=> open,
+--			CLKFBSTOPPED 			=> open,
+--			CLKINSTOPPED 			=> open,
+--			CLKOUT0 			=> dcm_clk,
+--			CLKOUT0B 			=> open,
+--			CLKOUT1 			=> dcm_clk90,
+--			CLKOUT1B 			=> open,
+--			CLKOUT2 			=> dcm_clk180,
+--			CLKOUT2B 			=> open,
+--			CLKOUT3 			=> dcm_clk270,
+--			CLKOUT3B 			=> open,
+--			CLKOUT4 			=> open,
+--			CLKOUT5 			=> open,
+--			CLKOUT6 			=> open,
+--			DO 				=> open,
+--			DRDY 				=> open,
+--			LOCKED 				=> adc_dcm_locked,
+--			PSDONE 				=> open,
+--			CLKFBIN 			=> clk,  --
+--			CLKIN1 				=> data_clk, --
+--			CLKIN2 				=> '0',
+--			CLKINSEL 			=> '1',
+--			DADDR 				=> (others=>'0'),
+--			DCLK 				=> '0',
+--			DEN 				=> '0',
+--			DI 				=> (others=>'0'),
+--			DWE 				=> '0',
+--			PSCLK                 		=> '0',
+--			PSEN                  		=> '0',
+--			PSINCDEC              		=> '0',
+--			PWRDWN 				=> '0',
+--			RST                   		=> '0'
+--			);
 
-  
+--  		MMCM0: MMCM_ADV
+--    			generic map (
+--      		BANDWIDTH            => "LOW",
+--      		CLKFBOUT_MULT_F      => mmcm_m,
+--     			DIVCLK_DIVIDE        => mmcm_d,
+--      		CLKFBOUT_PHASE       => 0.0,
+--      		CLKFBOUT_USE_FINE_PS => TRUE,
+--      		CLKIN1_PERIOD        => clkin_period,
+--      		CLKOUT0_DIVIDE_F     => mmcm_o0,
+--      		CLKOUT1_DIVIDE       => mmcm_o1,
+--      		CLKOUT2_DIVIDE       => mmcm_o1,
+--      		CLKOUT3_DIVIDE       => mmcm_o1,
+--      		CLKOUT4_DIVIDE       => mmcm_o1,
+--      		CLKOUT0_DUTY_CYCLE   => 0.50,
+--      		CLKOUT1_DUTY_CYCLE   => 0.50,
+--      		CLKOUT2_DUTY_CYCLE   => 0.50,
+--      		CLKOUT3_DUTY_CYCLE   => 0.50,
+--      		CLKOUT4_DUTY_CYCLE   => 0.50,
+--      		CLKOUT0_PHASE        => 0.0,
+--      		CLKOUT1_PHASE        => 0.0,
+--      		CLKOUT2_PHASE        => 90.0,
+--      		CLKOUT3_PHASE        => 180.0,
+--      		CLKOUT4_PHASE        => 270.0
+--      		)
+--   			 port map (
+--      		CLKFBIN   => clk,
+--      		CLKFBOUT  => open,
+--      		CLKINSEL  => '1',
+--      		CLKIN1    => data_clk,
+--      		CLKIN2    => '0',
+--      		CLKOUT0   => open,
+--      		CLKOUT1   => dcm_clk,
+--      		CLKOUT2   => dcm_clk90,
+--      		CLKOUT3   => dcm_clk180,
+--      		CLKOUT4   => dcm_clk270,
+--      		DADDR     => "0000000",
+--      		DCLK      => '0',
+--      		DEN       => '0',
+--      		DI        => X"0000",
+--      		DO        => open,
+--      		DRDY      => open,
+--      		DWE       => '0',
+--      		LOCKED    => adc_dcm_locked,
+--      		PSCLK      => '0',
+--			PSEN      => '0',
+--			PSINCDEC  => '0',
+--			PWRDWN 	=> '0',
+--			RST       => '0'	
+--      		);
+		
+--		MMCM1 : mmcm      -
+--			port map 
+--			(-- Clock in ports
+--			CLK_IN1         =>  data_clk  ,
+--			CLKFB_IN       =>		clk,
+  -- Clock out ports
+--			CLK_OUT1         => 	dcm_clk	,
+--			CLK_OUT2         =>	dcm_clk90	,
+--			CLK_OUT3         =>	dcm_clk180	,
+--			CLK_OUT4         =>	dcm_clk270	,
+--			CLKFB_OUT        => 	open	,
+  -- Dynamic phase shift ports
+--			PSCLK      => '0',
+--			PSEN      => '0',
+--			PSINCDEC  => '0',
+--			PSDONE           => 	open	,
+  -- Status and control signals
+--			LOCKED         =>adc_dcm_locked
+--			);			
+--				
+
+-- 			mmcm_adv_inst : MMCM_ADV                     -----------------------this one compiled before
+--  			generic map
+--   			(BANDWIDTH            => "OPTIMIZED",
+--    			CLKOUTclk4_CASCADE      => FALSE,
+--    			CLOCK_HOLD           => FALSE,
+--   			COMPENSATION         => "ZHOLD",
+--    			STARTUP_WAIT         => FALSE,
+--   			DIVCLK_DIVIDE        => 16,
+--    			CLKFBOUT_MULT_F      => 25.000,
+--    			CLKFBOUT_PHASE       => 0.000,
+--    			CLKFBOUT_USE_FINE_PS => FALSE,
+--    			CLKOUT0_DIVIDE_F     => 8.000,
+--    			CLKOUT0_PHASE        => 0.000,
+--    			CLKOUT0_DUTY_CYCLE   => 0.5,
+--    			CLKOUT0_USE_FINE_PS  => FALSE,
+--   			CLKOUT1_DIVIDE       => 8,
+--    			CLKOUT1_PHASE        => 90.000,
+--    			CLKOUT1_DUTY_CYCLE   => 0.5,
+--    			CLKOUT1_USE_FINE_PS  => FALSE,
+--    			CLKOUT2_DIVIDE       => 8,
+--    			CLKOUT2_PHASE        => 180.000,
+--    			CLKOUT2_DUTY_CYCLE   => 0.5,
+--   			CLKOUT2_USE_FINE_PS  => FALSE,
+--    			CLKOUT3_DIVIDE       => 8,
+--    			CLKOUT3_PHASE        => 270.000,
+--    			CLKOUT3_DUTY_CYCLE   => 0.5,
+--    			CLKOUT3_USE_FINE_PS  => FALSE,
+--    			CLKIN1_PERIOD        => 1.953,
+--    			REF_JITTER1          => 0.010)
+--  			port map
+--    		-- Output clocks
+--   			(CLKFBOUT            => clkfbout,
+--    			CLKFBOUTB           => clkfboutb_unused,
+--    			CLKOUT0             => clkout0,
+--   			CLKOUT0B            => clkout0b_unused,
+--    			CLKOUT1             => clkout1,
+--    			CLKOUT1B            => clkout1b_unused,
+--    			CLKOUT2             => clkout2,
+--    			CLKOUT2B            => clkout2b_unused,
+--    			CLKOUT3             => clkout3,
+--    			CLKOUT3B            => clkout3b_unused,
+--    			CLKOUT4             => clkout4_unused,
+--    			CLKOUT5             => clkout5_unused,
+--    			CLKOUT6             => clkout6_unused,
+--    -- Input clock control
+--    			CLKFBIN             => clk, 
+--    			CLKIN1              => data_clk ,
+--    			CLKIN2              => '0',
+    -- Tied to always select the primary input clock--
+--    			CLKINSEL            => '1',
+    -- Ports for dynamic reconfiguration
+--    			DADDR               => (others => '0'),
+--    			DCLK                => '0',
+--    			DEN                 => '0',
+--    			DI                  => (others => '0'),
+--    			DO                  => do_unused,
+--    			DRDY                => drdy_unused,
+--    			DWE                 => '0',
+--    -- Ports for dynamic phase shift
+--    			PSCLK      => '0',
+--    			PSEN      => '0',
+--    			PSINCDEC  => '0',
+--    			PSDONE              => open,
+    -- Other control and status signals
+--    			LOCKED              => adc_dcm_locked,
+--    			CLKINSTOPPED        => clkinstopped_unused,
+--    			CLKFBSTOPPED        => clkfbstopped_unused,
+--    			PWRDWN              => '0',
+--    			RST                 => '0');
+	
 
 
-  
+		MMCM_adc : MMCM_BASE
+    		generic map(
+        		BANDWIDTH          => "OPTIMIZED", -- Jitter programming ("HIGH","LOW","OPTIMIZED")
+        		CLKFBOUT_MULT_F    => 5,           -- Multiply value for all CLKOUT (5.0-64.0). THIS IS THE MULTIPLIER
+        		CLKFBOUT_PHASE     => 0.0,
+        		CLKIN1_PERIOD      => 1.953,
+        		CLKOUT0_DIVIDE_F   => 5,           -- Divide amount for CLKOUT0 (1.000-128.000).
+        		CLKOUT0_DUTY_CYCLE => 0.5,
+        		CLKOUT1_DUTY_CYCLE => 0.5,
+        		CLKOUT2_DUTY_CYCLE => 0.5,
+        		CLKOUT3_DUTY_CYCLE => 0.5,
+        		CLKOUT4_DUTY_CYCLE => 0.5,
+        		CLKOUT5_DUTY_CYCLE => 0.5,
+        		CLKOUT6_DUTY_CYCLE => 0.5,
+        		CLKOUT0_PHASE      => 0.0,
+        		CLKOUT1_PHASE      => 90,
+        		CLKOUT2_PHASE      => 180,
+        		CLKOUT3_PHASE      => 270,
+        		CLKOUT4_PHASE      => 0.0,
+        		CLKOUT5_PHASE      => 0.0,
+        		CLKOUT6_PHASE      => 0.0,
+        		CLKOUT1_DIVIDE     => 5,            -- THIS IS THE DIVISOR
+        		CLKOUT2_DIVIDE     => 5,
+        		CLKOUT3_DIVIDE     => 5,
+        		CLKOUT4_DIVIDE     => 1,
+        		CLKOUT5_DIVIDE     => 1,
+        		CLKOUT6_DIVIDE     => 1,
+        		CLKOUT4_CASCADE    => "FALSE",
+        		CLOCK_HOLD         => "FALSE",
+        		DIVCLK_DIVIDE      => 1,            -- Master division value (1-80)
+        		REF_JITTER1        => 0.0,
+        		STARTUP_WAIT       => "FALSE")
+    		port map(
+        		CLKIN1    => data_clk,
+        		CLKFBIN   => clk,
+        		CLKFBOUT  => clkfbout,
+        		CLKFBOUTB => open,
+        		CLKOUT0   => dcm_clk,
+        		CLKOUT0B  => open,
+        		CLKOUT1   => dcm_clk90,
+        		CLKOUT1B  => open,
+        		CLKOUT2   => dcm_clk180,
+        		CLKOUT2B  => open,
+        		CLKOUT3   => dcm_clk270,
+        		CLKOUT3B  => open,
+        		CLKOUT4   => open,
+        		CLKOUT5   => open,
+        		CLKOUT6   => open,
+        		LOCKED    => adc_dcm_locked,   
+       	 		PWRDWN    => '0',
+        		RST       => '0'
+		    	);
+
+
+				
 end Structural;
