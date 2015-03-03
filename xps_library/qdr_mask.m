@@ -69,10 +69,9 @@ switch hw_sys
         output_parity_map_bottom = '';
         
         for i=[be_width-1:-1:0]
-           %input_parity_map = [input_parity_map, 'a[', num2str(data_width-(be_width-i)), '],a[', num2str((i+1)*8-1), ':', num2str(i*8), ']'];
-           input_parity_map = [input_parity_map, 'a[35:0]'];
-           output_parity_map_top = [output_parity_map_top, 'a[35:0]'];
-           output_parity_map_bottom = [output_parity_map_bottom, 'a[35:0]'];
+           input_parity_map = [input_parity_map, 'a[', num2str(data_width-(be_width-i)), '],a[', num2str((i+1)*8-1), ':', num2str(i*8), ']'];
+           output_parity_map_top = [output_parity_map_top, 'a[', num2str(9*(i+1) - 1), ']'];
+           output_parity_map_bottom = [output_parity_map_bottom, 'a[', num2str(9*(i+1)-1 - 1), ':', num2str(9*(i+1)-1 - 8), ']'];
            if i==0
                input_parity_map = [input_parity_map, '}'];
                output_parity_map = [output_parity_map, output_parity_map_top, ',', output_parity_map_bottom, '}'];
