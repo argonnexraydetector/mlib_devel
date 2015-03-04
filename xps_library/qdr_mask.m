@@ -32,8 +32,8 @@ catch
     if ~regexp(bdroot(blk), '(casper|xps)_library')
       warndlg('Could not find hardware platform for QDR configuration - is there an XSG block in this model? Defaulting platform to ROACH.');
       warning('Could not find hardware platform for QDR configuration - is there an XSG block in this model? Defaulting platform to ROACH.');
+      hw_sys = 'ROACH';
     end
-    hw_sys = 'ROACH';
 end %try/catch
 
 clog(['Drawing QDR block for platform: ', hw_sys], 'qdr_mask_debug');
@@ -80,13 +80,12 @@ switch hw_sys
                output_parity_map_top = [output_parity_map_top, ','];
                output_parity_map_bottom = [output_parity_map_bottom, ','];
            end
+           input_parity_map
         end
     % end case 'ROACH'
     case 'ROACH2'
-        input_parity_map  = 'b = {a[71:0]}';
-        output_parity_map = 'b = {a[71:0]}';
-        output_parity_map_top = 'b = {a[71:0]}';
-        output_parity_map_bottom = 'b = {a[71:0]}';
+        input_parity_map  = 'b = {a[71:68],a[31:0],a[67:64],a[63:32]}';
+        output_parity_map = 'b = {a[71:68],a[35:32],a[67:36],a[31:0]}';
     % end case 'ROACH2'
 end % end switch hw_sys
 
