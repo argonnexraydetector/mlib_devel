@@ -84,8 +84,10 @@ switch hw_sys
         end
     % end case 'ROACH'
     case 'ROACH2'
-        input_parity_map  = 'b = {a[71:68],a[31:0],a[67:64],a[63:32]}';
+        input_parity_map  = 'b = {a[71:68],a[63:32],a[67:64],a[31:0]}';
+        %input_parity_map  = 'b = {a[71:68],a[31:0],a[67:64],a[63:32]}';
         output_parity_map = 'b = {a[71:68],a[35:32],a[67:36],a[31:0]}';
+        %output_parity_map = 'b = {a[71:68],a[35:32],a[31:0],a[67:36]}';
     % end case 'ROACH2'
 end % end switch hw_sys
 
