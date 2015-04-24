@@ -491,24 +491,35 @@ module qdrc_infrastructure(
     .Q2 (qdr_q_fall_int)
   );
 
-  reg [17:0] qdr_q_rise_intR_low , qdr_q_rise_intRR_low ;
-  reg [17:0] qdr_q_rise_intR_high, qdr_q_rise_intRR_high;
-  reg [17:0] qdr_q_fall_intR_low , qdr_q_fall_intRR_low ;
-  reg [17:0] qdr_q_fall_intR_high, qdr_q_fall_intRR_high;
+  reg [17:0] qdr_q_rise_intR_low , qdr_q_rise_intRR_low , qdr_q_rise_intRRR_low ;
+  reg [17:0] qdr_q_rise_intR_high, qdr_q_rise_intRR_high, qdr_q_rise_intRRR_high;
+  reg [17:0] qdr_q_fall_intR_low , qdr_q_fall_intRR_low , qdr_q_fall_intRRR_low;
+  reg [17:0] qdr_q_fall_intR_high, qdr_q_fall_intRR_high, qdr_q_fall_intRRR_high;
+
+  //reg [17:0] qdr_q_rise_intR_low , qdr_q_rise_intRR_low ;
+  //reg [17:0] qdr_q_rise_intR_high, qdr_q_rise_intRR_high;
+  //reg [17:0] qdr_q_fall_intR_low , qdr_q_fall_intRR_low ;
+  //reg [17:0] qdr_q_fall_intR_high, qdr_q_fall_intRR_high;
 
   always @(posedge clk0) begin
     qdr_q_rise_intR_high   <= qdr_q_rise_int [35:18];
     qdr_q_fall_intR_high   <= qdr_q_fall_int [35:18];
     qdr_q_rise_intRR_high  <= qdr_q_rise_intR_high;
     qdr_q_fall_intRR_high  <= qdr_q_fall_intR_high;
+    qdr_q_rise_intRRR_high  <= qdr_q_rise_intRR_high;
+    qdr_q_fall_intRRR_high  <= qdr_q_fall_intRR_high;
     qdr_q_rise_intR_low    <= qdr_q_rise_int  [17:0];
     qdr_q_fall_intR_low    <= qdr_q_fall_int  [17:0];
     qdr_q_rise_intRR_low   <= qdr_q_rise_intR_low;
     qdr_q_fall_intRR_low   <= qdr_q_fall_intR_low;
+    qdr_q_rise_intRRR_low   <= qdr_q_rise_intRR_low;
+    qdr_q_fall_intRRR_low   <= qdr_q_fall_intRR_low;
   end
 
-  assign qdr_q_rise = {qdr_q_rise_intRR_high, qdr_q_rise_intRR_low};
-  assign qdr_q_fall = {qdr_q_fall_intRR_high, qdr_q_fall_intRR_low};
+  //assign qdr_q_rise = {qdr_q_rise_intR_high, qdr_q_rise_intR_low};
+  //assign qdr_q_fall = {qdr_q_fall_intR_high, qdr_q_fall_intR_low};
+  assign qdr_q_rise = {qdr_q_rise_intRRR_high, qdr_q_rise_intRRR_low};
+  assign qdr_q_fall = {qdr_q_fall_intRRR_high, qdr_q_fall_intRRR_low};
 
   // Stop XST to chuck all this pipelining into a single shift register!
   //synthesis attribute SHREG_EXTRACT of qdr_q_rise_intR_low     is no
