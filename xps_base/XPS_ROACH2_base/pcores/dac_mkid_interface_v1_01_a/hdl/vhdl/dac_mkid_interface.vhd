@@ -1,8 +1,6 @@
 ----------------------------------------------------------------------------------
 -- dac_mkid_interface : DAC board with two DAC5681 for I and Q signals
 ----------------------------------------------------------------------------------
-
--- Authors:             Sean McHugh, Bruno Serfass, Ran Duan
 -- Create Date: 	09/02/09
 -- modification: 
 --
@@ -119,27 +117,6 @@ architecture Structural of dac_mkid_interface is
         signal clk90            :	STD_LOGIC;
         signal clk180           :	STD_LOGIC;
         signal clk270           :	STD_LOGIC;
-
---         component mmcm is
---		port
---			(-- Clock in ports
---				CLK_IN1           : in     std_logic;
---				CLKFB_IN          : in     std_logic;
-  -- Clock out ports
---				CLK_OUT1          : out    std_logic;
---				CLK_OUT2          : out    std_logic;
---				CLK_OUT3          : out    std_logic;
---				CLK_OUT4          : out    std_logic;
---				CLKFB_OUT         : out    std_logic;
-  -- Dynamic phase shift ports
---				PSCLK             : in     std_logic;
---				PSEN              : in     std_logic;
---				PSINCDEC          : in     std_logic;
---				PSDONE            : out    std_logic;
-  -- Status and control signals
---				LOCKED            : out    std_logic
---			);
---end component;
 
 
 
@@ -412,44 +389,6 @@ begin
           dac_clk270_out <= clk270;       
           
 --          -- DCM
---          
---          CLK_DCM : DCM
---            generic map(
---              CLK_FEEDBACK          => "1X",
---              CLKDV_DIVIDE          => 2.000000,
---              CLKFX_DIVIDE          => 1,
---              CLKFX_MULTIPLY        => 4,
---              CLKIN_DIVIDE_BY_2     => FALSE,
---              CLKIN_PERIOD          => 0.000000,
---              CLKOUT_PHASE_SHIFT    => "NONE",
---              DESKEW_ADJUST         => "SYSTEM_SYNCHRONOUS",
---              DFS_FREQUENCY_MODE    => "HIGH",
---              DLL_FREQUENCY_MODE    => "HIGH",
---              DUTY_CYCLE_CORRECTION => TRUE,
---              FACTORY_JF            => x"F0F0",
---              PHASE_SHIFT           => 0,
---              STARTUP_WAIT          => FALSE)
---            port map (
---              CLKFB                 => clk,
---              CLKIN                 => dac_clk,
---              DSSEN                 => '0',
---              PSCLK                 => '0',
---              PSEN                  => '0',
---              PSINCDEC              => '0',
---              RST                   => '0',
---              CLKDV                 => open,
---              CLKFX                 => open,
---              CLKFX180              => open,
---              CLK0                  => dcm_clk,
---              CLK2X                 => open,
---              CLK2X180              => open,
---              CLK90                 => dcm_clk90,
---              CLK180                => dcm_clk180,
---              CLK270                => dcm_clk270,
---              LOCKED                => dac_dcm_locked,
---              PSDONE                => open,
---              STATUS                => open
---              );
 --        
          
 	
@@ -508,30 +447,7 @@ CLKSHIFT_MMCM : MMCM_BASE
         PWRDWN    => '0',
         RST       => '0'
     );					  
-
-
-
-
------------------------this one compiled	    
---		MMCM1 : mmcm      
---		port map 
---			(-- Clock in ports
---				CLK_IN1         =>  dac_clk  ,
---				CLKFB_IN       =>	clk,
-  -- Clock out ports
---				CLK_OUT1         => 	dcm_clk	,
---				CLK_OUT2         =>	dcm_clk90	,
---				CLK_OUT3         =>	dcm_clk180	,
---				CLK_OUT4         =>	dcm_clk270	,
---				CLKFB_OUT        => 	open	,
-  -- Dynamic phase shift ports
---				PSCLK      => '0',
---				PSEN      => '0',
---				PSINCDEC  => '0',
---				PSDONE           => 	open	,
-  -- Status and control signals
---				LOCKED         =>dac_dcm_locked
---			);		
+		
 
  end generate; 
 
