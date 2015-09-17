@@ -1,0 +1,164 @@
+
+BEGIN adcdac_2g_interface
+
+########################
+## Peripheral Options ##
+########################
+
+OPTION IPTYPE = IP
+OPTION IMP_NETLIST = TRUE
+OPTION HDL = VERILOG
+OPTION IP_GROUP = MICROBLAZE:PPC:USER
+
+
+
+
+####################
+## Bus Interfaces ##
+####################
+
+
+
+#################################################
+## Generics for VHDL or Parameters for Verilog ##
+#################################################
+
+
+
+###########
+## Ports ##
+###########
+
+#    input [11:0]data0_p,
+#    input [11:0]data0_n,
+#    input [11:0]data1_p,
+#    input [11:0]data1_n,
+#    input [11:0]data2_p,
+#    input [11:0]data2_n,
+#    input [11:0]data3_p,
+#    input [11:0]data3_n,
+PORT data0_p = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, VEC = [11:0]
+PORT data0_n = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, VEC = [11:0]
+PORT data1_p = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, VEC = [11:0]
+PORT data1_n = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, VEC = [11:0]
+PORT data2_p = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, VEC = [11:0]
+PORT data2_n = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, VEC = [11:0]
+PORT data3_p = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, VEC = [11:0]
+PORT data3_n = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, VEC = [11:0]
+
+#
+#    //-- extra meta pins (overrange, sysref)
+#    input [1:0]data0_sys_p,
+#    input [1:0]data0_sys_n,
+#    input [1:0]data1_sys_p,
+#    input [1:0]data1_sys_n,
+#    input [1:0]data2_sys_p,
+#    input [1:0]data2_sys_n,
+#    input [1:0]data3_sys_p,
+#    input [1:0]data3_sys_n,
+PORT data0_sys_p = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, VEC = [1:0]
+PORT data0_sys_n = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, VEC = [1:0]
+PORT data1_sys_p = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, VEC = [1:0]
+PORT data1_sys_n = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, VEC = [1:0]
+PORT data2_sys_p = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, VEC = [1:0]
+PORT data2_sys_n = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, VEC = [1:0]
+PORT data3_sys_p = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, VEC = [1:0]
+PORT data3_sys_n = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, VEC = [1:0]
+#    //-- sample clocks
+#    input data0_smpl_clk_p,
+#    input data0_smpl_clk_n,
+#    input data1_smpl_clk_p,
+#    input data1_smpl_clk_n,
+#    input data2_smpl_clk_p,
+#    input data2_smpl_clk_n,
+#    input data3_smpl_clk_p,
+#    input data3_smpl_clk_n,
+PORT data0_smpl_clk_p       = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, SIGIS = CLK
+PORT data0_smpl_clk_n       = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, SIGIS = CLK
+PORT data1_smpl_clk_p       = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, SIGIS = CLK
+PORT data1_smpl_clk_n       = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, SIGIS = CLK
+PORT data2_smpl_clk_p       = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, SIGIS = CLK
+PORT data2_smpl_clk_n       = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, SIGIS = CLK
+PORT data3_smpl_clk_p       = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, SIGIS = CLK
+PORT data3_smpl_clk_n       = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE, SIGIS = CLK
+#    //-- ready to receive pins
+#    output data0_valid_p,
+#    output data0_valid_n,
+#    output data1_valid_p,
+#    output data1_valid_n,
+#    output data2_valid_p,
+#    output data2_valid_n,
+#    output data3_valid_p,
+#    output data3_valid_n,
+PORT data0_valid_p   = "", DIR = O, IOB_STATE = BUF, THREE_STATE = FALSE
+PORT data0_valid_n   = "", DIR = O, IOB_STATE = BUF, THREE_STATE = FALSE
+PORT data1_valid_p   = "", DIR = O, IOB_STATE = BUF, THREE_STATE = FALSE
+PORT data1_valid_n   = "", DIR = O, IOB_STATE = BUF, THREE_STATE = FALSE
+PORT data2_valid_p   = "", DIR = O, IOB_STATE = BUF, THREE_STATE = FALSE
+PORT data2_valid_n   = "", DIR = O, IOB_STATE = BUF, THREE_STATE = FALSE
+PORT data3_valid_p   = "", DIR = O, IOB_STATE = BUF, THREE_STATE = FALSE
+PORT data3_valid_n   = "", DIR = O, IOB_STATE = BUF, THREE_STATE = FALSE
+
+#    output adc_clk_out,
+#    output adc_clk90_out,
+#    output adc_clk180_out,
+#    output adc_clk270_out,
+PORT adc_clk_out    = "", DIR = O, SIGIS = CLK
+PORT adc_clk90_out    = "", DIR = O, SIGIS = CLK
+PORT adc_clk180_out    = "", DIR = O, SIGIS = CLK
+PORT adc_clk270_out    = "", DIR = O, SIGIS = CLK
+#   // -- mmcm locked 
+#    output adc_mmcm_locked,
+PORT adc_mmcm_locked = "", DIR = O
+
+#    //-- yellow block ports
+#    output [11:0]user_data_i0,
+#    output [11:0]user_data_i1,
+#    output [11:0]user_data_i2,
+#    output [11:0]user_data_i3,
+#    output [11:0]user_data_i4,
+#    output [11:0]user_data_i5,
+#    output [11:0]user_data_i6,
+#    output [11:0]user_data_i7,
+#    output [11:0]user_data_q0,
+#    output [11:0]user_data_q1,
+#    output [11:0]user_data_q2,
+#    output [11:0]user_data_q3,
+#    output [11:0]user_data_q4,
+#    output [11:0]user_data_q5,
+#    output [11:0]user_data_q6,
+#    output [11:0]user_data_q7,
+PORT user_data_i0   = "", DIR = O, VEC = [11:0]
+PORT user_data_i1   = "", DIR = O, VEC = [11:0]
+PORT user_data_i2   = "", DIR = O, VEC = [11:0]
+PORT user_data_i3   = "", DIR = O, VEC = [11:0]
+PORT user_data_i4   = "", DIR = O, VEC = [11:0]
+PORT user_data_i5   = "", DIR = O, VEC = [11:0]
+PORT user_data_i6   = "", DIR = O, VEC = [11:0]
+PORT user_data_i7   = "", DIR = O, VEC = [11:0]
+PORT user_data_q0   = "", DIR = O, VEC = [11:0]
+PORT user_data_q1   = "", DIR = O, VEC = [11:0]
+PORT user_data_q2   = "", DIR = O, VEC = [11:0]
+PORT user_data_q3   = "", DIR = O, VEC = [11:0]
+PORT user_data_q4   = "", DIR = O, VEC = [11:0]
+PORT user_data_q5   = "", DIR = O, VEC = [11:0]
+PORT user_data_q6   = "", DIR = O, VEC = [11:0]
+PORT user_data_q7   = "", DIR = O, VEC = [11:0]
+#    output [1:0]user_sys_i0,
+#    output [1:0]user_sys_i1,
+#    output [1:0]user_sys_q0,
+#    output [1:0]user_sys_q1,
+PORT user_sys_i0   = "", DIR = O, VEC = [1:0]
+PORT user_sys_i1   = "", DIR = O, VEC = [1:0]
+PORT user_sys_q0   = "", DIR = O, VEC = [1:0]
+PORT user_sys_q1   = "", DIR = O, VEC = [1:0]
+
+#    output user_sync
+PORT user_sync	    = "", DIR = O
+
+
+
+
+
+
+END
