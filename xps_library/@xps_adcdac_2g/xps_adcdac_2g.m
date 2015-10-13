@@ -60,23 +60,20 @@ ucf_constraints_term    = struct('IOSTANDARD', 'LVDS_25', 'DIFF_TERM', 'TRUE');
 ucf_constraints_noterm = struct('IOSTANDARD', 'LVDS_25');
 mhs_constraints = struct('SIGIS','CLK', 'CLK_FREQ',num2str(1e6*s.adc_clk_rate/2));
 
-%ext_ports.DRDY_I_p     = {1  'in' ['adc2g','1','_DRDY_I_p']     ['{',s.hw_sys,'.zdok','1','_p{[20],:}}']                                'vector=false'  mhs_constraints ucf_constraints_clock};
-%ext_ports.DRDY_I_n     = {1  'in' ['adc2g','1','_DRDY_I_n']     ['{',s.hw_sys,'.zdok','1','_n{[20],:}}']                                'vector=false'  mhs_constraints ucf_constraints_clock};
-
-%ext_ports.DRDY_Q_p     = {1  'in' ['adc2g','1','_DRDY_Q_p']     ['{',s.hw_sys,'.zdok','1','_p{[40],:}}']                                'vector=false'  mhs_constraints ucf_constraints_clock};
-%ext_ports.DRDY_Q_n     = {1  'in' ['adc2g','1','_DRDY_Q_n']     ['{',s.hw_sys,'.zdok','1','_n{[40],:}}']                                'vector=false'  mhs_constraints ucf_constraints_clock};
-
 %data in
 adcport1 = [s.hw_sys, '.', 'zdok1'];
 adcport0 = [s.hw_sys, '.', 'zdok0'];
-ext_ports.data0_p         = {12 'in' ['adc_data0_p'] ['{',adcport1,'_p{[33 24 13 3 32 23 12 2 31 22 11 1],:}}'] 'vector=true' struct() ucf_constraints_term};
-ext_ports.data0_n         = {12 'in' ['adc_data0_n'] ['{',adcport1,'_n{[33 24 13 3 32 23 12 2 31 22 11 1],:}}'] 'vector=true' struct() ucf_constraints_term};
-ext_ports.data1_p         = {12 'in' ['adc_data1_p'] ['{',adcport1,'_p{[38 29 18 8 37 28 17 7 36 27 16 6],:}}'] 'vector=true' struct() ucf_constraints_term};
-ext_ports.data1_n         = {12 'in' ['adc_data1_n'] ['{',adcport1,'_n{[38 29 18 8 37 28 17 7 36 27 16 6],:}}'] 'vector=true' struct() ucf_constraints_term};
-ext_ports.data2_p         = {12 'in' ['adc_data2_p'] ['{',adcport0,'_p{[33 24 13 3 32 23 12 2 31 22 11 1],:}}'] 'vector=true' struct() ucf_constraints_term};
-ext_ports.data2_n         = {12 'in' ['adc_data2_n'] ['{',adcport0,'_n{[33 24 13 3 32 23 12 2 31 22 11 1],:}}'] 'vector=true' struct() ucf_constraints_term};
-ext_ports.data3_p         = {12 'in' ['adc_data3_p'] ['{',adcport0,'_p{[38 29 18 8 37 28 17 7 36 27 16 6],:}}'] 'vector=true' struct() ucf_constraints_term};
-ext_ports.data3_n         = {12 'in' ['adc_data3_n'] ['{',adcport0,'_n{[38 29 18 8 37 28 17 7 36 27 16 6],:}}'] 'vector=true' struct() ucf_constraints_term};
+adcport_sync = [s.hw_sys, '.', 'sync_in'];
+
+%first 3 bits in each are (valid,sysref,overrange)
+ext_ports.data0_p         = {15 'in' ['adc_data0_p'] ['{',adcport1,'_p{[5 14 4 33 24 13 3 32 23 12 2 31 22 11 1],:}}'] 'vector=true' struct() ucf_constraints_term};
+ext_ports.data0_n         = {15 'in' ['adc_data0_n'] ['{',adcport1,'_n{[5 14 4 33 24 13 3 32 23 12 2 31 22 11 1],:}}'] 'vector=true' struct() ucf_constraints_term};
+ext_ports.data1_p         = {15 'in' ['adc_data1_p'] ['{',adcport1,'_p{[26 19 9 38 29 18 8 37 28 17 7 36 27 16 6],:}}'] 'vector=true' struct() ucf_constraints_term};
+ext_ports.data1_n         = {15 'in' ['adc_data1_n'] ['{',adcport1,'_n{[26 19 9 38 29 18 8 37 28 17 7 36 27 16 6],:}}'] 'vector=true' struct() ucf_constraints_term};
+ext_ports.data2_p         = {15 'in' ['adc_data2_p'] ['{',adcport0,'_p{[5 14 4 33 24 13 3 32 23 12 2 31 22 11 1],:}}'] 'vector=true' struct() ucf_constraints_term};
+ext_ports.data2_n         = {15 'in' ['adc_data2_n'] ['{',adcport0,'_n{[5 14 4 33 24 13 3 32 23 12 2 31 22 11 1],:}}'] 'vector=true' struct() ucf_constraints_term};
+ext_ports.data3_p         = {15 'in' ['adc_data3_p'] ['{',adcport0,'_p{[26 19 9 38 29 18 8 37 28 17 7 36 27 16 6],:}}'] 'vector=true' struct() ucf_constraints_term};
+ext_ports.data3_n         = {15 'in' ['adc_data3_n'] ['{',adcport0,'_n{[26 19 9 38 29 18 8 37 28 17 7 36 27 16 6],:}}'] 'vector=true' struct() ucf_constraints_term};
 
 %sample clocks
 ext_ports.data0_smpl_clk_p = {1  'in' ['adc_data0_smpl_clk_p'] ['{',adcport1,'_p{[20],:}}'] 'vector=false'  mhs_constraints ucf_constraints_clock};
@@ -88,29 +85,20 @@ ext_ports.data2_smpl_clk_n = {1  'in' ['adc_data2_smpl_clk_n'] ['{',adcport0,'_n
 ext_ports.data3_smpl_clk_p = {1  'in' ['adc_data3_smpl_clk_p'] ['{',adcport0,'_p{[40],:}}'] 'vector=false'  mhs_constraints ucf_constraints_clock};
 ext_ports.data3_smpl_clk_n = {1  'in' ['adc_data3_smpl_clk_n'] ['{',adcport0,'_n{[40],:}}'] 'vector=false'  mhs_constraints ucf_constraints_clock};
 
-%metadata pins (overrange, sysref)
-ext_ports.data0_sys_p     = {2 'in' ['adc_data0_sys_p'] ['{',adcport1,'_p{[4 14],:}}'] 'vector=true' struct() ucf_constraints_term};
-ext_ports.data0_sys_n     = {2 'in' ['adc_data0_sys_n'] ['{',adcport1,'_n{[4 14],:}}'] 'vector=true' struct() ucf_constraints_term};
-ext_ports.data1_sys_p     = {2 'in' ['adc_data1_sys_p'] ['{',adcport1,'_p{[9 19],:}}'] 'vector=true' struct() ucf_constraints_term};
-ext_ports.data1_sys_n     = {2 'in' ['adc_data1_sys_n'] ['{',adcport1,'_n{[9 19],:}}'] 'vector=true' struct() ucf_constraints_term};
-ext_ports.data2_sys_p     = {2 'in' ['adc_data2_sys_p'] ['{',adcport0,'_p{[4 14],:}}'] 'vector=true' struct() ucf_constraints_term};
-ext_ports.data2_sys_n     = {2 'in' ['adc_data2_sys_n'] ['{',adcport0,'_n{[4 14],:}}'] 'vector=true' struct() ucf_constraints_term};
-ext_ports.data3_sys_p     = {2 'in' ['adc_data3_sys_p'] ['{',adcport0,'_p{[9 19],:}}'] 'vector=true' struct() ucf_constraints_term};
-ext_ports.data3_sys_n     = {2 'in' ['adc_data3_sys_n'] ['{',adcport0,'_n{[9 19],:}}'] 'vector=true' struct() ucf_constraints_term};
+%PPS coming through the sma sync in port
+ext_ports.sync_pps_p = {1  'in' ['adc_sync_pps_p'] ['{',adcport_sync,'_p{[1],:}}'] 'vector=false'  mhs_constraints ucf_constraints_clock};
+ext_ports.sync_pps_n = {1  'in' ['adc_sync_pps_n'] ['{',adcport_sync,'_n{[1],:}}'] 'vector=false'  mhs_constraints ucf_constraints_clock};
 
-ext_ports.data0_valid_p    = {1 'out' ['adc_data0_vld_p'] ['{',adcport1,'_p{[5],:}}'] 'vector=false' struct() ucf_constraints_term};
-ext_ports.data0_valid_n    = {1 'out' ['adc_data0_vld_n'] ['{',adcport1,'_n{[5],:}}'] 'vector=false' struct() ucf_constraints_term};
-ext_ports.data1_valid_p    = {1 'out' ['adc_data1_vld_p'] ['{',adcport1,'_p{[26],:}}'] 'vector=false' struct() ucf_constraints_term};
-ext_ports.data1_valid_n    = {1 'out' ['adc_data1_vld_n'] ['{',adcport1,'_n{[26],:}}'] 'vector=false' struct() ucf_constraints_term};
-ext_ports.data2_valid_p    = {1 'out' ['adc_data2_vld_p'] ['{',adcport0,'_p{[5],:}}'] 'vector=false' struct() ucf_constraints_term};
-ext_ports.data2_valid_n    = {1 'out' ['adc_data2_vld_n'] ['{',adcport0,'_n{[5],:}}'] 'vector=false' struct() ucf_constraints_term};
-ext_ports.data3_valid_p    = {1 'out' ['adc_data3_vld_p'] ['{',adcport0,'_p{[26],:}}'] 'vector=false' struct() ucf_constraints_term};
-ext_ports.data3_valid_n    = {1 'out' ['adc_data3_vld_n'] ['{',adcport0,'_n{[26],:}}'] 'vector=false' struct() ucf_constraints_term};
-%ext_ports.DRDY_I_p     = {1  'in' ['adc2g','1','_DRDY_I_p']     ['{',s.hw_sys,'.zdok','1','_p{[20],:}}']                                'vector=false'  mhs_constraints ucf_constraints_clock};
 
-%ext_ports.ADC_ext_in_p = {1  'in' ['adc2g','1','_ADC_ext_in_p'] ['{',s.hw_sys,'.zdok','1','_p{[29],:}}']                                'vector=false'  struct()        ucf_constraints_term};
-%ext_ports.ADC_ext_in_n = {1  'in' ['adc2g','1','_ADC_ext_in_n'] ['{',s.hw_sys,'.zdok','1','_n{[29],:}}']                                'vector=false'  struct()        ucf_constraints_term};
-
+%handshake from roach enabling ADC streams
+ext_ports.data0_rdy_p    = {1 'out' ['adc_data0_rdy_p'] ['{',adcport1,'_p{[15],:}}'] 'vector=false' struct() ucf_constraints_term};
+ext_ports.data0_rdy_n    = {1 'out' ['adc_data0_rdy_n'] ['{',adcport1,'_n{[15],:}}'] 'vector=false' struct() ucf_constraints_term};
+ext_ports.data1_rdy_p    = {1 'out' ['adc_data1_rdy_p'] ['{',adcport1,'_p{[35],:}}'] 'vector=false' struct() ucf_constraints_term};
+ext_ports.data1_rdy_n    = {1 'out' ['adc_data1_rdy_n'] ['{',adcport1,'_n{[35],:}}'] 'vector=false' struct() ucf_constraints_term};
+ext_ports.data2_rdy_p    = {1 'out' ['adc_data2_rdy_p'] ['{',adcport0,'_p{[15],:}}'] 'vector=false' struct() ucf_constraints_term};
+ext_ports.data2_rdy_n    = {1 'out' ['adc_data2_rdy_n'] ['{',adcport0,'_n{[15],:}}'] 'vector=false' struct() ucf_constraints_term};
+ext_ports.data3_rdy_p    = {1 'out' ['adc_data3_rdy_p'] ['{',adcport0,'_p{[35],:}}'] 'vector=false' struct() ucf_constraints_term};
+ext_ports.data3_rdy_n    = {1 'out' ['adc_data3_rdy_n'] ['{',adcport0,'_n{[35],:}}'] 'vector=false' struct() ucf_constraints_term};
 
 b = set(b,'ext_ports',ext_ports);
 
@@ -131,3 +119,5 @@ end
 misc_ports.adc_mmcm_locked = {1 'out' [s.adc_str, '_mmcm_locked']};
 
 b = set(b,'misc_ports',misc_ports);
+
+disp('done calling xps_adcdac_2g!');

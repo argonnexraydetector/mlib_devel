@@ -9,24 +9,14 @@
 //////////////////////////////////////////////////////////////////////////////////
 module adcdac_2g_interface(
     //-- differential data read from ADC
-    input [11:0]data0_p,
-    input [11:0]data0_n,
-    input [11:0]data1_p,
-    input [11:0]data1_n,
-    input [11:0]data2_p,
-    input [11:0]data2_n,
-    input [11:0]data3_p,
-    input [11:0]data3_n,
-
-    //-- extra meta pins (overrange, sysref)
-    input [1:0]data0_sys_p,
-    input [1:0]data0_sys_n,
-    input [1:0]data1_sys_p,
-    input [1:0]data1_sys_n,
-    input [1:0]data2_sys_p,
-    input [1:0]data2_sys_n,
-    input [1:0]data3_sys_p,
-    input [1:0]data3_sys_n,
+    input [14:0]data0_p,
+    input [14:0]data0_n,
+    input [14:0]data1_p,
+    input [14:0]data1_n,
+    input [14:0]data2_p,
+    input [14:0]data2_n,
+    input [14:0]data3_p,
+    input [14:0]data3_n,
 
     //-- sample clocks
     input data0_smpl_clk_p,
@@ -39,14 +29,17 @@ module adcdac_2g_interface(
     input data3_smpl_clk_n,
 
     //-- ready to receive pins
-    output data0_valid_p,
-    output data0_valid_n,
-    output data1_valid_p,
-    output data1_valid_n,
-    output data2_valid_p,
-    output data2_valid_n,
-    output data3_valid_p,
-    output data3_valid_n,
+    output data0_rdy_p,
+    output data0_rdy_n,
+    output data1_rdy_p,
+    output data1_rdy_n,
+    output data2_rdy_p,
+    output data2_rdy_n,
+    output data3_rdy_p,
+    output data3_rdy_n,
+
+    input sync_pps_p,
+    input sync_pps_n,
     
     //-- pps port for synching multiple boards
     //input pps_sync,
@@ -86,11 +79,28 @@ module adcdac_2g_interface(
     output [11:0]user_data_q6,
     output [11:0]user_data_q7,
     
-    output [1:0]user_sys_i0,
-    output [1:0]user_sys_i1,
-    output [1:0]user_sys_q0,
-    output [1:0]user_sys_q1,
-    output user_sync
+    output [2:0]user_info_i0,
+    output [2:0]user_info_i1,
+    output [2:0]user_info_i2,
+    output [2:0]user_info_i3,
+    output [2:0]user_info_i4,
+    output [2:0]user_info_i5,
+    output [2:0]user_info_i6,
+    output [2:0]user_info_i7,
+    output [2:0]user_info_q0,
+    output [2:0]user_info_q1,
+    output [2:0]user_info_q2,
+    output [2:0]user_info_q3,
+    output [2:0]user_info_q4,
+    output [2:0]user_info_q5,
+    output [2:0]user_info_q6,
+    output [2:0]user_info_q7,
+    output user_sync,
+
+    input user_rdy_i0,
+    input user_rdy_i1,
+    input user_rdy_q0,
+    input user_rdy_q1
 
     );
 
@@ -245,10 +255,10 @@ module adcdac_2g_interface(
     // --	IBUFDS to convert from a differential signal.
     // ------------------------------------------------------
      
-    wire [11:0]buf_data0;
+    wire [14:0]buf_data0;
     genvar j;
     generate
-    for (j=0; j<12;j=j+1)
+    for (j=0; j<15;j=j+1)
     begin: IBUFDS_inst_data0_generate
 
         IBUFDS #(.IOSTANDARD("LVDS_25"))
@@ -260,9 +270,9 @@ module adcdac_2g_interface(
     end
     endgenerate
 
-    wire [11:0]buf_data1;
+    wire [14:0]buf_data1;
     generate
-    for (j=0; j<12;j=j+1)
+    for (j=0; j<15;j=j+1)
     begin: IBUFDS_inst_data1_generate
 
         IBUFDS #(.IOSTANDARD("LVDS_25"))
@@ -274,9 +284,9 @@ module adcdac_2g_interface(
     end
     endgenerate
 
-    wire [11:0]buf_data2;
+    wire [14:0]buf_data2;
     generate
-    for (j=0; j<12;j=j+1)
+    for (j=0; j<15;j=j+1)
     begin: IBUFDS_inst_data2_generate
 
         IBUFDS #(.IOSTANDARD("LVDS_25"))
@@ -288,9 +298,9 @@ module adcdac_2g_interface(
     end
     endgenerate
 
-    wire [11:0]buf_data3;
+    wire [14:0]buf_data3;
     generate
-    for (j=0; j<12;j=j+1)
+    for (j=0; j<15;j=j+1)
     begin: IBUFDS_inst_data3_generate
 
         IBUFDS #(.IOSTANDARD("LVDS_25"))
@@ -303,12 +313,12 @@ module adcdac_2g_interface(
     endgenerate
 
     //For each data stream (data0,data1,data2,...) parallelize with a serdes
-    wire [11:0]serdes_data0_t0;
-    wire [11:0]serdes_data0_t1;
-    wire [11:0]serdes_data0_t2;
-    wire [11:0]serdes_data0_t3;
+    wire [14:0]serdes_data0_t0;
+    wire [14:0]serdes_data0_t1;
+    wire [14:0]serdes_data0_t2;
+    wire [14:0]serdes_data0_t3;
     generate
-        for (j=0; j<12;j=j+1) //one for each bit in a data bus
+        for (j=0; j<15;j=j+1) //one for each bit in a data bus
         begin: ISERDES_NODELAY_inst_data0_generate
            ISERDESE1 #(
               .DATA_RATE("DDR"),           // "SDR" or "DDR" 
@@ -347,7 +357,6 @@ module adcdac_2g_interface(
               .BITSLIP(1'b0),           // 1-bit input: Bitslip enable input
               // CE1, CE2: 1-bit (each) input: Data register clock enable inputs
               .CE1(1'b1),
-              .CE2(1'b0),
               // Clocks: 1-bit (each) input: ISERDESE1 clock input ports
               .CLK(smpl_clk),                   // 1-bit input: High-speed clock input, 500 MHz
               .CLKB(!smpl_clk),                 // 1-bit input: High-speed secondary clock input
@@ -370,12 +379,12 @@ module adcdac_2g_interface(
         end
     endgenerate
                           
-    wire [11:0]serdes_data1_t0;
-    wire [11:0]serdes_data1_t1;
-    wire [11:0]serdes_data1_t2;
-    wire [11:0]serdes_data1_t3;
+    wire [14:0]serdes_data1_t0;
+    wire [14:0]serdes_data1_t1;
+    wire [14:0]serdes_data1_t2;
+    wire [14:0]serdes_data1_t3;
     generate
-        for (j=0; j<12;j=j+1) //one for each bit in a data bus
+        for (j=0; j<15;j=j+1) //one for each bit in a data bus
         begin: ISERDES_NODELAY_inst_data1_generate
            ISERDESE1 #(
               .DATA_RATE("DDR"),           // "SDR" or "DDR" 
@@ -414,7 +423,6 @@ module adcdac_2g_interface(
               .BITSLIP(1'b0),           // 1-bit input: Bitslip enable input
               // CE1, CE2: 1-bit (each) input: Data register clock enable inputs
               .CE1(1'b1),
-              .CE2(1'b0),
               // Clocks: 1-bit (each) input: ISERDESE1 clock input ports
               .CLK(smpl_clk),                   // 1-bit input: High-speed clock input, 500 MHz
               .CLKB(!smpl_clk),                 // 1-bit input: High-speed secondary clock input
@@ -437,12 +445,12 @@ module adcdac_2g_interface(
         end
     endgenerate
 
-    wire [11:0]serdes_data2_t0;
-    wire [11:0]serdes_data2_t1;
-    wire [11:0]serdes_data2_t2;
-    wire [11:0]serdes_data2_t3;
+    wire [14:0]serdes_data2_t0;
+    wire [14:0]serdes_data2_t1;
+    wire [14:0]serdes_data2_t2;
+    wire [14:0]serdes_data2_t3;
     generate
-        for (j=0; j<12;j=j+1) //one for each bit in a data bus
+        for (j=0; j<15;j=j+1) //one for each bit in a data bus
         begin: ISERDES_NODELAY_inst_data2_generate
            ISERDESE1 #(
               .DATA_RATE("DDR"),           // "SDR" or "DDR" 
@@ -481,7 +489,6 @@ module adcdac_2g_interface(
               .BITSLIP(1'b0),           // 1-bit input: Bitslip enable input
               // CE1, CE2: 1-bit (each) input: Data register clock enable inputs
               .CE1(1'b1),
-              .CE2(1'b0),
               // Clocks: 1-bit (each) input: ISERDESE1 clock input ports
               .CLK(smpl_clk),                   // 1-bit input: High-speed clock input, 500 MHz
               .CLKB(!smpl_clk),                 // 1-bit input: High-speed secondary clock input
@@ -504,12 +511,12 @@ module adcdac_2g_interface(
         end
     endgenerate
 
-    wire [11:0]serdes_data3_t0;
-    wire [11:0]serdes_data3_t1;
-    wire [11:0]serdes_data3_t2;
-    wire [11:0]serdes_data3_t3;
+    wire [14:0]serdes_data3_t0;
+    wire [14:0]serdes_data3_t1;
+    wire [14:0]serdes_data3_t2;
+    wire [14:0]serdes_data3_t3;
     generate
-        for (j=0; j<12;j=j+1) //one for each bit in a data bus
+        for (j=0; j<15;j=j+1) //one for each bit in a data bus
         begin: ISERDES_NODELAY_inst_data3_generate
            ISERDESE1 #(
               .DATA_RATE("DDR"),           // "SDR" or "DDR" 
@@ -548,7 +555,6 @@ module adcdac_2g_interface(
               .BITSLIP(1'b0),           // 1-bit input: Bitslip enable input
               // CE1, CE2: 1-bit (each) input: Data register clock enable inputs
               .CE1(1'b1),
-              .CE2(1'b0),
               // Clocks: 1-bit (each) input: ISERDESE1 clock input ports
               .CLK(smpl_clk),                   // 1-bit input: High-speed clock input, 500 MHz
               .CLKB(!smpl_clk),                 // 1-bit input: High-speed secondary clock input
@@ -571,22 +577,22 @@ module adcdac_2g_interface(
         end
     endgenerate
 
-    reg [11:0]recapture_data0_t0;
-    reg [11:0]recapture_data0_t1;
-    reg [11:0]recapture_data0_t2;
-    reg [11:0]recapture_data0_t3;
-    reg [11:0]recapture_data1_t0;
-    reg [11:0]recapture_data1_t1;
-    reg [11:0]recapture_data1_t2;
-    reg [11:0]recapture_data1_t3;
-    reg [11:0]recapture_data2_t0;
-    reg [11:0]recapture_data2_t1;
-    reg [11:0]recapture_data2_t2;
-    reg [11:0]recapture_data2_t3;
-    reg [11:0]recapture_data3_t0;
-    reg [11:0]recapture_data3_t1;
-    reg [11:0]recapture_data3_t2;
-    reg [11:0]recapture_data3_t3;
+    reg [14:0]recapture_data0_t0;
+    reg [14:0]recapture_data0_t1;
+    reg [14:0]recapture_data0_t2;
+    reg [14:0]recapture_data0_t3;
+    reg [14:0]recapture_data1_t0;
+    reg [14:0]recapture_data1_t1;
+    reg [14:0]recapture_data1_t2;
+    reg [14:0]recapture_data1_t3;
+    reg [14:0]recapture_data2_t0;
+    reg [14:0]recapture_data2_t1;
+    reg [14:0]recapture_data2_t2;
+    reg [14:0]recapture_data2_t3;
+    reg [14:0]recapture_data3_t0;
+    reg [14:0]recapture_data3_t1;
+    reg [14:0]recapture_data3_t2;
+    reg [14:0]recapture_data3_t3;
     //recapture all DDR inputs to clk's rising edge
     always @(posedge clk_0)
     begin
@@ -612,73 +618,73 @@ module adcdac_2g_interface(
     end
 
     //Use registers to buffer and move data around to be in the proper temporal order
-    reg [11:0] adata0_t0;
-    reg [11:0] adata0_t1;
-    reg [11:0] adata0_t2;
-    reg [11:0] adata0_t3;
-    reg [11:0] adata1_t0;
-    reg [11:0] adata1_t1;
-    reg [11:0] adata1_t2;
-    reg [11:0] adata1_t3;
-    reg [11:0] adata2_t0;
-    reg [11:0] adata2_t1;
-    reg [11:0] adata2_t2;
-    reg [11:0] adata2_t3;
-    reg [11:0] adata3_t0;
-    reg [11:0] adata3_t1;
-    reg [11:0] adata3_t2;
-    reg [11:0] adata3_t3;
+    reg [14:0] adata0_t0;
+    reg [14:0] adata0_t1;
+    reg [14:0] adata0_t2;
+    reg [14:0] adata0_t3;
+    reg [14:0] adata1_t0;
+    reg [14:0] adata1_t1;
+    reg [14:0] adata1_t2;
+    reg [14:0] adata1_t3;
+    reg [14:0] adata2_t0;
+    reg [14:0] adata2_t1;
+    reg [14:0] adata2_t2;
+    reg [14:0] adata2_t3;
+    reg [14:0] adata3_t0;
+    reg [14:0] adata3_t1;
+    reg [14:0] adata3_t2;
+    reg [14:0] adata3_t3;
 
-    reg [11:0] bdata0_t0;
-    reg [11:0] bdata0_t1;
-    reg [11:0] bdata0_t2;
-    reg [11:0] bdata0_t3;
-    reg [11:0] bdata1_t0;
-    reg [11:0] bdata1_t1;
-    reg [11:0] bdata1_t2;
-    reg [11:0] bdata1_t3;
-    reg [11:0] bdata2_t0;
-    reg [11:0] bdata2_t1;
-    reg [11:0] bdata2_t2;
-    reg [11:0] bdata2_t3;
-    reg [11:0] bdata3_t0;
-    reg [11:0] bdata3_t1;
-    reg [11:0] bdata3_t2;
-    reg [11:0] bdata3_t3;
+    reg [14:0] bdata0_t0;
+    reg [14:0] bdata0_t1;
+    reg [14:0] bdata0_t2;
+    reg [14:0] bdata0_t3;
+    reg [14:0] bdata1_t0;
+    reg [14:0] bdata1_t1;
+    reg [14:0] bdata1_t2;
+    reg [14:0] bdata1_t3;
+    reg [14:0] bdata2_t0;
+    reg [14:0] bdata2_t1;
+    reg [14:0] bdata2_t2;
+    reg [14:0] bdata2_t3;
+    reg [14:0] bdata3_t0;
+    reg [14:0] bdata3_t1;
+    reg [14:0] bdata3_t2;
+    reg [14:0] bdata3_t3;
 
-    reg [11:0] cdata0_t0;
-    reg [11:0] cdata0_t1;
-    reg [11:0] cdata0_t2;
-    reg [11:0] cdata0_t3;
-    reg [11:0] cdata1_t0;
-    reg [11:0] cdata1_t1;
-    reg [11:0] cdata1_t2;
-    reg [11:0] cdata1_t3;
-    reg [11:0] cdata2_t0;
-    reg [11:0] cdata2_t1;
-    reg [11:0] cdata2_t2;
-    reg [11:0] cdata2_t3;
-    reg [11:0] cdata3_t0;
-    reg [11:0] cdata3_t1;
-    reg [11:0] cdata3_t2;
-    reg [11:0] cdata3_t3;
+    reg [14:0] cdata0_t0;
+    reg [14:0] cdata0_t1;
+    reg [14:0] cdata0_t2;
+    reg [14:0] cdata0_t3;
+    reg [14:0] cdata1_t0;
+    reg [14:0] cdata1_t1;
+    reg [14:0] cdata1_t2;
+    reg [14:0] cdata1_t3;
+    reg [14:0] cdata2_t0;
+    reg [14:0] cdata2_t1;
+    reg [14:0] cdata2_t2;
+    reg [14:0] cdata2_t3;
+    reg [14:0] cdata3_t0;
+    reg [14:0] cdata3_t1;
+    reg [14:0] cdata3_t2;
+    reg [14:0] cdata3_t3;
 
-    reg [11:0] idata0;
-    reg [11:0] idata1;
-    reg [11:0] idata2;
-    reg [11:0] idata3;
-    reg [11:0] idata4;
-    reg [11:0] idata5;
-    reg [11:0] idata6;
-    reg [11:0] idata7;
-    reg [11:0] qdata0;
-    reg [11:0] qdata1;
-    reg [11:0] qdata2;
-    reg [11:0] qdata3;
-    reg [11:0] qdata4;
-    reg [11:0] qdata5;
-    reg [11:0] qdata6;
-    reg [11:0] qdata7;
+    reg [14:0] idata0;
+    reg [14:0] idata1;
+    reg [14:0] idata2;
+    reg [14:0] idata3;
+    reg [14:0] idata4;
+    reg [14:0] idata5;
+    reg [14:0] idata6;
+    reg [14:0] idata7;
+    reg [14:0] qdata0;
+    reg [14:0] qdata1;
+    reg [14:0] qdata2;
+    reg [14:0] qdata3;
+    reg [14:0] qdata4;
+    reg [14:0] qdata5;
+    reg [14:0] qdata6;
+    reg [14:0] qdata7;
 
      always @(posedge smpl_clkdiv)
      begin
@@ -788,62 +794,82 @@ module adcdac_2g_interface(
      end
 
     //send reordered data to module outputs
-    assign user_data_i0 = idata0;
-    assign user_data_i1 = idata1;
-    assign user_data_i2 = idata2;
-    assign user_data_i3 = idata3;
-    assign user_data_i4 = idata4;
-    assign user_data_i5 = idata5;
-    assign user_data_i6 = idata6;
-    assign user_data_i7 = idata7;
+    assign user_data_i0 = idata0[11:0];
+    assign user_data_i1 = idata1[11:0];
+    assign user_data_i2 = idata2[11:0];
+    assign user_data_i3 = idata3[11:0];
+    assign user_data_i4 = idata4[11:0];
+    assign user_data_i5 = idata5[11:0];
+    assign user_data_i6 = idata6[11:0];
+    assign user_data_i7 = idata7[11:0];
 
-    assign user_data_q0 = qdata0;
-    assign user_data_q1 = qdata1;
-    assign user_data_q2 = qdata2;
-    assign user_data_q3 = qdata3;
-    assign user_data_q4 = qdata4;
-    assign user_data_q5 = qdata5;
-    assign user_data_q6 = qdata6;
-    assign user_data_q7 = qdata7;
+    assign user_data_q0 = qdata0[11:0];
+    assign user_data_q1 = qdata1[11:0];
+    assign user_data_q2 = qdata2[11:0];
+    assign user_data_q3 = qdata3[11:0];
+    assign user_data_q4 = qdata4[11:0];
+    assign user_data_q5 = qdata5[11:0];
+    assign user_data_q6 = qdata6[11:0];
+    assign user_data_q7 = qdata7[11:0];
 
-    wire d0_valid_p = 1'b1;
+    assign user_info_i0 = idata0[14:12];
+    assign user_info_i1 = idata1[14:12];
+    assign user_info_i2 = idata2[14:12];
+    assign user_info_i3 = idata3[14:12];
+    assign user_info_i4 = idata4[14:12];
+    assign user_info_i5 = idata5[14:12];
+    assign user_info_i6 = idata6[14:12];
+    assign user_info_i7 = idata7[14:12];
+
+    assign user_info_q0 = qdata0[14:12];
+    assign user_info_q1 = qdata1[14:12];
+    assign user_info_q2 = qdata2[14:12];
+    assign user_info_q3 = qdata3[14:12];
+    assign user_info_q4 = qdata4[14:12];
+    assign user_info_q5 = qdata5[14:12];
+    assign user_info_q6 = qdata6[14:12];
+    assign user_info_q7 = qdata7[14:12];
+
     OBUFDS #(.IOSTANDARD("LVDS_25"))
-    OBUFDS_inst_data0_valid_p
+    OBUFDS_inst_data0_rdy_p
     (
-     .O(data0_valid_p),
-     .OB(data0_valid_n),
-     .I(d0_valid_p)
+     .O(data0_rdy_p),
+     .OB(data0_rdy_n),
+     .I(user_rdy_i0)
     );
-    wire d1_valid_p = 1'b1;
     OBUFDS #(.IOSTANDARD("LVDS_25"))
-    OBUFDS_inst_data1_valid_p
+    OBUFDS_inst_data1_rdy_p
     (
-     .O(data1_valid_p),
-     .OB(data1_valid_n),
-     .I(d1_valid_p)
+     .O(data1_rdy_p),
+     .OB(data1_rdy_n),
+     .I(user_rdy_i1)
     );
-    wire d2_valid_p = 1'b1;
     OBUFDS #(.IOSTANDARD("LVDS_25"))
-    OBUFDS_inst_data2_valid_p
+    OBUFDS_inst_data2_rdy_p
     (
-     .O(data2_valid_p),
-     .OB(data2_valid_n),
-     .I(d2_valid_p)
+     .O(data2_rdy_p),
+     .OB(data2_rdy_n),
+     .I(user_rdy_q0)
     );
-    wire d3_valid_p = 1'b1;
+    wire d3_rdy_p = 1'b1;
     OBUFDS #(.IOSTANDARD("LVDS_25"))
-    OBUFDS_inst_data3_valid_p
+    OBUFDS_inst_data3_rdy_p
     (
-     .O(data3_valid_p),
-     .OB(data3_valid_n),
-     .I(d3_valid_p)
+     .O(data3_rdy_p),
+     .OB(data3_rdy_n),
+     .I(user_rdy_q1)
     );
 
-    assign user_sync = 1'b0;
-    assign user_sys_i0 = 2'd0;
-    assign user_sys_i1 = 2'd0;
-    assign user_sys_q0 = 2'd0;
-    assign user_sys_q1 = 2'd0;
+    //assign user_sync = 1'b0;
+
+    IBUFDS #(.IOSTANDARD("LVDS_25"))
+    IBUFDS_inst_sync 
+    (
+      .O(user_sync),
+      .I(sync_pps_p),
+      .IB(sync_pps_n)
+    );
+
 
 endmodule
 
