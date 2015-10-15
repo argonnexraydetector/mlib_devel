@@ -1,0 +1,50 @@
+
+BEGIN adcdac_2g_ctrl
+
+########################
+## Peripheral Options ##
+########################
+
+OPTION IPTYPE = IP
+OPTION IMP_NETLIST = TRUE
+OPTION HDL = VERILOG
+OPTION IP_GROUP = MICROBLAZE:PPC:USER
+
+
+
+
+####################
+## Bus Interfaces ##
+####################
+
+
+
+#################################################
+## Generics for VHDL or Parameters for Verilog ##
+#################################################
+
+
+
+###########
+## Ports ##
+###########
+
+PORT spi_clk_p = "", DIR = O, IOB_STATE = BUF, THREE_STATE = FALSE
+PORT spi_clk_n = "", DIR = O, IOB_STATE = BUF, THREE_STATE = FALSE
+PORT spi_ss_p = "", DIR = O, IOB_STATE = BUF, THREE_STATE = FALSE
+PORT spi_ss_n = "", DIR = O, IOB_STATE = BUF, THREE_STATE = FALSE
+PORT spi_din_p = "", DIR = O, IOB_STATE = BUF, THREE_STATE = FALSE
+PORT spi_din_n = "", DIR = O, IOB_STATE = BUF, THREE_STATE = FALSE
+PORT spi_dout_p = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE
+PORT spi_dout_n = "", DIR = I, IOB_STATE = BUF, THREE_STATE = FALSE
+
+#    //clock
+PORT fpga_clk       = "", DIR = I, SIGIS = CLK
+
+#    //-- yellow block ports
+PORT user_spi_clk = "", DIR = I
+PORT user_spi_ss = "", DIR = I
+PORT user_spi_din = "", DIR = I
+PORT user_spi_dout = "", DIR = O
+
+END
