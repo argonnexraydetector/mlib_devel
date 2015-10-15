@@ -147,13 +147,13 @@ module adcdac_2g_interface(
     wire mmcm_clk_out_270;
     MMCM_BASE #(
        .BANDWIDTH("OPTIMIZED"),   // Jitter programming ("HIGH","LOW","OPTIMIZED")
-       .CLKFBOUT_MULT_F(8.0),     // Multiply value for all CLKOUT (5.0-64.0).
+       .CLKFBOUT_MULT_F(12.0),     // Multiply value for all CLKOUT (5.0-64.0).
        .CLKFBOUT_PHASE(0.0),      // Phase offset in degrees of CLKFB (0.00-360.00).
        //Input 125 MHz -> 8 ns
-       .CLKIN1_PERIOD(8.000),       // Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
+       .CLKIN1_PERIOD(2.000),       // Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
        .CLKOUT4_CASCADE("FALSE"), // Cascase CLKOUT4 counter with CLKOUT6 (TRUE/FALSE)
        .CLOCK_HOLD("FALSE"),      // Hold VCO Frequency (TRUE/FALSE)
-       .DIVCLK_DIVIDE(1),         // Master division value (1-80)
+       .DIVCLK_DIVIDE(6),         // Master division value (1-80)
        .REF_JITTER1(0.0),         // Reference input jitter in UI (0.000-0.999).
        .STARTUP_WAIT("FALSE"),     // Not supported. Must be set to FALSE.
 
