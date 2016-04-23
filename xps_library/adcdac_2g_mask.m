@@ -31,7 +31,13 @@ gateways = [gateway_outs;gateway_ins];
 name_index = 1;
 gw_name_list = {};
 
+gw_name_list{name_index} = 'user_mmcm_locked';
+name_index = name_index + 1;
+
 gw_name_list{name_index} = 'user_sync';
+name_index = name_index + 1;
+
+gw_name_list{name_index} = 'user_valid';
 name_index = name_index + 1;
 
 gw_name_list{name_index} = 'user_rdy_i0';
