@@ -141,6 +141,7 @@ module adcdac_2g_interface(
     wire mmcm_clk_out_180;
     wire mmcm_clk_out_270;
     wire mmcm_feedback_clk;
+    wire mmcm_feedback_clk_out;
     MMCM_BASE #(
        .BANDWIDTH("OPTIMIZED"),   // Jitter programming ("HIGH","LOW","OPTIMIZED")
        .CLKFBOUT_MULT_F(12.0),     // Multiply value for all CLKOUT (5.0-64.0).
@@ -202,7 +203,7 @@ module adcdac_2g_interface(
        .CLKOUT5(mmcm_clk_out_270),
        .CLKOUT6(),
        // Feedback Clocks
-       .CLKFBOUT(mmcm_feedback_clk),
+       .CLKFBOUT(mmcm_feedback_clk_out),
        // Status Port
        .LOCKED(adc_mmcm_locked),
        // Clock Input
@@ -216,6 +217,8 @@ module adcdac_2g_interface(
 
     //  -- MMCM OUTPUT
     //  Now put all mmcm outputs through a BUFG
+    BUFG BUFG_fb_clk
+         (.I(mmcm_feedback_clk_out), .O(mmcm_feedback_clk));
 
       //125 MHz clocks for the slow parallel side of serdes
     BUFG BUFG_clkdiv
