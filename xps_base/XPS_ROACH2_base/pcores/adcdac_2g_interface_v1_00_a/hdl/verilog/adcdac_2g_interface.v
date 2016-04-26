@@ -344,10 +344,10 @@ module adcdac_2g_interface(
            ISERDES_NODELAY_inst_i (
               .O(O),                       // 1-bit output: Combinatorial output
               // Q1 - Q6: 1-bit (each) output: Registered data outputs
-              .Q1(serdes_data0_t0[j]),
-              .Q2(serdes_data0_t1[j]),
-              .Q3(serdes_data0_t2[j]),
-              .Q4(serdes_data0_t3[j]),
+              .Q1(serdes_data0_t3[j]),
+              .Q2(serdes_data0_t2[j]),
+              .Q3(serdes_data0_t1[j]),
+              .Q4(serdes_data0_t0[j]),
               .Q5(),
               .Q6(),
 
@@ -410,10 +410,10 @@ module adcdac_2g_interface(
            ISERDES_NODELAY_inst_i (
               .O(O),                       // 1-bit output: Combinatorial output
               // Q1 - Q6: 1-bit (each) output: Registered data outputs
-              .Q1(serdes_data1_t0[j]),
-              .Q2(serdes_data1_t1[j]),
-              .Q3(serdes_data1_t2[j]),
-              .Q4(serdes_data1_t3[j]),
+              .Q1(serdes_data1_t3[j]),
+              .Q2(serdes_data1_t2[j]),
+              .Q3(serdes_data1_t1[j]),
+              .Q4(serdes_data1_t0[j]),
               .Q5(),
               .Q6(),
 
@@ -476,10 +476,10 @@ module adcdac_2g_interface(
            ISERDES_NODELAY_inst_i (
               .O(O),                       // 1-bit output: Combinatorial output
               // Q1 - Q6: 1-bit (each) output: Registered data outputs
-              .Q1(serdes_data2_t0[j]),
-              .Q2(serdes_data2_t1[j]),
-              .Q3(serdes_data2_t2[j]),
-              .Q4(serdes_data2_t3[j]),
+              .Q1(serdes_data2_t3[j]),
+              .Q2(serdes_data2_t2[j]),
+              .Q3(serdes_data2_t1[j]),
+              .Q4(serdes_data2_t0[j]),
               .Q5(),
               .Q6(),
 
@@ -542,10 +542,10 @@ module adcdac_2g_interface(
            ISERDES_NODELAY_inst_i (
               .O(O),                       // 1-bit output: Combinatorial output
               // Q1 - Q6: 1-bit (each) output: Registered data outputs
-              .Q1(serdes_data3_t0[j]),
-              .Q2(serdes_data3_t1[j]),
-              .Q3(serdes_data3_t2[j]),
-              .Q4(serdes_data3_t3[j]),
+              .Q1(serdes_data3_t3[j]),
+              .Q2(serdes_data3_t2[j]),
+              .Q3(serdes_data3_t1[j]),
+              .Q4(serdes_data3_t0[j]),
               .Q5(),
               .Q6(),
 
