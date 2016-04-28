@@ -44,6 +44,7 @@ module adcdac_2g_interface(
     
     //-- clock from FPGA    
     //input fpga_clk,
+    input sys_clk,
 
     //-- clock to FPGA
     output adc_clk_out,
@@ -120,17 +121,29 @@ module adcdac_2g_interface(
     wire clk_90;
     wire clk_180;
     wire clk_270;
-    wire data0_smpl_clk_dly;
+    wire data0_smpl_clk_dlyy;
 
+    //fanout the user_load_dly0 to make timing easier
+    reg [15:0]load_dly0;
+    reg [15:0]load_dly1;
+    reg [15:0]load_dly2;
+    reg [15:0]load_dly3;
+
+    reg [4:0]dly_val0;
+    reg [4:0]dly_val1;
+    reg [4:0]dly_val2;
+    reg [4:0]dly_val3;
+
+    /*
     IODELAYE1 #(
-        .DELAY_SRC        ("I"),
+        .DELAY_SRC        ("CLKIN"),
         .IDELAY_TYPE      ("VAR_LOADABLE"),
         .IDELAY_VALUE     (1'b0),
         .REFCLK_FREQUENCY (200),
         .HIGH_PERFORMANCE_MODE ("TRUE"),
         .SIGNAL_PATTERN("CLOCK")
         ) IODELAY_smpl_clk [13:0] (
-            .C           (user_load_dly0[15]),
+            .C           (sys_clk),
             .CE          (1'b0),
             .DATAIN      (1'b0),
             .IDATAIN     (1'b0),
@@ -139,21 +152,19 @@ module adcdac_2g_interface(
             .ODATAIN     (),
             .RST         (user_load_dly0[14]),
             .T           (1'b0),
-            .DATAOUT     (data0_smpl_clk_dly),
+            .DATAOUT     (data0_smpl_clk_dlyy),
             .CNTVALUEOUT (),
             .CNTVALUEIN (user_dly_val)
             );
-
+            */
 
     //  -- MMCM INPUT
-      
 
     wire mmcm_clk_in;
     BUFG BUFG_data_clk(
         .I(data0_smpl_clk),
         .O(mmcm_clk_in));
       
-     
       
     // --  clkinv <= not clk;
       
@@ -170,57 +181,57 @@ module adcdac_2g_interface(
     wire mmcm_feedback_clk;
     wire mmcm_feedback_clk_out;
     MMCM_BASE #(
-       .BANDWIDTH("OPTIMIZED"),   // Jitter programming ("HIGH","LOW","OPTIMIZED")
-       .CLKFBOUT_MULT_F(12.0),     // Multiply value for all CLKOUT (5.0-64.0).
+       .BANDWIDTH("HIGH"),   // Jitter programming ("HIGH","LOW","OPTIMIZED")
+       .CLKFBOUT_MULT_F(5.0),     // Multiply value for all CLKOUT (5.0-64.0).
        .CLKFBOUT_PHASE(0.0),      // Phase offset in degrees of CLKFB (0.00-360.00).
-       //Input 125 MHz -> 8 ns
-       .CLKIN1_PERIOD(2.000),       // Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
+       //Input 500 MHz -> 2 ns
+       .CLKIN1_PERIOD(2.105),       // Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
        .CLKOUT4_CASCADE("FALSE"), // Cascase CLKOUT4 counter with CLKOUT6 (TRUE/FALSE)
        .CLOCK_HOLD("FALSE"),      // Hold VCO Frequency (TRUE/FALSE)
-       .DIVCLK_DIVIDE(6),         // Master division value (1-80)
+       .DIVCLK_DIVIDE(2),         // Master division value (1-80)
        .REF_JITTER1(0.0),         // Reference input jitter in UI (0.000-0.999).
        .STARTUP_WAIT("FALSE"),     // Not supported. Must be set to FALSE.
 
-       //Output 125 MHz
-       .CLKOUT0_DIVIDE_F(8.0),    // Divide amount for CLKOUT0 (1.000-128.000).
+       //Output 480 MHz
+       .CLKOUT0_DIVIDE_F(2.5),    // Divide amount for CLKOUT0 (1.000-128.000).
        .CLKOUT0_DUTY_CYCLE(0.5),
        .CLKOUT0_PHASE(0.0),
 
-       //Output 500 MHz
-       .CLKOUT1_DIVIDE(2),
+       //Output 120 MHz
+       .CLKOUT1_DIVIDE(10),
        .CLKOUT1_DUTY_CYCLE(0.5),
        .CLKOUT1_PHASE(0.0),
 
        //Output 250 MHz 0deg for fpga
-       .CLKOUT2_DIVIDE(4),
+       .CLKOUT2_DIVIDE(5),
        .CLKOUT2_DUTY_CYCLE(0.5),
        .CLKOUT2_PHASE(0.0),
 
        //Output 250 MHz 90deg for fpga
-       .CLKOUT3_DIVIDE(4),
+       .CLKOUT3_DIVIDE(5),
        .CLKOUT3_DUTY_CYCLE(0.5),
        .CLKOUT3_PHASE(90.0),
 
        //Output 250 MHz 180deg for fpga
-       .CLKOUT4_DIVIDE(4),
+       .CLKOUT4_DIVIDE(5),
        .CLKOUT4_DUTY_CYCLE(0.5),
        .CLKOUT4_PHASE(180.0),
        
        //Output 250 MHz 270deg for fpga
-       .CLKOUT5_DIVIDE(4),
+       .CLKOUT5_DIVIDE(5),
        .CLKOUT5_DUTY_CYCLE(0.5),
        .CLKOUT5_PHASE(270.0),
 
         //unused
-       .CLKOUT6_DIVIDE(4),
+       .CLKOUT6_DIVIDE(5),
        .CLKOUT6_DUTY_CYCLE(0.5),
        .CLKOUT6_PHASE(0.0)
     )
     CLK_MMCM (
        // Clock Outputs: 1-bit (each) output: User configurable clock outputs
-       .CLKOUT0(mmcm_smpl_clkdiv_out), 
+       .CLKOUT0(mmcm_smpl_clk_out), 
        .CLKOUT0B(),
-       .CLKOUT1(mmcm_smpl_clk_out),
+       .CLKOUT1(mmcm_smpl_clkdiv_out),
        .CLKOUT1B(), 
        .CLKOUT2(mmcm_clk_out_0),
        .CLKOUT2B(), 
@@ -350,11 +361,71 @@ module adcdac_2g_interface(
             .IDATAIN     (buf_data0),
             .INC         (1'b0),
             .ODATAIN     (),
-            .RST         (user_load_dly0[13:0]),
+            .RST         (load_dly0[13:0]),
             .T           (1'b0),
             .DATAOUT     (buf_data0_dly),
             .CNTVALUEOUT (),
-            .CNTVALUEIN (user_dly_val)
+            .CNTVALUEIN (dly_val0)
+            );
+    wire [13:0]buf_data1_dly;
+    IODELAYE1 #(
+        .DELAY_SRC        ("I"),
+        .IDELAY_TYPE      ("VAR_LOADABLE"),
+        .IDELAY_VALUE     (1'b0),
+        .REFCLK_FREQUENCY (200),
+        .HIGH_PERFORMANCE_MODE ("TRUE")
+        ) IODELAY_data1 [13:0] (
+            .C           (clk_0),
+            .CE          (1'b0),
+            .DATAIN      (1'b0),
+            .IDATAIN     (buf_data1),
+            .INC         (1'b0),
+            .ODATAIN     (),
+            .RST         (load_dly1[13:0]),
+            .T           (1'b0),
+            .DATAOUT     (buf_data1_dly),
+            .CNTVALUEOUT (),
+            .CNTVALUEIN (dly_val1)
+            );
+    wire [13:0]buf_data2_dly;
+    IODELAYE1 #(
+        .DELAY_SRC        ("I"),
+        .IDELAY_TYPE      ("VAR_LOADABLE"),
+        .IDELAY_VALUE     (1'b0),
+        .REFCLK_FREQUENCY (200),
+        .HIGH_PERFORMANCE_MODE ("TRUE")
+        ) IODELAY_data2 [13:0] (
+            .C           (clk_0),
+            .CE          (1'b0),
+            .DATAIN      (1'b0),
+            .IDATAIN     (buf_data2),
+            .INC         (1'b0),
+            .ODATAIN     (),
+            .RST         (load_dly2[13:0]),
+            .T           (1'b0),
+            .DATAOUT     (buf_data2_dly),
+            .CNTVALUEOUT (),
+            .CNTVALUEIN (dly_val2)
+            );
+    wire [13:0]buf_data3_dly;
+    IODELAYE1 #(
+        .DELAY_SRC        ("I"),
+        .IDELAY_TYPE      ("VAR_LOADABLE"),
+        .IDELAY_VALUE     (1'b0),
+        .REFCLK_FREQUENCY (200),
+        .HIGH_PERFORMANCE_MODE ("TRUE")
+        ) IODELAY_data3 [13:0] (
+            .C           (clk_0),
+            .CE          (1'b0),
+            .DATAIN      (1'b0),
+            .IDATAIN     (buf_data3),
+            .INC         (1'b0),
+            .ODATAIN     (),
+            .RST         (load_dly3[13:0]),
+            .T           (1'b0),
+            .DATAOUT     (buf_data3_dly),
+            .CNTVALUEOUT (),
+            .CNTVALUEIN (dly_val3)
             );
     //For each data stream (data0,data1,data2,...) parallelize with a serdes
     wire [13:0]serdes_data0_t0;
@@ -479,8 +550,8 @@ module adcdac_2g_interface(
               .DYNCLKDIVSEL(1'b0), // 1-bit input: Dynamic CLKDIV inversion input
               .DYNCLKSEL(1'b0),       // 1-bit input: Dynamic CLK/CLKB inversion input
               // Input Data: 1-bit (each) input: ISERDESE1 data input ports
-              .D(buf_data1[j]),                       // 1-bit input: Data input
-              .DDLY(1'b0),                 // 1-bit input: Serial input data from IODELAYE1
+              .DDLY(buf_data1_dly[j]), 
+              .D(1'b0),                 
               .OFB(OFB),                   // 1-bit input: Data feedback input from OSERDESE1
               .RST(1'b0),                   // 1-bit input: Active high asynchronous reset input
               // SHIFTIN1-SHIFTIN2: 1-bit (each) input: Data width expansion input ports
@@ -545,8 +616,8 @@ module adcdac_2g_interface(
               .DYNCLKDIVSEL(1'b0), // 1-bit input: Dynamic CLKDIV inversion input
               .DYNCLKSEL(1'b0),       // 1-bit input: Dynamic CLK/CLKB inversion input
               // Input Data: 1-bit (each) input: ISERDESE1 data input ports
-              .D(buf_data2[j]),                       // 1-bit input: Data input
-              .DDLY(1'b0),                 // 1-bit input: Serial input data from IODELAYE1
+              .DDLY(buf_data2_dly[j]), 
+              .D(1'b0),                 
               .OFB(OFB),                   // 1-bit input: Data feedback input from OSERDESE1
               .RST(1'b0),                   // 1-bit input: Active high asynchronous reset input
               // SHIFTIN1-SHIFTIN2: 1-bit (each) input: Data width expansion input ports
@@ -560,7 +631,6 @@ module adcdac_2g_interface(
     wire [13:0]serdes_data3_t1;
     wire [13:0]serdes_data3_t2;
     wire [13:0]serdes_data3_t3;
-    wire [13:0]buf_data3_dly;
     generate
         for (j=0; j<14;j=j+1) //one for each bit in a data bus
         begin: ISERDES_NODELAY_inst_data3_generate
@@ -612,8 +682,8 @@ module adcdac_2g_interface(
               .DYNCLKDIVSEL(1'b0), // 1-bit input: Dynamic CLKDIV inversion input
               .DYNCLKSEL(1'b0),       // 1-bit input: Dynamic CLK/CLKB inversion input
               // Input Data: 1-bit (each) input: ISERDESE1 data input ports
-              .D(buf_data3[j]),                       // 1-bit input: Data input
-              .DDLY(1'b0),                 // 1-bit input: Serial input data from IODELAYE1
+              .DDLY(buf_data3_dly[j]),                       
+              .D(1'b0),                 
               .OFB(OFB),                   // 1-bit input: Data feedback input from OSERDESE1
               .RST(1'b0),                   // 1-bit input: Active high asynchronous reset input
               // SHIFTIN1-SHIFTIN2: 1-bit (each) input: Data width expansion input ports
@@ -639,6 +709,20 @@ module adcdac_2g_interface(
     reg [13:0]recapture_data3_t1;
     reg [13:0]recapture_data3_t2;
     reg [13:0]recapture_data3_t3;
+
+    always @(posedge sys_clk)
+    begin
+        dly_val0 <= user_dly_val;
+        dly_val1 <= user_dly_val;
+        dly_val2 <= user_dly_val;
+        dly_val3 <= user_dly_val;
+
+        load_dly0 <= user_load_dly0;
+        load_dly1 <= user_load_dly0;
+        load_dly2 <= user_load_dly0;
+        load_dly3 <= user_load_dly0;
+    end
+
     //recapture all DDR inputs to clk's rising edge
     always @(posedge clk_0)
     begin
@@ -836,6 +920,7 @@ module adcdac_2g_interface(
 
      always @(posedge clk_0)
      begin
+
         if (smpl_clkdiv)
         begin
             idata0  <= bdata0_t0;
