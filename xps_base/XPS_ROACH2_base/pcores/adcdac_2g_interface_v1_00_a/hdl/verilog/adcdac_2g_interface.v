@@ -93,9 +93,8 @@ module adcdac_2g_interface(
     output user_mmcm_locked,
 
     input user_rdy_i0,
-    input user_rdy_i1,
-    input user_rdy_q0,
-    input user_rdy_q1
+    input [4:0]user_dly_val,
+    input [15:0]user_load_dly0
 
     );
 
@@ -116,6 +115,34 @@ module adcdac_2g_interface(
           .I(data0_smpl_clk_p),
           .IB(data0_smpl_clk_n)
           );
+
+    wire clk_0;
+    wire clk_90;
+    wire clk_180;
+    wire clk_270;
+    wire data0_smpl_clk_dly;
+
+    IODELAYE1 #(
+        .DELAY_SRC        ("I"),
+        .IDELAY_TYPE      ("VAR_LOADABLE"),
+        .IDELAY_VALUE     (1'b0),
+        .REFCLK_FREQUENCY (200),
+        .HIGH_PERFORMANCE_MODE ("TRUE"),
+        .SIGNAL_PATTERN("CLOCK")
+        ) IODELAY_smpl_clk [13:0] (
+            .C           (user_load_dly0[15]),
+            .CE          (1'b0),
+            .DATAIN      (1'b0),
+            .IDATAIN     (1'b0),
+            .CLKIN       (data0_smpl_clk),
+            .INC         (1'b0),
+            .ODATAIN     (),
+            .RST         (user_load_dly0[14]),
+            .T           (1'b0),
+            .DATAOUT     (data0_smpl_clk_dly),
+            .CNTVALUEOUT (),
+            .CNTVALUEIN (user_dly_val)
+            );
 
 
     //  -- MMCM INPUT
@@ -230,10 +257,6 @@ module adcdac_2g_interface(
        (.I(mmcm_smpl_clk_out), .O(smpl_clk));
      
      //250 MHz clocks with phases 0,90,180,270 for the fpga clock
-    wire clk_0;
-    wire clk_90;
-    wire clk_180;
-    wire clk_270;
     BUFG BUFG_clk0
        (.I(mmcm_clk_out_0),.O(clk_0));
     BUFG  BUFG_clk90 
@@ -312,6 +335,27 @@ module adcdac_2g_interface(
     end
     endgenerate
 
+   
+    wire [13:0]buf_data0_dly;
+    IODELAYE1 #(
+        .DELAY_SRC        ("I"),
+        .IDELAY_TYPE      ("VAR_LOADABLE"),
+        .IDELAY_VALUE     (1'b0),
+        .REFCLK_FREQUENCY (200),
+        .HIGH_PERFORMANCE_MODE ("TRUE")
+        ) IODELAY_data0 [13:0] (
+            .C           (clk_0),
+            .CE          (1'b0),
+            .DATAIN      (1'b0),
+            .IDATAIN     (buf_data0),
+            .INC         (1'b0),
+            .ODATAIN     (),
+            .RST         (user_load_dly0[13:0]),
+            .T           (1'b0),
+            .DATAOUT     (buf_data0_dly),
+            .CNTVALUEOUT (),
+            .CNTVALUEIN (user_dly_val)
+            );
     //For each data stream (data0,data1,data2,...) parallelize with a serdes
     wire [13:0]serdes_data0_t0;
     wire [13:0]serdes_data0_t1;
@@ -331,7 +375,7 @@ module adcdac_2g_interface(
               .INIT_Q3(1'b0),
               .INIT_Q4(1'b0),
               .INTERFACE_TYPE("NETWORKING"),   // "MEMORY", "MEMORY_DDR3", "MEMORY_QDR", "NETWORKING", or "OVERSAMPLE" 
-              .IOBDELAY("NONE"),           // "NONE", "IBUF", "IFD", "BOTH" 
+              .IOBDELAY("IFD"),           // "NONE", "IBUF", "IFD", "BOTH" 
               .NUM_CE(1),                  // Number of clock enables (1 or 2)
               .OFB_USED("FALSE"),          // Select OFB path (TRUE/FALSE)
               .SERDES_MODE("MASTER"),      // "MASTER" or "SLAVE" 
@@ -342,7 +386,7 @@ module adcdac_2g_interface(
               .SRVAL_Q4(1'b0)
            )
            ISERDES_NODELAY_inst_i (
-              .O(O),                       // 1-bit output: Combinatorial output
+              .O(),                       // 1-bit output: Combinatorial output
               // Q1 - Q6: 1-bit (each) output: Registered data outputs
               .Q1(serdes_data0_t3[j]),
               .Q2(serdes_data0_t2[j]),
@@ -368,8 +412,9 @@ module adcdac_2g_interface(
               .DYNCLKDIVSEL(1'b0), // 1-bit input: Dynamic CLKDIV inversion input
               .DYNCLKSEL(1'b0),       // 1-bit input: Dynamic CLK/CLKB inversion input
               // Input Data: 1-bit (each) input: ISERDESE1 data input ports
-              .D(buf_data0[j]),                       // 1-bit input: Data input
-              .DDLY(1'b0),                 // 1-bit input: Serial input data from IODELAYE1
+              //.D(buf_data0[j]),                       // 1-bit input: Data input
+              .D(1'b0),                       // 1-bit input: Data input
+              .DDLY(buf_data0_dly[j]),                 // 1-bit input: Serial input data from IODELAYE1
               .OFB(OFB),                   // 1-bit input: Data feedback input from OSERDESE1
               .RST(1'b0),                   // 1-bit input: Active high asynchronous reset input
               // SHIFTIN1-SHIFTIN2: 1-bit (each) input: Data width expansion input ports
@@ -515,6 +560,7 @@ module adcdac_2g_interface(
     wire [13:0]serdes_data3_t1;
     wire [13:0]serdes_data3_t2;
     wire [13:0]serdes_data3_t3;
+    wire [13:0]buf_data3_dly;
     generate
         for (j=0; j<14;j=j+1) //one for each bit in a data bus
         begin: ISERDES_NODELAY_inst_data3_generate
