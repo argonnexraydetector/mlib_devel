@@ -513,7 +513,7 @@ module adcdac_2g_interface(
               .INIT_Q3(1'b0),
               .INIT_Q4(1'b0),
               .INTERFACE_TYPE("NETWORKING"),   // "MEMORY", "MEMORY_DDR3", "MEMORY_QDR", "NETWORKING", or "OVERSAMPLE" 
-              .IOBDELAY("NONE"),           // "NONE", "IBUF", "IFD", "BOTH" 
+              .IOBDELAY("IFD"),           // "NONE", "IBUF", "IFD", "BOTH" 
               .NUM_CE(1),                  // Number of clock enables (1 or 2)
               .OFB_USED("FALSE"),          // Select OFB path (TRUE/FALSE)
               .SERDES_MODE("MASTER"),      // "MASTER" or "SLAVE" 
@@ -579,7 +579,7 @@ module adcdac_2g_interface(
               .INIT_Q3(1'b0),
               .INIT_Q4(1'b0),
               .INTERFACE_TYPE("NETWORKING"),   // "MEMORY", "MEMORY_DDR3", "MEMORY_QDR", "NETWORKING", or "OVERSAMPLE" 
-              .IOBDELAY("NONE"),           // "NONE", "IBUF", "IFD", "BOTH" 
+              .IOBDELAY("IFD"),           // "NONE", "IBUF", "IFD", "BOTH" 
               .NUM_CE(1),                  // Number of clock enables (1 or 2)
               .OFB_USED("FALSE"),          // Select OFB path (TRUE/FALSE)
               .SERDES_MODE("MASTER"),      // "MASTER" or "SLAVE" 
@@ -645,7 +645,7 @@ module adcdac_2g_interface(
               .INIT_Q3(1'b0),
               .INIT_Q4(1'b0),
               .INTERFACE_TYPE("NETWORKING"),   // "MEMORY", "MEMORY_DDR3", "MEMORY_QDR", "NETWORKING", or "OVERSAMPLE" 
-              .IOBDELAY("NONE"),           // "NONE", "IBUF", "IFD", "BOTH" 
+              .IOBDELAY("IFD"),           // "NONE", "IBUF", "IFD", "BOTH" 
               .NUM_CE(1),                  // Number of clock enables (1 or 2)
               .OFB_USED("FALSE"),          // Select OFB path (TRUE/FALSE)
               .SERDES_MODE("MASTER"),      // "MASTER" or "SLAVE" 
@@ -784,223 +784,6 @@ module adcdac_2g_interface(
     assign user_info_q6 = recapture_data3_t2[13:12];
     assign user_info_q7 = recapture_data3_t3[13:12];
 
-/*
-    //Use registers to buffer and move data around to be in the proper temporal order
-    reg [13:0] adata0_t0;
-    reg [13:0] adata0_t1;
-    reg [13:0] adata0_t2;
-    reg [13:0] adata0_t3;
-    reg [13:0] adata1_t0;
-    reg [13:0] adata1_t1;
-    reg [13:0] adata1_t2;
-    reg [13:0] adata1_t3;
-    reg [13:0] adata2_t0;
-    reg [13:0] adata2_t1;
-    reg [13:0] adata2_t2;
-    reg [13:0] adata2_t3;
-    reg [13:0] adata3_t0;
-    reg [13:0] adata3_t1;
-    reg [13:0] adata3_t2;
-    reg [13:0] adata3_t3;
-
-    reg [13:0] bdata0_t0;
-    reg [13:0] bdata0_t1;
-    reg [13:0] bdata0_t2;
-    reg [13:0] bdata0_t3;
-    reg [13:0] bdata1_t0;
-    reg [13:0] bdata1_t1;
-    reg [13:0] bdata1_t2;
-    reg [13:0] bdata1_t3;
-    reg [13:0] bdata2_t0;
-    reg [13:0] bdata2_t1;
-    reg [13:0] bdata2_t2;
-    reg [13:0] bdata2_t3;
-    reg [13:0] bdata3_t0;
-    reg [13:0] bdata3_t1;
-    reg [13:0] bdata3_t2;
-    reg [13:0] bdata3_t3;
-
-    reg [13:0] cdata0_t0;
-    reg [13:0] cdata0_t1;
-    reg [13:0] cdata0_t2;
-    reg [13:0] cdata0_t3;
-    reg [13:0] cdata1_t0;
-    reg [13:0] cdata1_t1;
-    reg [13:0] cdata1_t2;
-    reg [13:0] cdata1_t3;
-    reg [13:0] cdata2_t0;
-    reg [13:0] cdata2_t1;
-    reg [13:0] cdata2_t2;
-    reg [13:0] cdata2_t3;
-    reg [13:0] cdata3_t0;
-    reg [13:0] cdata3_t1;
-    reg [13:0] cdata3_t2;
-    reg [13:0] cdata3_t3;
-
-    reg [13:0] idata0;
-    reg [13:0] idata1;
-    reg [13:0] idata2;
-    reg [13:0] idata3;
-    reg [13:0] idata4;
-    reg [13:0] idata5;
-    reg [13:0] idata6;
-    reg [13:0] idata7;
-    reg [13:0] qdata0;
-    reg [13:0] qdata1;
-    reg [13:0] qdata2;
-    reg [13:0] qdata3;
-    reg [13:0] qdata4;
-    reg [13:0] qdata5;
-    reg [13:0] qdata6;
-    reg [13:0] qdata7;
-
-
-     always @(posedge smpl_clkdiv)
-     begin
-        adata0_t0 <= recapture_data0_t0;
-        adata0_t1 <= recapture_data0_t1;
-        adata0_t2 <= recapture_data0_t2;
-        adata0_t3 <= recapture_data0_t3;
-        adata1_t0 <= recapture_data1_t0;
-        adata1_t1 <= recapture_data1_t1;
-        adata1_t2 <= recapture_data1_t2;
-        adata1_t3 <= recapture_data1_t3;
-
-        adata2_t0 <= recapture_data2_t0;
-        adata2_t1 <= recapture_data2_t1;
-        adata2_t2 <= recapture_data2_t2;
-        adata2_t3 <= recapture_data2_t3;
-        adata3_t0 <= recapture_data3_t0;
-        adata3_t1 <= recapture_data3_t1;
-        adata3_t2 <= recapture_data3_t2;
-        adata3_t3 <= recapture_data3_t3;
-     end 
-    
-     always @(negedge smpl_clkdiv)
-     begin
-        bdata0_t0 <= recapture_data0_t0;
-        bdata0_t1 <= recapture_data0_t1;
-        bdata0_t2 <= recapture_data0_t2;
-        bdata0_t3 <= recapture_data0_t3;
-        bdata1_t0 <= recapture_data1_t0;
-        bdata1_t1 <= recapture_data1_t1;
-        bdata1_t2 <= recapture_data1_t2;
-        bdata1_t3 <= recapture_data1_t3;
-
-        bdata2_t0 <= recapture_data2_t0;
-        bdata2_t1 <= recapture_data2_t1;
-        bdata2_t2 <= recapture_data2_t2;
-        bdata2_t3 <= recapture_data2_t3;
-        bdata3_t0 <= recapture_data3_t0;
-        bdata3_t1 <= recapture_data3_t1;
-        bdata3_t2 <= recapture_data3_t2;
-        bdata3_t3 <= recapture_data3_t3;
-     end 
-
-     always @(negedge smpl_clkdiv)
-     begin
-        cdata0_t0 <= bdata0_t0;
-        cdata0_t1 <= bdata0_t1;
-        cdata0_t2 <= bdata0_t2;
-        cdata0_t3 <= bdata0_t3;
-        cdata1_t0 <= bdata1_t0;
-        cdata1_t1 <= bdata1_t1;
-        cdata1_t2 <= bdata1_t2;
-        cdata1_t3 <= bdata1_t3;
-
-        cdata2_t0 <= bdata2_t0;
-        cdata2_t1 <= bdata2_t1;
-        cdata2_t2 <= bdata2_t2;
-        cdata2_t3 <= bdata2_t3;
-        cdata3_t0 <= bdata3_t0;
-        cdata3_t1 <= bdata3_t1;
-        cdata3_t2 <= bdata3_t2;
-        cdata3_t3 <= bdata3_t3;
-     end
-
-     always @(posedge clk_0)
-     begin
-
-        if (smpl_clkdiv)
-        begin
-            idata0  <= bdata0_t0;
-            idata1  <= bdata0_t1;
-            idata2  <= bdata0_t2;
-            idata3  <= bdata0_t3;
-            idata4  <= adata0_t0;
-            idata5  <= adata0_t1;
-            idata6  <= adata0_t2;
-            idata7  <= adata0_t3;
-
-            qdata0  <= bdata2_t0;
-            qdata1  <= bdata2_t1;
-            qdata2  <= bdata2_t2;
-            qdata3  <= bdata2_t3;
-            qdata4  <= adata2_t0;
-            qdata5  <= adata2_t1;
-            qdata6  <= adata2_t2;
-            qdata7  <= adata2_t3;
-        end
-        else
-        begin
-            idata0  <= cdata1_t0;
-            idata1  <= cdata1_t1;
-            idata2  <= cdata1_t2;
-            idata3  <= cdata1_t3;
-            idata4  <= adata1_t0;
-            idata5  <= adata1_t1;
-            idata6  <= adata1_t2;
-            idata7  <= adata1_t3;
-
-            qdata0  <= cdata3_t0;
-            qdata1  <= cdata3_t1;
-            qdata2  <= cdata3_t2;
-            qdata3  <= cdata3_t3;
-            qdata4  <= adata3_t0;
-            qdata5  <= adata3_t1;
-            qdata6  <= adata3_t2;
-            qdata7  <= adata3_t3;
-        end
-     end
- 
-
-    //send reordered data to module outputs
-    assign user_data_i0 = idata0[11:0];
-    assign user_data_i1 = idata1[11:0];
-    assign user_data_i2 = idata2[11:0];
-    assign user_data_i3 = idata3[11:0];
-    assign user_data_i4 = idata4[11:0];
-    assign user_data_i5 = idata5[11:0];
-    assign user_data_i6 = idata6[11:0];
-    assign user_data_i7 = idata7[11:0];
-
-    assign user_data_q0 = qdata0[11:0];
-    assign user_data_q1 = qdata1[11:0];
-    assign user_data_q2 = qdata2[11:0];
-    assign user_data_q3 = qdata3[11:0];
-    assign user_data_q4 = qdata4[11:0];
-    assign user_data_q5 = qdata5[11:0];
-    assign user_data_q6 = qdata6[11:0];
-    assign user_data_q7 = qdata7[11:0];
-
-    assign user_info_i0 = idata0[13:12];
-    assign user_info_i1 = idata1[13:12];
-    assign user_info_i2 = idata2[13:12];
-    assign user_info_i3 = idata3[13:12];
-    assign user_info_i4 = idata4[13:12];
-    assign user_info_i5 = idata5[13:12];
-    assign user_info_i6 = idata6[13:12];
-    assign user_info_i7 = idata7[13:12];
-
-    assign user_info_q0 = qdata0[13:12];
-    assign user_info_q1 = qdata1[13:12];
-    assign user_info_q2 = qdata2[13:12];
-    assign user_info_q3 = qdata3[13:12];
-    assign user_info_q4 = qdata4[13:12];
-    assign user_info_q5 = qdata5[13:12];
-    assign user_info_q6 = qdata6[13:12];
-    assign user_info_q7 = qdata7[13:12];
-*/
 
     OBUFDS #(.IOSTANDARD("LVDS_25"))
     OBUFDS_inst_data0_rdy_p
