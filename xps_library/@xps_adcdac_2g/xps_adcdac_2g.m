@@ -124,6 +124,7 @@ end
 
 %lock for clock manager
 misc_ports.adc_mmcm_locked = {1 'out' [s.adc_str, '_mmcm_locked']};
+misc_ports.sys_clk       = {1 'in'  'sys_clk'};
 
 b = set(b,'misc_ports',misc_ports);
 
