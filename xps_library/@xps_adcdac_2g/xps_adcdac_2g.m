@@ -55,10 +55,10 @@ n_adc_samples_per_fabric_cycle = 8
 
 
 % external ports
-ucf_constraints_clock  = struct('IOSTANDARD', 'LVDS_25', 'DIFF_TERM', 'TRUE', 'PERIOD', '2 ns');
+ucf_constraints_clock  = struct('IOSTANDARD', 'LVDS_25', 'DIFF_TERM', 'TRUE', 'PERIOD', '8 ns');
 ucf_constraints_term    = struct('IOSTANDARD', 'LVDS_25', 'DIFF_TERM', 'TRUE');
 ucf_constraints_noterm = struct('IOSTANDARD', 'LVDS_25');
-mhs_constraints = struct('SIGIS','CLK', 'CLK_FREQ','500000000');
+mhs_constraints = struct('SIGIS','CLK', 'CLK_FREQ','125000000');
 
 %data in
 adcport1 = [s.hw_sys, '.', 'zdok1'];
@@ -74,14 +74,16 @@ ext_ports.data0_p         = {14 'in' ['adc_data0_p'] ['{',adcport1,'_p{[1 21 11 
 ext_ports.data0_n         = {14 'in' ['adc_data0_n'] ['{',adcport1,'_n{[1 21 11 31 2 22 12 32 3 23 13 33 4 24],:}}'] 'vector=true' struct() ucf_constraints_term};
 ext_ports.data1_p         = {14 'in' ['adc_data1_p'] ['{',adcport1,'_p{[6 26 16 36 7 27 17 37 8 28 18 38 9 29],:}}'] 'vector=true' struct() ucf_constraints_term};
 ext_ports.data1_n         = {14 'in' ['adc_data1_n'] ['{',adcport1,'_n{[6 26 16 36 7 27 17 37 8 28 18 38 9 29],:}}'] 'vector=true' struct() ucf_constraints_term};
-ext_ports.data2_p         = {14 'in' ['adc_data2_p'] ['{',adcport0,'_p{[1 21 11 31 2 22 12 32 3 23 13 33 4 24],:}}'] 'vector=true' struct() ucf_constraints_term};
-ext_ports.data2_n         = {14 'in' ['adc_data2_n'] ['{',adcport0,'_n{[1 21 11 31 2 22 12 32 3 23 13 33 4 24],:}}'] 'vector=true' struct() ucf_constraints_term};
+%ext_ports.data2_p         = {14 'in' ['adc_data2_p'] ['{',adcport0,'_p{[1 21 11 31 2 22 12 32 3 23 13 33 4 24],:}}'] 'vector=true' struct() ucf_constraints_term};
+%ext_ports.data2_n         = {14 'in' ['adc_data2_n'] ['{',adcport0,'_n{[1 21 11 31 2 22 12 32 3 23 13 33 4 24],:}}'] 'vector=true' struct() ucf_constraints_term};
+ext_ports.data2_p         = {14 'in' ['adc_data2_p'] ['{',adcport0,'_p{[1 19 11 31 2 39 12 32 10 5 13 33 4 24],:}}'] 'vector=true' struct() ucf_constraints_term};
+ext_ports.data2_n         = {14 'in' ['adc_data2_n'] ['{',adcport0,'_n{[1 19 11 31 2 39 12 32 10 5 13 33 4 24],:}}'] 'vector=true' struct() ucf_constraints_term};
 ext_ports.data3_p         = {14 'in' ['adc_data3_p'] ['{',adcport0,'_p{[6 26 16 36 7 27 17 37 8 28 18 38 9 29],:}}'] 'vector=true' struct() ucf_constraints_term};
 ext_ports.data3_n         = {14 'in' ['adc_data3_n'] ['{',adcport0,'_n{[6 26 16 36 7 27 17 37 8 28 18 38 9 29],:}}'] 'vector=true' struct() ucf_constraints_term};
 
 %sample clocks
-ext_ports.data0_smpl_clk_p = {1  'in' ['adc_data0_smpl_clk_p'] ['{',adcport1,'_p{[20],:}}'] 'vector=false'  mhs_constraints ucf_constraints_clock};
-ext_ports.data0_smpl_clk_n = {1  'in' ['adc_data0_smpl_clk_n'] ['{',adcport1,'_n{[20],:}}'] 'vector=false'  mhs_constraints ucf_constraints_clock};
+ext_ports.data0_smpl_clk_p = {1  'in' ['adc_data0_smpl_clk_p'] ['{',adcport0,'_p{[20],:}}'] 'vector=false'  mhs_constraints ucf_constraints_clock};
+ext_ports.data0_smpl_clk_n = {1  'in' ['adc_data0_smpl_clk_n'] ['{',adcport0,'_n{[20],:}}'] 'vector=false'  mhs_constraints ucf_constraints_clock};
 %ext_ports.data1_smpl_clk_p = {1  'in' ['adc_data1_smpl_clk_p'] ['{',adcport1,'_p{[40],:}}'] 'vector=false'  mhs_constraints ucf_constraints_clock};
 %ext_ports.data1_smpl_clk_n = {1  'in' ['adc_data1_smpl_clk_n'] ['{',adcport1,'_n{[40],:}}'] 'vector=false'  mhs_constraints ucf_constraints_clock};
 %ext_ports.data2_smpl_clk_p = {1  'in' ['adc_data2_smpl_clk_p'] ['{',adcport0,'_p{[20],:}}'] 'vector=false'  mhs_constraints ucf_constraints_clock};

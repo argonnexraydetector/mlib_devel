@@ -49,6 +49,15 @@ name_index = name_index + 1;
 gw_name_list{name_index} = 'user_rdy_q1';
 name_index = name_index + 1;
 
+gw_name_list{name_index} = 'user_dly_val';
+name_index = name_index + 1;
+gw_name_list{name_index} = 'user_load_dly0';
+name_index = name_index + 1;
+gw_name_list{name_index} = 'user_pos_mmcm_phs';
+name_index = name_index + 1;
+gw_name_list{name_index} = 'user_inc_mmcm_phs';
+name_index = name_index + 1;
+
 for i = 1:8
     gw_name_list{name_index} = ['user_data_i',int2str(i-1)];
     name_index = name_index + 1;

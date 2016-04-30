@@ -62,6 +62,7 @@ PORT adc_clk_out    = "", DIR = O, SIGIS = CLK
 PORT adc_clk90_out    = "", DIR = O, SIGIS = CLK
 PORT adc_clk180_out    = "", DIR = O, SIGIS = CLK
 PORT adc_clk270_out    = "", DIR = O, SIGIS = CLK
+PORT sys_clk    = "", DIR = I, SIGIS = CLK
 #   // -- mmcm locked 
 #    output adc_mmcm_locked,
 PORT adc_mmcm_locked = "", DIR = O
@@ -120,11 +121,14 @@ PORT user_info_q7   = "", DIR = O, VEC = [1:0]
 PORT user_valid   = "", DIR = O
 
 PORT user_rdy_i0   = "", DIR = I
+PORT user_dly_val   = "", DIR = I, VEC = [4:0]
+PORT user_load_dly0   = "", DIR = I, VEC = [5:0]
+PORT user_pos_mmcm_phs   = "", DIR = I
+PORT user_inc_mmcm_phs   = "", DIR = I
 
 #    output user_sync
 PORT user_sync	    = "", DIR = O
 PORT user_mmcm_locked    = "", DIR = O
-
 
 
 
