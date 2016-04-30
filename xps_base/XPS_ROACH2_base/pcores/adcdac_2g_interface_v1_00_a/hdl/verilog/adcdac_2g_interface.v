@@ -93,10 +93,14 @@ module adcdac_2g_interface(
     output user_sync,
     output user_mmcm_locked,
 
+    //ready for adcdac board to start sending adc values
     input user_rdy_i0,
+    //val to load into an iodelay
     input [4:0]user_dly_val,
-    input [15:0]user_load_dly0
-
+    //choose which bit's iodelay to load above value into 
+    input [5:0]user_load_dly0,
+    input user_pos_mmcm_phs,
+    input user_inc_mmcm_phs
     );
 
 // First set clock manager
@@ -121,18 +125,52 @@ module adcdac_2g_interface(
     wire clk_90;
     wire clk_180;
     wire clk_270;
-    wire data0_smpl_clk_dlyy;
 
-    //fanout the user_load_dly0 to make timing easier
-    reg [15:0]load_dly0;
-    reg [15:0]load_dly1;
-    reg [15:0]load_dly2;
-    reg [15:0]load_dly3;
+    reg inc_mmcm_phs;
 
+    //we'll fanout the user_load_dly0 to make timing easier
     reg [4:0]dly_val0;
     reg [4:0]dly_val1;
     reg [4:0]dly_val2;
     reg [4:0]dly_val3;
+    //demux the user load_dly0 value to wires controlling each bit's iodelay
+    // reset
+    wire [55:0]load_bit_dly;
+    genvar k;
+    generate
+        for (k = 0; k < 56; k = k + 1) 
+        begin : load_dly_demux
+            assign load_bit_dly[k] = (user_load_dly0 == k) ? (1'b1) : (1'b0);
+        end
+    endgenerate
+
+    reg [55:0]load_bit_dly_reg;
+    always @(posedge sys_clk)
+    begin
+        load_bit_dly_reg <= load_bit_dly;
+    end
+
+    //if the user togles on user_inc_mmcm_phs, send a one cycle pulse along
+    reg already_triggered_inc;
+    initial begin
+        already_triggered_inc = 1'b0;
+    end
+    always @(posedge sys_clk)
+    begin
+       if (user_inc_mmcm_phs && !already_triggered_inc) 
+       begin
+            already_triggered_inc <= ~already_triggered_inc;
+            inc_mmcm_phs <= 1;
+       end
+       else if (!user_inc_mmcm_phs) 
+       begin
+            already_triggered_inc <= 1'b0;
+       end
+       else 
+       begin
+            inc_mmcm_phs <= 0;
+       end
+    end
 
     /*
     IODELAYE1 #(
@@ -180,7 +218,7 @@ module adcdac_2g_interface(
     wire mmcm_clk_out_270;
     wire mmcm_feedback_clk;
     wire mmcm_feedback_clk_out;
-    MMCM_BASE #(
+    MMCM_ADV #(
        .BANDWIDTH("HIGH"),   // Jitter programming ("HIGH","LOW","OPTIMIZED")
        .CLKFBOUT_MULT_F(8.0),     // Multiply value for all CLKOUT (5.0-64.0).
        .CLKFBOUT_PHASE(90.0),      // Phase offset in degrees of CLKFB (0.00-360.00).
@@ -193,6 +231,7 @@ module adcdac_2g_interface(
        .DIVCLK_DIVIDE(1),         // Master division value (1-80)
        .REF_JITTER1(0.0),         // Reference input jitter in UI (0.000-0.999).
        .STARTUP_WAIT("FALSE"),     // Not supported. Must be set to FALSE.
+       .CLKFBOUT_USE_FINE_PS("TRUE"),
 
        //Output 480 MHz
        .CLKOUT0_DIVIDE_F(2),    // Divide amount for CLKOUT0 (1.000-128.000).
@@ -252,7 +291,10 @@ module adcdac_2g_interface(
        .PWRDWN(1'b0),       // 1-bit input: Power-down input
        .RST(1'b0),             // 1-bit input: Reset input
        // Feedback Clocks
-       .CLKFBIN(mmcm_feedback_clk)      // 1-bit input: Feedback clock input
+       .CLKFBIN(mmcm_feedback_clk),      // 1-bit input: Feedback clock input
+       .PSCLK(sys_clk), //phase shift clock
+       .PSEN(inc_mmcm_phs), //when high synchronously with PSCLK, will increment/decrement phase by one click
+       .PSINCDEC(user_pos_mmcm_phs) //phase-shift increment/decrement control, high for increment, low for decrement
     );
 
     //  -- MMCM OUTPUT
@@ -363,7 +405,7 @@ module adcdac_2g_interface(
             .IDATAIN     (buf_data0),
             .INC         (1'b0),
             .ODATAIN     (),
-            .RST         (load_dly0[13:0]),
+            .RST         (load_bit_dly_reg[13:0]),
             .T           (1'b0),
             .DATAOUT     (buf_data0_dly),
             .CNTVALUEOUT (),
@@ -383,7 +425,7 @@ module adcdac_2g_interface(
             .IDATAIN     (buf_data1),
             .INC         (1'b0),
             .ODATAIN     (),
-            .RST         (load_dly1[13:0]),
+            .RST         (load_bit_dly_reg[27:14]),
             .T           (1'b0),
             .DATAOUT     (buf_data1_dly),
             .CNTVALUEOUT (),
@@ -403,7 +445,7 @@ module adcdac_2g_interface(
             .IDATAIN     (buf_data2),
             .INC         (1'b0),
             .ODATAIN     (),
-            .RST         (load_dly2[13:0]),
+            .RST         (load_bit_dly_reg[41:28]),
             .T           (1'b0),
             .DATAOUT     (buf_data2_dly),
             .CNTVALUEOUT (),
@@ -423,7 +465,7 @@ module adcdac_2g_interface(
             .IDATAIN     (buf_data3),
             .INC         (1'b0),
             .ODATAIN     (),
-            .RST         (load_dly3[13:0]),
+            .RST         (load_bit_dly_reg[55:42]),
             .T           (1'b0),
             .DATAOUT     (buf_data3_dly),
             .CNTVALUEOUT (),
@@ -712,17 +754,13 @@ module adcdac_2g_interface(
     reg [13:0]recapture_data3_t2;
     reg [13:0]recapture_data3_t3;
 
+    //fanout the user values to multiple registers make timing easier
     always @(posedge sys_clk)
     begin
         dly_val0 <= user_dly_val;
         dly_val1 <= user_dly_val;
         dly_val2 <= user_dly_val;
         dly_val3 <= user_dly_val;
-
-        load_dly0 <= user_load_dly0;
-        load_dly1 <= user_load_dly0;
-        load_dly2 <= user_load_dly0;
-        load_dly3 <= user_load_dly0;
     end
 
     //recapture all DDR inputs to clk's rising edge
