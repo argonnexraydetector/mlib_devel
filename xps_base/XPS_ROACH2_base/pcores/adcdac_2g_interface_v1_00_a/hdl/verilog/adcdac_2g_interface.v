@@ -182,48 +182,50 @@ module adcdac_2g_interface(
     wire mmcm_feedback_clk_out;
     MMCM_BASE #(
        .BANDWIDTH("HIGH"),   // Jitter programming ("HIGH","LOW","OPTIMIZED")
-       .CLKFBOUT_MULT_F(5.0),     // Multiply value for all CLKOUT (5.0-64.0).
-       .CLKFBOUT_PHASE(0.0),      // Phase offset in degrees of CLKFB (0.00-360.00).
-       //Input 500 MHz -> 2 ns
-       .CLKIN1_PERIOD(2.105),       // Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
+       .CLKFBOUT_MULT_F(8.0),     // Multiply value for all CLKOUT (5.0-64.0).
+       .CLKFBOUT_PHASE(90.0),      // Phase offset in degrees of CLKFB (0.00-360.00).
+       //I'm going to lie to the mmcm and tell it the input is 135 MHz but
+       //it'll really be 125 Mhz.  This is to trick it to use HIGH bandwidth
+       //mode for f_pfd=125 MHz when it's usually limited to 135 MHz.
+       .CLKIN1_PERIOD(7.407),       // Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
        .CLKOUT4_CASCADE("FALSE"), // Cascase CLKOUT4 counter with CLKOUT6 (TRUE/FALSE)
        .CLOCK_HOLD("FALSE"),      // Hold VCO Frequency (TRUE/FALSE)
-       .DIVCLK_DIVIDE(2),         // Master division value (1-80)
+       .DIVCLK_DIVIDE(1),         // Master division value (1-80)
        .REF_JITTER1(0.0),         // Reference input jitter in UI (0.000-0.999).
        .STARTUP_WAIT("FALSE"),     // Not supported. Must be set to FALSE.
 
        //Output 480 MHz
-       .CLKOUT0_DIVIDE_F(2.5),    // Divide amount for CLKOUT0 (1.000-128.000).
+       .CLKOUT0_DIVIDE_F(2),    // Divide amount for CLKOUT0 (1.000-128.000).
        .CLKOUT0_DUTY_CYCLE(0.5),
        .CLKOUT0_PHASE(0.0),
 
        //Output 120 MHz
-       .CLKOUT1_DIVIDE(10),
+       .CLKOUT1_DIVIDE(8),
        .CLKOUT1_DUTY_CYCLE(0.5),
        .CLKOUT1_PHASE(0.0),
 
        //Output 250 MHz 0deg for fpga
-       .CLKOUT2_DIVIDE(5),
+       .CLKOUT2_DIVIDE(4),
        .CLKOUT2_DUTY_CYCLE(0.5),
        .CLKOUT2_PHASE(0.0),
 
        //Output 250 MHz 90deg for fpga
-       .CLKOUT3_DIVIDE(5),
+       .CLKOUT3_DIVIDE(4),
        .CLKOUT3_DUTY_CYCLE(0.5),
        .CLKOUT3_PHASE(90.0),
 
        //Output 250 MHz 180deg for fpga
-       .CLKOUT4_DIVIDE(5),
+       .CLKOUT4_DIVIDE(4),
        .CLKOUT4_DUTY_CYCLE(0.5),
        .CLKOUT4_PHASE(180.0),
        
        //Output 250 MHz 270deg for fpga
-       .CLKOUT5_DIVIDE(5),
+       .CLKOUT5_DIVIDE(4),
        .CLKOUT5_DUTY_CYCLE(0.5),
        .CLKOUT5_PHASE(270.0),
 
         //unused
-       .CLKOUT6_DIVIDE(5),
+       .CLKOUT6_DIVIDE(4),
        .CLKOUT6_DUTY_CYCLE(0.5),
        .CLKOUT6_PHASE(0.0)
     )
