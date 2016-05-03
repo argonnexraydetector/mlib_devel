@@ -9,14 +9,24 @@
 //////////////////////////////////////////////////////////////////////////////////
 module adcdac_2g_interface(
     //-- differential data read from ADC
-    input [13:0]data0_p,
-    input [13:0]data0_n,
-    input [13:0]data1_p,
-    input [13:0]data1_n,
-    input [13:0]data2_p,
-    input [13:0]data2_n,
-    input [13:0]data3_p,
-    input [13:0]data3_n,
+    input [11:0]data0_p,
+    input [11:0]data0_n,
+    input [11:0]data1_p,
+    input [11:0]data1_n,
+    input [5:0]data2z0_p,
+    input [5:0]data2z0_n,
+    input [5:0]data2z1_p,
+    input [5:0]data2z1_n,
+    input [11:0]data3_p,
+    input [11:0]data3_n,
+    input [1:0]info0_p,
+    input [1:0]info0_n,
+    input [1:0]info1_p,
+    input [1:0]info1_n,
+    input [1:0]info2_p,
+    input [1:0]info2_n,
+    input [1:0]info3_p,
+    input [1:0]info3_n,
     input valid_p,
     input valid_n,
 
@@ -336,7 +346,7 @@ module adcdac_2g_interface(
     wire [13:0]buf_data0;
     genvar j;
     generate
-    for (j=0; j<14;j=j+1)
+    for (j=0; j<12;j=j+1)
     begin: IBUFDS_inst_data0_generate
 
         IBUFDS #(.IOSTANDARD("LVDS_25"))
@@ -348,9 +358,22 @@ module adcdac_2g_interface(
     end
     endgenerate
 
+    generate
+    for (j=0; j<2;j=j+1)
+    begin: IBUFDS_inst_info0_generate
+
+        IBUFDS #(.IOSTANDARD("LVDS_25"))
+        IBUFDS_inst_data (
+            .O(buf_data0[12+j]),
+          .I(info0_p[j]),
+          .IB(info0_n[j])
+        );
+    end
+    endgenerate
+
     wire [13:0]buf_data1;
     generate
-    for (j=0; j<14;j=j+1)
+    for (j=0; j<12;j=j+1)
     begin: IBUFDS_inst_data1_generate
 
         IBUFDS #(.IOSTANDARD("LVDS_25"))
@@ -361,24 +384,77 @@ module adcdac_2g_interface(
         );
     end
     endgenerate
-
-    wire [13:0]buf_data2;
     generate
-    for (j=0; j<14;j=j+1)
-    begin: IBUFDS_inst_data2_generate
+    for (j=0; j<2;j=j+1)
+    begin: IBUFDS_inst_info1_generate
 
         IBUFDS #(.IOSTANDARD("LVDS_25"))
         IBUFDS_inst_data (
-            .O(buf_data2[j]),
-          .I(data2_p[j]),
-          .IB(data2_n[j])
+            .O(buf_data1[12+j]),
+          .I(info1_p[j]),
+          .IB(info1_n[j])
+        );
+    end
+    endgenerate
+
+    wire [13:0]buf_data2;
+    wire [5:0]buf_data2z0;
+    wire [5:0]buf_data2z1;
+    generate
+    for (j=0; j<6;j=j+1)
+    begin: IBUFDS_inst_data2z0_generate
+
+        IBUFDS #(.IOSTANDARD("LVDS_25"))
+        IBUFDS_inst_data (
+            .O(buf_data2z0[j]),
+          .I(data2z0_p[j]),
+          .IB(data2z0_n[j])
+        );
+    end
+    endgenerate
+
+    generate
+    for (j=0; j<6;j=j+1)
+    begin: IBUFDS_inst_data2z1_generate
+
+        IBUFDS #(.IOSTANDARD("LVDS_25"))
+        IBUFDS_inst_data (
+            .O(buf_data2z1[j]),
+          .I(data2z1_p[j]),
+          .IB(data2z1_n[j])
+        );
+    end
+    endgenerate
+
+    assign buf_data2[11] = buf_data2z0[5];
+    assign buf_data2[10] = buf_data2z0[4];
+    assign buf_data2[9] = buf_data2z1[5];
+    assign buf_data2[8] = buf_data2z0[3];
+    assign buf_data2[7] = buf_data2z0[2];
+    assign buf_data2[6] = buf_data2z1[4];
+    assign buf_data2[5] = buf_data2z0[1];
+    assign buf_data2[4] = buf_data2z0[0];
+    assign buf_data2[3] = buf_data2z1[3];
+    assign buf_data2[2] = buf_data2z1[2];
+    assign buf_data2[1] = buf_data2z1[1];
+    assign buf_data2[0] = buf_data2z1[0];
+
+    generate
+    for (j=0; j<2;j=j+1)
+    begin: IBUFDS_inst_info2_generate
+
+        IBUFDS #(.IOSTANDARD("LVDS_25"))
+        IBUFDS_inst_data (
+            .O(buf_data2[12+j]),
+          .I(info2_p[j]),
+          .IB(info2_n[j])
         );
     end
     endgenerate
 
     wire [13:0]buf_data3;
     generate
-    for (j=0; j<14;j=j+1)
+    for (j=0; j<12;j=j+1)
     begin: IBUFDS_inst_data3_generate
 
         IBUFDS #(.IOSTANDARD("LVDS_25"))
@@ -386,6 +462,18 @@ module adcdac_2g_interface(
             .O(buf_data3[j]),
           .I(data3_p[j]),
           .IB(data3_n[j])
+        );
+    end
+    endgenerate
+    generate
+    for (j=0; j<2;j=j+1)
+    begin: IBUFDS_inst_info3_generate
+
+        IBUFDS #(.IOSTANDARD("LVDS_25"))
+        IBUFDS_inst_data (
+            .O(buf_data3[12+j]),
+          .I(info3_p[j]),
+          .IB(info3_n[j])
         );
     end
     endgenerate
