@@ -13,10 +13,8 @@ module adcdac_2g_interface(
     input [11:0]data0_n,
     input [11:0]data1_p,
     input [11:0]data1_n,
-    input [5:0]data2z0_p,
-    input [5:0]data2z0_n,
-    input [5:0]data2z1_p,
-    input [5:0]data2z1_n,
+    input [11:0]data2_p,
+    input [11:0]data2_n,
     input [11:0]data3_p,
     input [11:0]data3_n,
     input [1:0]info0_p,
@@ -231,7 +229,7 @@ module adcdac_2g_interface(
     MMCM_ADV #(
        .BANDWIDTH("HIGH"),   // Jitter programming ("HIGH","LOW","OPTIMIZED")
        .CLKFBOUT_MULT_F(8.0),     // Multiply value for all CLKOUT (5.0-64.0).
-       .CLKFBOUT_PHASE(90.0),      // Phase offset in degrees of CLKFB (0.00-360.00).
+       .CLKFBOUT_PHASE(0.0),      // Phase offset in degrees of CLKFB (0.00-360.00).
        //I'm going to lie to the mmcm and tell it the input is 135 MHz but
        //it'll really be 125 Mhz.  This is to trick it to use HIGH bandwidth
        //mode for f_pfd=125 MHz when it's usually limited to 135 MHz.
@@ -398,46 +396,19 @@ module adcdac_2g_interface(
     endgenerate
 
     wire [13:0]buf_data2;
-    wire [5:0]buf_data2z0;
-    wire [5:0]buf_data2z1;
     generate
-    for (j=0; j<6;j=j+1)
-    begin: IBUFDS_inst_data2z0_generate
+    for (j=0; j<12;j=j+1)
+    begin: IBUFDS_inst_data2_generate
 
         IBUFDS #(.IOSTANDARD("LVDS_25"))
         IBUFDS_inst_data (
-            .O(buf_data2z0[j]),
-          .I(data2z0_p[j]),
-          .IB(data2z0_n[j])
+            .O(buf_data2[j]),
+          .I(data2_p[j]),
+          .IB(data2_n[j])
         );
     end
     endgenerate
 
-    generate
-    for (j=0; j<6;j=j+1)
-    begin: IBUFDS_inst_data2z1_generate
-
-        IBUFDS #(.IOSTANDARD("LVDS_25"))
-        IBUFDS_inst_data (
-            .O(buf_data2z1[j]),
-          .I(data2z1_p[j]),
-          .IB(data2z1_n[j])
-        );
-    end
-    endgenerate
-
-    assign buf_data2[11] = buf_data2z0[5];
-    assign buf_data2[10] = buf_data2z0[4];
-    assign buf_data2[9] = buf_data2z1[5];
-    assign buf_data2[8] = buf_data2z0[3];
-    assign buf_data2[7] = buf_data2z0[2];
-    assign buf_data2[6] = buf_data2z1[4];
-    assign buf_data2[5] = buf_data2z0[1];
-    assign buf_data2[4] = buf_data2z0[0];
-    assign buf_data2[3] = buf_data2z1[3];
-    assign buf_data2[2] = buf_data2z1[2];
-    assign buf_data2[1] = buf_data2z1[1];
-    assign buf_data2[0] = buf_data2z1[0];
 
     generate
     for (j=0; j<2;j=j+1)
