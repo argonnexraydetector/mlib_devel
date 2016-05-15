@@ -31,13 +31,21 @@ gateways = [gateway_outs;gateway_ins];
 name_index = 1;
 gw_name_list = {};
 
-gw_name_list{name_index} = 'user_spi_clk';
+gw_name_list{name_index} = 'user_tx_rst';
 name_index = name_index + 1;
-gw_name_list{name_index} = 'user_spi_ss';
+gw_name_list{name_index} = 'user_rx_rst';
 name_index = name_index + 1;
-gw_name_list{name_index} = 'user_spi_din';
+gw_name_list{name_index} = 'user_tx_data';
 name_index = name_index + 1;
-gw_name_list{name_index} = 'user_spi_dout';
+gw_name_list{name_index} = 'user_tx_val';
+name_index = name_index + 1;
+gw_name_list{name_index} = 'user_tx_full';
+name_index = name_index + 1;
+gw_name_list{name_index} = 'user_rx_full';
+name_index = name_index + 1;
+gw_name_list{name_index} = 'user_rx_data';
+name_index = name_index + 1;
+gw_name_list{name_index} = 'user_rx_val';
 name_index = name_index + 1;
 
 for i =1:length(gateways)

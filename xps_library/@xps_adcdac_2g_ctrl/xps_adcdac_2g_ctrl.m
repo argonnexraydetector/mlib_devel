@@ -66,18 +66,12 @@ adcport1 = [s.hw_sys, '.', 'zdok1'];
 adcport0 = [s.hw_sys, '.', 'zdok0'];
 
 %first 3 bits in each are (valid,sysref,overrange)
-ext_ports.spi_clk_p         = {1 'out' ['adc_spi_clk_p'] ['{',adcport1,'_p{[10],:}}'] 'vector=false' struct() ucf_constraints_term};
-ext_ports.spi_clk_n         = {1 'out' ['adc_spi_clk_n'] ['{',adcport1,'_n{[10],:}}'] 'vector=false' struct() ucf_constraints_term};
+ext_ports.zdok_tx_data_p         = {1 'out' ['adc_ctrl_tx_data_p'] ['{',adcport1,'_p{[10],:}}'] 'vector=false' struct() ucf_constraints_term};
+ext_ports.zdok_tx_data_n         = {1 'out' ['adc_ctrl_tx_data_n'] ['{',adcport1,'_n{[10],:}}'] 'vector=false' struct() ucf_constraints_term};
 
-ext_ports.spi_ss_p         = {1 'out' ['adc_spi_ss_p'] ['{',adcport1,'_p{[21],:}}'] 'vector=false' struct() ucf_constraints_term};
-ext_ports.spi_ss_n         = {1 'out' ['adc_spi_ss_n'] ['{',adcport1,'_n{[21],:}}'] 'vector=false' struct() ucf_constraints_term};
+ext_ports.zdok_rx_data_p         = {1 'in' ['adc_ctrl_rx_data_p'] ['{',adcport1,'_p{[30],:}}'] 'vector=false' struct() ucf_constraints_term};
+ext_ports.zdok_rx_data_n         = {1 'in' ['adc_ctrl_rx_data_n'] ['{',adcport1,'_n{[30],:}}'] 'vector=false' struct() ucf_constraints_term};
 
-ext_ports.spi_din_p         = {1 'out' ['adc_spi_din_p'] ['{',adcport0,'_p{[21],:}}'] 'vector=false' struct() ucf_constraints_term};
-ext_ports.spi_din_n         = {1 'out' ['adc_spi_din_n'] ['{',adcport0,'_n{[21],:}}'] 'vector=false' struct() ucf_constraints_term};
-
-ext_ports.spi_dout_p         = {1 'in' ['adc_spi_dout_p'] ['{',adcport0,'_p{[10],:}}'] 'vector=false' struct() ucf_constraints_term};
-ext_ports.spi_dout_n         = {1 'in' ['adc_spi_dout_n'] ['{',adcport0,'_n{[10],:}}'] 'vector=false' struct() ucf_constraints_term};
-disp('.1');
 
 b = set(b,'ext_ports',ext_ports);
 
@@ -85,7 +79,8 @@ b = set(b,'ext_ports',ext_ports);
 
 %clock from fpga 
 misc_ports.fpga_clk       = {1 'in'  get(xsg_obj,'clk_src')};
-disp('.1');
+%100 MHz clock for the uart
+%misc_ports.sys_clk       = {1 'in'  'sys_clk'};
 
 b = set(b,'misc_ports',misc_ports);
 
