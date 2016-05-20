@@ -155,7 +155,7 @@ module adcdac_2g_ctrl(
     reg [10:0]baud_count = 11'b00000000000;
     always @ (posedge fpga_clk )
     begin
-        if (baud_count == 11'b11001011011) begin       // counts 651 states including zero
+        if (baud_count == 11'b11001011011) begin       // counts 1628 states including zero
             baud_count <= 11'b00000000000;
             en_16_x_baud <= 1'b1;                 // single cycle enable pulse
         end
